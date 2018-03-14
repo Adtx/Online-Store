@@ -2,12 +2,12 @@
 
 {% block main %}
 <div style="margin-top: 50px" class="container">
-	<h1>Iniciar sessao</h1>
+	<h1>Iniciar sessão</h1>
 	
 	<form style="width: 50%" method="post">
 		{% csrf_token %}
 		{% include 'store/includes/bs4_form.html' with form=form %}
-		<button type="submit" class="btn btn-primary">Iniciar sessao</button>
+		<button type="submit" class="btn btn-primary">Iniciar sessão</button>
 	</form>
 </div>
 {% endblock %}

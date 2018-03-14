@@ -1,10 +1,6 @@
+from .forms import UserRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
-from .forms import UserRegistrationForm
-from django.contrib.auth.forms import AuthenticationForm
-#from forms import UserRegistrationForm
-
-#from django.urls import reverse
-# from django.contrib.auth.models import User
+from django.contrib.auth import login, logout
 
 
 def home_view(request):
@@ -15,8 +11,8 @@ def register_view(request):
 	if request.method == 'POST':
 		form = UserRegistrationForm(request.POST)
 		if form.is_valid():
-			form.save()
-			# login(request, user)
+			user = form.save()
+			login(request, user)
 			return redirect('home')
 	else:
 		form = UserRegistrationForm()
@@ -24,23 +20,15 @@ def register_view(request):
 
 def login_view(request):
 	if request.method == 'POST':
-		form = AuthenticationForm(request.POST)
+		form = SignInForm(data=request.POST)
 		if form.is_valid():
-			# login(request, user)
+			user = form.get_user()
+			login(request, user)
 			return redirect('home')
 	else:
-		form = AuthenticationForm()
+		form = SignInForm()
 	return render(request, 'store/login.html', {'form': form})
 
-
-
-
-
-
-
-
-# if (request.POST):
-# 		User.objects.create_user(username=request.POST['name'], password=request.POST['password'], email=request.POST['email'])
-# 		return HttpResponseRedirect(reverse('home'))
-# 	else:
-# 		return render(request, 'store/register.html')
+def logout_view(request):
+	logout(request)
+	return redirect('home')

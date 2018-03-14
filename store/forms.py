@@ -1,6 +1,21 @@
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
+
+
+class SignInForm(AuthenticationForm):
+    
+    username = forms.CharField(label='Nome', max_length=254)
+    password = forms.CharField(label='Palavra-Passe', widget=forms.PasswordInput)
+
+    error_messages = {
+        'invalid_login': "Nome ou Palavra-Passe incorretos",
+        'inactive': "Esta conta nao existe",
+    }
+
+    def __init__(self, *args, **kwargs):
+        super(SignInForm, self).__init__(*args, **kwargs)
 
 class UserRegistrationForm(UserCreationForm):
 
@@ -39,4 +54,4 @@ class UserRegistrationForm(UserCreationForm):
         #     'email': None,
         #     'password2': None
         # }
-        
+            
