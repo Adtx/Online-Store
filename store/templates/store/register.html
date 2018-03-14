@@ -1,0 +1,35 @@
+{% extends "store/store_base.html" %}
+
+{% block main %}
+<div style="margin-top: 50px" class="container">
+	<h1>Criar nova conta</h1>
+	
+	<form style="width: 50%" method="post">
+		{% csrf_token %}
+		{% include 'store/includes/bs4_form.html' with form=form %}
+		<button type="submit" class="btn btn-primary">Submeter</button>
+	</form>
+	
+	<!-- <form style="width: 50%" action="{% url 'register' %}" method="post">
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="nome">Nome</label>
+			<input type="text" class="form-control" name="name" id="nome" value />
+		</div>
+		<div class="form-group">
+			<label for="mail">Endereço de Email</label>
+			<input type="email" class="form-control" name="email" id="mail" value />
+		</div>
+		<div class="form-group">
+			<label for="senha">Palavra-Passe</label>
+			<input type="text" class="form-control" name="password" id="senha" value />
+		</div>
+		<div class="form-group">
+			<label for="senha2">Confirme a Palavra-Passe</label>
+			<input type="text" class="form-control" name="password2" id="senha2" value />
+		</div>
+			
+		<button type="submit" class="btn btn-primary">Submeter</button>
+	</form> -->
+</div>
+{% endblock %}
