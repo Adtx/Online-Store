@@ -1,4 +1,4 @@
-from .forms import UserRegistrationForm, SignInForm
+from .forms import CostumerRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 
@@ -9,14 +9,32 @@ def home_view(request):
 
 def register_view(request):
 	if request.method == 'POST':
-		form = UserRegistrationForm(request.POST)
+		form = CostumerRegistrationForm(request.POST)
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
 			return redirect('home')
 	else:
-		form = UserRegistrationForm()
+		form = CostumerRegistrationForm()
 	return render(request, 'store/register.html', {'form': form})
+
+def update_profile_view(request):
+	if request.method == 'POST':
+		request.user.username = request.POST['name']
+		request.user.email = request.POST['email']
+		request.user.telephone = request.POST['telephone']
+		request.user.street = request.POST['street']
+		request.user.city = request.POST['city']
+		request.user.district = request.POST['district']
+		request.user.zipcode = request.POST['zipcode']
+		request.user.country = request.POST['country']
+		request.user.save()
+		return redirect('profile')
+	return render(request, 'store/update_profile.html', {'user': request.user})
+
+def profile_view(request):
+	return render(request, 'store/profile.html')
+
 
 def login_view(request):
 	if request.method == 'POST':

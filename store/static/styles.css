@@ -1,7 +1,74 @@
 nav {
-    background-color: #c00c0c
+    height: 60px;
 }
 
-.my-btn-group {
+.navbar-brand {
+    color: blue;
+}
+
+.nav-link {
+    color: blue;
+}
+
+.btn-group {
+    margin: auto;
+}
+
+.btn-primary {
     background-color: #1C4894;
+    border-color: #1C4894;
+}
+
+.btn-group .btn{
+    border-style: solid;
+    padding: 8px 57px 8px 57px;
+    font-size: 13px;
+    text-transform: none;
+    color: #FFFFFF;
+    border-radius: 0px!important;
+}
+
+h5, h1 {
+    color:#42a8ff
+}
+
+.page-title h1,
+.page-title h2,
+.product-name h1,
+.product-name .h1 {
+   	font-size: 25px;
+   	color: #1C4895 ;
+   	text-transform: capitalize;
+   	font-weight: 500;
+   	margin: 18px 0px 0px;
+   	padding-bottom: 15px;
+   	border-bottom: 1px solid #ddd;
+}
+
+.container, form{
+    margin-top: 25px
+}
+
+.page-title h1 {
+	padding: 10px;
+	color: #fff;
+	margin: 0px;
+	background: #1c4895; /* Old browsers */
+	background: -moz-linear-gradient(left,  #1c4895 0%, #00a3ff 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left,  #1c4895 0%,#00a3ff 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right,  #1c4895 0%,#00a3ff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1c4895', endColorstr='#00a3ff',GradientType=1 ); /* IE6-9 */
+}
+
+p {
+    text-emphasis: filled;
+}
+
+label {
+    font-style: italic;
+    color: #58595b
+}
+
+body {
+    background: #f2f2f2
 }

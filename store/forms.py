@@ -1,6 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from .models import Costumer
 from django import forms
 
 
@@ -17,7 +16,10 @@ class SignInForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super(SignInForm, self).__init__(*args, **kwargs)
 
-class UserRegistrationForm(UserCreationForm):
+    class Meta:
+        model = Costumer
+
+class CostumerRegistrationForm(UserCreationForm):
 
     error_messages = {
         'password_mismatch': "As palavras-passe não correspondem.",
@@ -26,18 +28,47 @@ class UserRegistrationForm(UserCreationForm):
     password2 = forms.CharField(label="Confirme a Palavra-Passe", widget=forms.PasswordInput())
 
     def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        super(CostumerRegistrationForm, self).__init__(*args, **kwargs)
 
         for fieldname in ['username','email','password1','password2']:
             self.fields[fieldname].help_text = None
 
     class Meta:
-        model = User
+        model = Costumer
         fields = ['username','email','password1','password2']
         labels = {
             'username': 'Nome',
             'email': 'Endereço de Email'
         }
+
+# class CostumerUpdateForm(forms.ModelForm):
+
+
+#     def __init__(self, *args, **kwargs):
+#         super(CostumerUpdateForm, self).__init__(*args, **kwargs)
+#         self.fields['username'].help_text = None
+
+#         self.fields['username']= forms.CharField(
+#            label =('User Name'), max_length = constants.MAX_LEN_NAME, 
+#            initial = profile_default.username)
+
+
+#     class Meta:
+#         model = Costumer
+#         fields = ['username', 'email', 'telephone','street', 'city', 'district', 'zipcode', 'country']
+#         labels = {
+#             'username': 'Nome',
+#             'email': 'Endereço de Email',
+#             'telephone': 'Telefone',
+#             'street': 'Rua',
+#             'city': 'Cidade',
+#             'district': 'Distrito',
+#             'zipcode': 'Código Postal',
+#             'country': 'País'
+#         }
+
+
+
         # error_messages = {
         #     'username': {
         #         'unique': 'O nome de utilizador que escolheu nao esta disponivel'

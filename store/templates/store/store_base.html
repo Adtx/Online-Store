@@ -20,7 +20,7 @@
 
 <body>
     <div>
-        <nav style="height: 60px; margin-bottom: 1px; margin-top: 1px; padding: 0px" class="navbar navbar-expand-lg bg-light">
+        <nav class="navbar navbar-expand-lg bg-light">
           <a style="margin-left: 15px" class="navbar-brand" href="/store/">PC World</a>
           
           <form style="margin-left: 4%; width: 65%" class="form-inline my-2 my-lg-0">
@@ -29,31 +29,31 @@
           </form>
 
           <div class="collapse navbar-collapse" id="navb">
-            <ul class="navbar-nav ml-auto" style="margin-right: 0px">
+            <ul class="navbar-nav ml-auto">
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" style="color: blue">{{request.user.username}}</a>
+                        <a class="nav-link" href="{% url 'profile' %}">{{request.user.username}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: blue" href="{% url 'logout' %}">Logout</a> 
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a> 
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" style="color: blue" href="{% url 'login' %}">Iniciar sessão</a>
+                        <a class="nav-link" href="{% url 'login' %}">Iniciar sessão</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" style="color: blue" href="{% url 'register' %}">Registar</a>
+                        <a class="nav-link" href="{% url 'register' %}">Registar</a>
                     </li>
                 {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" style="color: blue" href="javascript:void(0)">Carrinho</a>
+                        <a class="nav-link" href="javascript:void(0)">Carrinho</a>
                     </li>
             </ul>
           </div>
         </nav>
     </div>
 
-    <div style="margin-left: 20%" class="btn-group">
+    <div class="btn-group">
       <button type="button" class="btn btn-primary">Computadores</button>
       <button type="button" class="btn btn-primary">Mobilidade</button>
       <button type="button" class="btn btn-primary">Componentes</button>
