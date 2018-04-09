@@ -19,6 +19,10 @@ nav {
     border-color: #1C4894;
 }
 
+.col > .btn-primary {
+    margin-top: 45px;
+}
+
 .btn-group .btn{
     border-style: solid;
     padding: 8px 57px 8px 57px;

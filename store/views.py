@@ -30,10 +30,15 @@ def update_profile_view(request):
 		request.user.country = request.POST['country']
 		request.user.save()
 		return redirect('profile')
-	return render(request, 'store/update_profile.html', {'user': request.user})
+	if request.user.is_authenticated:
+		return render(request, 'store/update_profile.html', {'user': request.user})
+	return redirect('home')
+		
 
 def profile_view(request):
-	return render(request, 'store/profile.html')
+	if request.user.is_authenticated:
+		return render(request, 'store/profile.html')
+	return redirect('home')
 
 
 def login_view(request):
