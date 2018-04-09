@@ -2,20 +2,26 @@
 
 {% block main %}
 <div class="container">
-	<div class="row">
-		<div class="col">
-			<h1>Iniciar sessão</h1>
-			
-			<form style="width: 50%" method="post">
-				{% csrf_token %}
-				{% include 'store/includes/bs4_form.html' with form=form %}
-				<button type="submit" class="btn btn-primary">Iniciar sessão</button>
-			</form>
-		</div>
-		<div class="col">
-			<h1>Não Tenho Conta</h1>
-			<a href="{% url 'register' %}" class="btn btn-primary">Criar Nova Conta</a>
+	<div class="row title-row">
+		<h2>Iniciar Sessão Ou Criar Uma Conta</h2>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col column1">
+				<h2>Já Se Encontra Registado?</h2>
+				
+				<form style="width: 75%" method="post">
+					{% csrf_token %}
+					{% include 'store/includes/bs4_form.html' with form=form %}
+					<button type="submit" class="btn btn-primary">Iniciar sessão</button>
+				</form>
+			</div>
+			<div class="col column2">
+				<h2>Não Tenho Conta</h2>
+				<a href="{% url 'register' %}" class="btn btn-primary">Criar Nova Conta</a>
+			</div>
 		</div>
 	</div>
 </div>
+
 {% endblock %}

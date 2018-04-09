@@ -1,6 +1,7 @@
 from .forms import CostumerRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
+from .models import Costumer
 
 
 def home_view(request):
@@ -22,6 +23,7 @@ def update_profile_view(request):
 	if request.method == 'POST':
 		request.user.username = request.POST['name']
 		request.user.email = request.POST['email']
+		Costumer.objects.filter(id=request.user.id).update(password=request.POST['newpassword'])
 		request.user.telephone = request.POST['telephone']
 		request.user.street = request.POST['street']
 		request.user.city = request.POST['city']

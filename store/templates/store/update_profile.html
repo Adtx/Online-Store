@@ -9,42 +9,51 @@
 		<form method="post">
 			{% csrf_token %}
 			<div class="row">
-				<div class="col">
+				<div class="col column1">
 					<h5>Informação da conta</h5>
 					<div class="form-group">
 						<label for="nome">Nome</label>
-						<input type="text" class="form-control" id="nome" name="name" value={{user.username}}>
+						<input type="text" class="form-control" id="nome" name="name" value="{{user.username}}" pattern="[A-Za-z ]{1,50}" title="Deve conter no máximo até 50 caracteres.">
 					</div>
 					<div class="form-group">
 						<label for="email">Endereço de Email</label>
-						<input type="email" class="form-control" id="email" name="email" value={{user.email}}>
+						<input type="email" class="form-control" id="email" name="email" value="{{user.email}}">
 					</div>
 					<div class="form-group">
 						<label for="telef">Telefone</label>
-						<input type="text" class="form-control" id="telef" name="telephone" value={{user.telephone}}>
+						<input type="text" class="form-control" id="telef" name="telephone" value="{{user.telephone}}" pattern="[0-9]{9}" title="Deve conter nove dígitos.">
+					</div>
+					<h5>Alterar Palavra-Passe</h5>
+					<div class="form-group">
+						<label for="senhaatual">Palavra-Passe Atual</label>
+						<input type="password" class="form-control" id="senhaatual" name="oldpassword">
+					</div>
+					<div class="form-group">
+						<label for="novasenha">Nova Palavra-Passe</label>
+						<input type="password" class="form-control" id="novasenha" name="newpassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Deve ter pelos menos 8 caracteres e conter pelo menos um algarismo, uma letra maiúscula e uma letra minúscula.">
 					</div>
 				</div>
 				<div class="col">
 					<h5>Endereço</h5>
 					<div class="form-group">
 						<label for="rua">Rua</label>
-						<input type="text" class="form-control" id="rua" name="street" value={{user.street}}>
+						<input type="text" class="form-control" id="rua" name="street" value="{{user.street}}" pattern="[A-Za-z0-9 ]{1,40}" title="Deve conter no máximo até 40 caracteres alfanuméricos.">
 					</div>
 					<div class="form-group">
 						<label for="cidade">Cidade</label>
-						<input type="text" class="form-control" id="cidade" name="city" value={{user.city}}>
+						<input type="text" class="form-control" id="cidade" name="city" value="{{user.city}}" pattern="[A-Za-z ]{1,20}" title="Deve conter no máximo até 20 caracteres.">
 					</div>
 					<div class="form-group">
 						<label for="distrito">Distrito</label>
-						<input type="text" class="form-control" id="distrito" name="district" value={{user.district}}>
+						<input type="text" class="form-control" id="distrito" name="district" value="{{user.district}}" pattern="[A-Za-z ]{1,20}" title="Deve conter no máximo até 20 caracteres.">
 					</div>
 					<div class="form-group">
 						<label for="codpostal">Código Postal</label>
-						<input type="text" class="form-control" id="codpostal" name="zipcode" value={{user.zipcode}}>
+						<input type="text" class="form-control" id="codpostal" name="zipcode" value="{{user.zipcode}}" pattern="[0-9]{4}-[0-9]{3}" title="Deve estar no formato: XXXX-XXX">
 					</div>
 					<div class="form-group">
 						<label for="pais">País</label>
-						<input type="text" class="form-control" id="pais" name="country" value={{user.country}}>
+						<input type="text" class="form-control" id="pais" name="country" value="{{user.country}}" pattern="[A-Za-z ]{1,20}" title="Deve conter no máximo até 20 caracteres.">
 					</div>
 					<div class="d-flex flex-row">
 						<button type="submit" class="btn btn-primary ml-auto">Guardar</button>

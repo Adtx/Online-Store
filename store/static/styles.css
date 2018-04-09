@@ -19,7 +19,7 @@ nav {
     border-color: #1C4894;
 }
 
-.col > .btn-primary {
+.column2 > .btn-primary {
     margin-top: 45px;
 }
 
@@ -32,8 +32,29 @@ nav {
     border-radius: 0px!important;
 }
 
-h5, h1 {
+h1, h2, h5 {
     color:#42a8ff
+}
+
+.title-row h2 {
+    color: #1C4895;
+}
+
+.container > .container {
+    padding-left: 55px;
+    margin-top: 45px;
+}
+
+.title-row {
+    border-bottom: 1px solid #dddddd;
+}
+
+.column1 {
+    border-right: 1px solid #dddddd;
+}
+
+.column2 {
+    padding-left: 55px;
 }
 
 .page-title h1,
