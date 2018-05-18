@@ -25,7 +25,7 @@ SECRET_KEY = 'mwj7+11gxvu+6@(gk#-uvo^wo2y@4-=#^r19oi0@z@p@$j^d&o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'online_store.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'onlinestore',
         'USER': 'adt',
         'PASSWORD': 'ftblrwhy',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -124,12 +124,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/staticfiles'
+STATICFILES_DIRS = (
+    '/store/static',
+)
 
 AUTH_USER_MODEL = 'store.Costumer'
 
-# SESSION_COOKIE_SECURE = True
+#SESSION_COOKIE_SECURE = True
 # CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 #SESSION_COOKIE_AGE = 10
