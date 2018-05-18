@@ -1,5 +1,1071 @@
-{% extends "store/store_base.html" %}
+{% extends "store/store_base.html" %} {% block main %}
 
-{% block main %}
-	<h1 style="margin-top: 50px">Comming Soon</h1>
+<article>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="top-container">
+					<style type="text/css">
+						@import url(https://fonts.googleapis.com/css?family=Oswald);
+						@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700,800);
+						.tp-caption a {
+							color: #ff7302;
+							text-shadow: none;
+							-webkit-transition: all 0.2s ease-out;
+							-moz-transition: all 0.2s ease-out;
+							-o-transition: all 0.2s ease-out;
+							-ms-transition: all 0.2s ease-out
+						}
+
+						.tp-caption a:hover {
+							color: #ffa902
+						}
+
+						.tp-caption a {
+							color: #ff7302;
+							text-shadow: none;
+							-webkit-transition: all 0.2s ease-out;
+							-moz-transition: all 0.2s ease-out;
+							-o-transition: all 0.2s ease-out;
+							-ms-transition: all 0.2s ease-out
+						}
+
+						.tp-caption a:hover {
+							color: #ffa902
+						}
+
+						.tp-caption.big_caption_3,
+						.tp-caption.big_caption_2,
+						.tp-caption.big_caption_4,
+						.tp-caption.big_caption_5,
+						.tp-caption.big_caption_6,
+						.tp-caption.big_caption_7,
+						.tp-caption.big_caption_8,
+						.tp-caption.big_caption_9,
+						.tp-caption.big_caption_10,
+						.tp-caption.big_caption_11,
+						.tp-caption.big_caption_12,
+						.tp-caption.big_caption_13,
+						.tp-caption.big_caption_3_white,
+						.tp-caption.big_caption_2_white,
+						.tp-caption.big_caption_4_white {
+							position: absolute;
+							color: #e14f4f;
+							text-shadow: none;
+							font-size: 80px;
+							line-height: 80px;
+							font-family: "Oswald";
+							border-width: 0px;
+							border-style: none
+						}
+
+						.tp-caption.big_caption_2,
+						.tp-caption.big_caption_2_white {
+							font-size: 48px
+						}
+
+						.tp-caption.big_caption_4,
+						.tp-caption.big_caption_4_white {
+							font-size: 124px;
+							color: #fff
+						}
+
+						.tp-caption.big_caption_5 {
+							font-size: 120px;
+							color: #94BB54;
+							font-weight: 800
+						}
+
+						.tp-caption.big_caption_6 {
+							font-size: 84px;
+							color: #94BB54;
+							font-weight: 800
+						}
+
+						.tp-caption.big_caption_7 {
+							font-size: 50px;
+							color: #333;
+							font-weight: 800
+						}
+
+						.tp-caption.big_caption_8 {
+							font-size: 24px;
+							color: #fff;
+							font-family: "Open Sans"
+						}
+
+						.tp-caption.big_caption_9 {
+							font-size: 100px;
+							color: #fff !important
+						}
+
+						.tp-caption.big_caption_10 {
+							font-size: 55px;
+							color: #2a2b2c;
+							font-weight: bold
+						}
+
+						.tp-caption.big_caption_11 {
+							font-size: 100px;
+							color: #fff
+						}
+
+						.tp-caption.big_caption_12 {
+							font-size: 200px;
+							color: #94BB54;
+							font-weight: 800
+						}
+
+						.tp-caption.big_caption_13 {
+							font-size: 24px;
+							color: #aaa;
+							font-family: "Open Sans"
+						}
+
+						.tp-caption.handwriting,
+						.tp-caption.handwriting_white {
+							position: absolute;
+							color: #fff;
+							text-shadow: none;
+							font-size: 144px;
+							line-height: 44px;
+							font-family: "Dancing Script";
+							padding: 15px 40px 15px 40px;
+							margin: 0px;
+							border-width: 0px;
+							border-style: none
+						}
+
+						.tp-caption.store_button a {
+							position: absolute;
+							color: #fff;
+							text-shadow: none;
+							font-size: 18px;
+							line-height: 18px;
+							font-weight: bold;
+							font-family: "Open Sans";
+							padding: 20px 35px 20px 35px !important;
+							margin: 0px;
+							cursor: pointer;
+							background: #1ABC9C;
+							border-radius: 5px;
+							border-bottom: 4px solid #16A085
+						}
+
+						.tp-caption.store_button_white a {
+							position: absolute;
+							color: #fff;
+							text-shadow: none;
+							font-size: 14px;
+							font-weight: normal;
+							padding: 10px 20px !important;
+							background: #379BDE;
+							border-bottom: 4px solid #2980B9;
+							border-radius: 5px
+						}
+
+						.tp-caption.store_button_white a:hover {
+							background: #2980B9;
+							border-bottom: 4px solid #379BDE
+						}
+
+						.tp-caption.store_button a,
+						.tp-caption.store_button_white a {
+							color: #fff !important
+						}
+
+						.tp-caption.store_button_white a {
+							color: #fff !important
+						}
+
+						.tp-caption a {
+							color: #ff7302;
+							text-shadow: none;
+							-webkit-transition: all 0.2s ease-out;
+							-moz-transition: all 0.2s ease-out;
+							-o-transition: all 0.2s ease-out;
+							-ms-transition: all 0.2s ease-out
+						}
+
+						.tp-caption a:hover {
+							color: #ffa902
+						}
+
+						.tp-caption.big_caption_3_white,
+						.tp-caption.big_caption_2_white,
+						.tp-caption.big_caption_4_white,
+						.tp-caption.handwriting_white {
+							color: #fff
+						}
+
+						.tp-caption a {
+							color: #ff7302;
+							text-shadow: none;
+							-webkit-transition: all 0.2s ease-out;
+							-moz-transition: all 0.2s ease-out;
+							-o-transition: all 0.2s ease-out;
+							-ms-transition: all 0.2s ease-out
+						}
+
+						.tp-caption a:hover {
+							color: #ffa902
+						}
+
+						.tp-caption a {
+							color: #ff7302;
+							text-shadow: none;
+							-webkit-transition: all 0.2s ease-out;
+							-moz-transition: all 0.2s ease-out;
+							-o-transition: all 0.2s ease-out;
+							-ms-transition: all 0.2s ease-out
+						}
+
+						.tp-caption a:hover {
+							color: #ffa902
+						}
+					</style>
+					<link href="#">
+					<div id="rev_slider_2_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" style="margin: 0px auto; background-color: transparent; padding: 0px; overflow: visible; height: 300px;">
+						<!-- START REVOLUTION SLIDER 5.2.6.1 auto mode -->
+						<div id="rev_slider_2_1" class="rev_slider fullwidthabanner revslider-initialised tp-simpleresponsive" style="margin-top: 0px; margin-bottom: 0px; height: 300px;"
+							data-version="5.2.6.1" data-slideactive="rs-465">
+							<ul class="tp-revslider-mainul" style="visibility: visible; display: block; overflow: hidden; width: 1170px; height: 100%; max-height: none; left: 0px;">
+								<li data-index="rs-423" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/#q=81BQ0056PG%2081BQ0055PG%2081AK006MPG%2081AK004APG%2081AK007RPG%2080X4006VPG&amp;idx=prod_pcdiga_pt_products&amp;p=0&amp;is_v=1"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_Lenovo_ideapad_320s-15.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0; background-color: rgba(255, 255, 255, 0);">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/Lenovo/ideapad_320s-15.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%; height: 100%; background-image: url(&quot;https://www.pcdiga.com/media/revslider/BannersHome/Lenovo/ideapad_320s-15.jpg&quot;); visibility: inherit; z-index: 20; opacity: 1;"
+											src="https://www.pcdiga.com/media/revslider/BannersHome/Lenovo/ideapad_320s-15.jpg"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="position: absolute; visibility: hidden; width: 100% !important; height: 100% !important; left: 0px; top: 0px; z-index: 60;">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="position: absolute; width: 100%; height: 100%; overflow: visible;">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 14px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px; transition: none;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-index="rs-501" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/motherboards-amd/marca/asus/chipset-motherboard/amd-x470?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_Asus_ROG_X470_Banner.jpg" data-rotate="0"
+									data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
+									data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden;">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position:absolute; top:0px; left:0px; z-index:0;width:100%;height:100%;">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/Asus/ROG_X470_Banner.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 0; background-image: url(&quot;https://www.pcdiga.com/media/revslider/BannersHome/Asus/ROG_X470_Banner.jpg&quot;);"
+											src="https://www.pcdiga.com/media/revslider/BannersHome/Asus/ROG_X470_Banner.jpg"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="width:100% !important;height:100% !important;position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="width:100% !important;height:100% !important;position:absolute">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-index="rs-507" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/promocao-gama-agon?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_AOC_AOC_Gaming_Bannerhome.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden;">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position:absolute; top:0px; left:0px; z-index:0;width:100%;height:100%;">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/AOC/AOC_Gaming_Bannerhome.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 0;"
+											src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="width:100% !important;height:100% !important;position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="width:100% !important;height:100% !important;position:absolute">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-index="rs-376" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/shield-tv-android-box?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_NVIDIA_Shield_TV.jpg" data-rotate="0"
+									data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
+									data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden;">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position:absolute; top:0px; left:0px; z-index:0;width:100%;height:100%;">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/NVIDIA/Shield_TV.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 0;"
+											src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="width:100% !important;height:100% !important;position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="width:100% !important;height:100% !important;position:absolute">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-index="rs-492" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_Samsung_Spring_Days_Samsung_v2.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden;">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position:absolute; top:0px; left:0px; z-index:0;width:100%;height:100%;">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/Samsung/Spring_Days_Samsung_v2.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 0;"
+											src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png"></div>
+									</div>
+									<!-- LAYERS -->
+
+									<!-- LAYER NR. 1 -->
+									<div class="tp-parallax-wrap" style="position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="position:absolute;">
+											<div class="tp-mask-wrap" style="position:absolute">
+												<div class="tp-caption rev-btn " id="slide-492-layer-2" data-x="783" data-y="241" data-width="['auto']" data-height="['auto']"
+													data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);"
+													data-transform_in="opacity:0;s:300;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;" data-start="500"
+													data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" style="z-index: 5; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 500; color: rgb(255, 255, 255); font-family: Roboto; background-color: rgba(20, 40, 160, 0.75); padding: 12px 35px; border-color: rgb(0, 0, 0); border-radius: 3px; outline: none; box-shadow: none; box-sizing: border-box; cursor: pointer; visibility: hidden;">
+													<strong>
+														<a href="#">SMARTPHONES</a>
+													</strong>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<!-- LAYER NR. 2 -->
+									<div class="tp-parallax-wrap" style="position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="position:absolute;">
+											<div class="tp-mask-wrap" style="position:absolute">
+												<div class="tp-caption rev-btn " id="slide-492-layer-3" data-x="999" data-y="241" data-width="['auto']" data-height="['auto']"
+													data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);"
+													data-transform_in="opacity:0;s:300;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;" data-start="500"
+													data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" style="z-index: 6; white-space: nowrap; font-size: 17px; line-height: 17px; font-weight: 500; color: rgb(255, 255, 255); font-family: Roboto; background-color: rgba(20, 40, 160, 0.75); padding: 12px 35px; border-color: rgb(0, 0, 0); border-radius: 3px; outline: none; box-shadow: none; box-sizing: border-box; cursor: pointer; visibility: hidden;">
+													<strong>
+														<a href="#">TABLETS</a>
+													</strong>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li data-index="rs-505" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/monitor-asus-vs229na-va-21-5-fhd-16-9-60hz?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_Asus_VS229NA_Banner.jpg" data-rotate="0"
+									data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
+									data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden;">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position:absolute; top:0px; left:0px; z-index:0;width:100%;height:100%;">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/Asus/VS229NA_Banner.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 0;"
+											src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="width:100% !important;height:100% !important;position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="width:100% !important;height:100% !important;position:absolute">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<!-- SLIDE  -->
+
+								<!-- SLIDE  -->
+
+								<!-- SLIDE  -->
+								<li data-index="rs-475" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/processadores-amd/arquitetura-de-cpu/zen+?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_AMD_Ryzen2_bannerhome.jpg" data-rotate="0"
+									data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4="" data-param5=""
+									data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden;">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position:absolute; top:0px; left:0px; z-index:0;width:100%;height:100%;">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/AMD/Ryzen2_bannerhome.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-image: url(&quot;https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png&quot;); background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 0;"
+											src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="width:100% !important;height:100% !important;position:absolute;visibility:hidden">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="width:100% !important;height:100% !important;position:absolute">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<!-- SLIDE  -->
+								<li data-index="rs-465" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/huawei-p20-series?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_Huawei_Huawei_P20_Series.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli active-revslide"
+									style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1; background-color: rgba(255, 255, 255, 0);">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/Huawei/Huawei_P20_Series.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%; height: 100%; background-image: url(&quot;https://www.pcdiga.com/media/revslider/BannersHome/Huawei/Huawei_P20_Series.jpg&quot;); visibility: inherit; z-index: 20; opacity: 1;"
+											src="https://www.pcdiga.com/media/revslider/BannersHome/Huawei/Huawei_P20_Series.jpg"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="position: absolute; visibility: visible; width: 100% !important; height: 100% !important; left: 0px; top: 0px; z-index: 60;">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="position: absolute; width: 100%; height: 100%; overflow: visible;">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: inherit; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 14px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px; transition: none;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<!-- SLIDE  -->
+
+								<!-- SLIDE  -->
+
+								<!-- SLIDE  -->
+
+								<!-- SLIDE  -->
+								<li data-index="rs-506" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/recrutamento?ref=bannerhome" data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_PCDIGA_Recrutamento.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0; background-color: rgba(255, 255, 255, 0);">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/PCDIGA/Recrutamento.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; background-image: url(&quot;https://www.pcdiga.com/media/revslider/BannersHome/PCDIGA/Recrutamento.jpg&quot;); visibility: inherit; z-index: 20;"
+											src="https://www.pcdiga.com/media/revslider/BannersHome/PCDIGA/Recrutamento.jpg"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="position: absolute; visibility: hidden; width: 100% !important; height: 100% !important; left: 0px; top: 0px; z-index: 60;">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="position: absolute; width: 100%; height: 100%; overflow: visible;">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden; transition: none; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 14px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<!-- SLIDE  -->
+
+								<!-- SLIDE  -->
+								<li data-index="rs-509" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/#q=Computador%20HP%20OMEN%20X%20Desktop&amp;idx=prod_pcdiga_pt_products&amp;p=0&amp;is_v=1?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_HP_OmenXDesktop_Banner_V2.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0; background-color: rgba(255, 255, 255, 0);">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/HP/OmenXDesktop_Banner_V2.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; background-image: url(&quot;https://www.pcdiga.com/media/revslider/BannersHome/HP/OmenXDesktop_Banner_V2.jpg&quot;); visibility: inherit; z-index: 20;"
+											src="https://www.pcdiga.com/media/revslider/BannersHome/HP/OmenXDesktop_Banner_V2.jpg"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="position: absolute; visibility: hidden; width: 100% !important; height: 100% !important; left: 0px; top: 0px; z-index: 60;">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="position: absolute; width: 100%; height: 100%; overflow: visible;">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden; transition: none; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 14px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<!-- SLIDE  -->
+								<li data-index="rs-510" data-transition="fade" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"
+									data-easein="default" data-easeout="default" data-link="https://www.pcdiga.com/#q=HyperX%20Predator%20RGB&amp;idx=prod_pcdiga_pt_products&amp;p=0&amp;is_v=1?ref=bannerhome"
+									data-thumb="https://www.pcdiga.com/media/revslider/thumbs/resized_100x50/BannersHome_Kingston_HyperX_Predator_RGB_Banner.jpg"
+									data-rotate="0" data-saveperformance="off" data-title="Slide" data-param1="" data-param2="" data-param3="" data-param4=""
+									data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="" class="tp-revslider-slidesli"
+									style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0; background-color: rgba(255, 255, 255, 0);">
+									<!-- MAIN IMAGE -->
+									<div class="slotholder" style="position: absolute; top: 0px; left: 0px; z-index: 0; width: 100%; height: 100%; visibility: inherit; opacity: 1; transform: matrix(1, 0, 0, 1, 0, 0);">
+										<!--Runtime Modification - Img tag is Still Available for SEO Goals in Source - <img src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/images/dummy.png" alt="" title="" data-lazyload="https://www.pcdiga.com/media/revslider/BannersHome/Kingston/HyperX_Predator_RGB_Banner.jpg" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="off" class="rev-slidebg defaultimg" data-no-retina="">-->
+										<div class="tp-bgimg defaultimg" style="background-color: rgba(0, 0, 0, 0); background-repeat: no-repeat; background-size: cover; background-position: center center; width: 100%; height: 100%; opacity: 1; background-image: url(&quot;https://www.pcdiga.com/media/revslider/BannersHome/Kingston/HyperX_Predator_RGB_Banner.jpg&quot;); visibility: inherit; z-index: 20;"
+											src="https://www.pcdiga.com/media/revslider/BannersHome/Kingston/HyperX_Predator_RGB_Banner.jpg"></div>
+									</div>
+									<!-- LAYERS -->
+									<div class="tp-parallax-wrap" style="position: absolute; visibility: hidden; width: 100% !important; height: 100% !important; left: 0px; top: 0px; z-index: 60;">
+										<div class="tp-loop-wrap" style="width:100% !important;height:100% !important;position:absolute;">
+											<div class="tp-mask-wrap" style="position: absolute; width: 100%; height: 100%; overflow: visible;">
+												<div class="tp-caption slidelink" style="cursor: pointer; width: 100%; height: 100%; z-index: 60; visibility: hidden; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-weight: 400; font-size: 14px; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); transform-origin: 50% 50% 0px; transition: none;"
+													data-x="center" data-y="center" data-basealign="slide" data-start="0">
+													<a style="width:100%;height:100%;display:block" target="_self" href="#">
+														<span style="width:100%;height:100%;display:block"></span>
+													</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss = "";
+								if (htmlDiv) {
+									htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+								} else {
+									var htmlDiv = document.createElement("div");
+									htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+									document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+								}
+							</script>
+							<div class="tp-bannertimer" style="height: 5px; background-color: rgba(0, 0, 0, 0); width: 0%; visibility: visible; transform: translate3d(0px, 0px, 0px);"></div>
+							<div class="tp-loader off" style="display: none;">
+								<div class="dot1"></div>
+								<div class="dot2"></div>
+								<div class="bounce1"></div>
+								<div class="bounce2"></div>
+								<div class="bounce3"></div>
+							</div>
+							<div class="tp-leftarrow tparrows hesperiden  noSwipe" style="top: 50%; transform: matrix(1, 0, 0, 1, 30, -20); left: 0px; visibility: hidden; opacity: 0;"></div>
+							<div class="tp-rightarrow tparrows hesperiden  noSwipe" style="top: 50%; transform: matrix(1, 0, 0, 1, -70, -20); left: 100%; visibility: hidden; opacity: 0;"></div>
+						</div>
+						<script>var htmlDiv = document.getElementById("rs-plugin-settings-inline-css"); var htmlDivCss = "";
+							if (htmlDiv) {
+								htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+							} else {
+								var htmlDiv = document.createElement("div");
+								htmlDiv.innerHTML = "<style>" + htmlDivCss + "</style>";
+								document.getElementsByTagName("head")[0].appendChild(htmlDiv.childNodes[0]);
+							}
+						</script>
+						<script type="text/javascript">
+
+							(function (jQuery) {
+
+												/******************************************
+										-	PREPARE PLACEHOLDER FOR SLIDER	-
+									******************************************/
+
+								var setREVStartSize = function () {
+									try {
+										var e = new Object, i = jQuery(window).width(), t = 9999, r = 0, n = 0, l = 0, f = 0, s = 0, h = 0;
+										e.c = jQuery('#rev_slider_2_1');
+										e.gridwidth = [1170];
+										e.gridheight = [300];
+
+										e.sliderLayout = "auto";
+										if (e.responsiveLevels && (jQuery.each(e.responsiveLevels, function (e, f) { f > i && (t = r = f, l = e), i > f && f > r && (r = f, n = e) }), t > r && (l = n)), f = e.gridheight[l] || e.gridheight[0] || e.gridheight, s = e.gridwidth[l] || e.gridwidth[0] || e.gridwidth, h = i / s, h = h > 1 ? 1 : h, f = Math.round(h * f), "fullscreen" == e.sliderLayout) { var u = (e.c.width(), jQuery(window).height()); if (void 0 != e.fullScreenOffsetContainer) { var c = e.fullScreenOffsetContainer.split(","); if (c) jQuery.each(c, function (e, i) { u = jQuery(i).length > 0 ? u - jQuery(i).outerHeight(!0) : u }), e.fullScreenOffset.split("%").length > 1 && void 0 != e.fullScreenOffset && e.fullScreenOffset.length > 0 ? u -= jQuery(window).height() * parseInt(e.fullScreenOffset, 0) / 100 : void 0 != e.fullScreenOffset && e.fullScreenOffset.length > 0 && (u -= parseInt(e.fullScreenOffset, 0)) } f = u } else void 0 != e.minHeight && f < e.minHeight && (f = e.minHeight); e.c.closest(".rev_slider_wrapper").css({ height: f })
+
+									} catch (d) { console.log("Failure at Presize of Slider:" + d) }
+								};
+
+								setREVStartSize();
+
+								var tpj = jQuery;
+
+								var revapi2;
+								tpj(document).ready(function () {
+									if (tpj("#rev_slider_2_1").revolution == undefined) {
+										revslider_showDoubleJqueryError("#rev_slider_2_1");
+									} else {
+										revapi2 = tpj("#rev_slider_2_1").show().revolution({
+											sliderType: "standard",
+											jsFileLocation: "https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/js/",
+											sliderLayout: "auto",
+											dottedOverlay: "none",
+											delay: 11000,
+											navigation: {
+												keyboardNavigation: "off",
+												keyboard_direction: "horizontal",
+												mouseScrollNavigation: "off",
+												mouseScrollReverse: "default",
+												onHoverStop: "on",
+												touch: {
+													touchenabled: "on",
+													swipe_threshold: 75,
+													swipe_min_touches: 50,
+													swipe_direction: "horizontal",
+													drag_block_vertical: false
+												}
+												,
+												arrows: {
+													style: "hesperiden",
+													enable: true,
+													hide_onmobile: true,
+													hide_under: 600,
+													hide_onleave: true,
+													hide_delay: 200,
+													hide_delay_mobile: 1200,
+													tmp: '',
+													left: {
+														h_align: "left",
+														v_align: "center",
+														h_offset: 30,
+														v_offset: 0
+													},
+													right: {
+														h_align: "right",
+														v_align: "center",
+														h_offset: 30,
+														v_offset: 0
+													}
+												}
+											},
+											visibilityLevels: [1240, 1024, 778, 480],
+											gridwidth: 1170,
+											gridheight: 300,
+											lazyType: "smart",
+											parallax: {
+												type: "mouse",
+												origo: "slidercenter",
+												speed: 2000,
+												levels: [2, 3, 4, 5, 6, 7, 12, 16, 10, 50, 47, 48, 49, 50, 51, 55],
+												type: "mouse",
+											},
+											shadow: 0,
+											spinner: "off",
+											stopLoop: "off",
+											stopAfterLoops: -1,
+											stopAtSlide: -1,
+											shuffle: "on",
+											autoHeight: "off",
+											hideThumbsOnMobile: "off",
+											hideSliderAtLimit: 0,
+											hideCaptionAtLimit: 0,
+											hideAllCaptionAtLilmit: 0,
+											debugMode: false,
+											fallbacks: {
+												simplifyAll: "off",
+												nextSlideOnWindowFocus: "off",
+												disableFocusListener: false,
+											}
+										});
+									}
+								});	/*ready*/
+							})($nwd_jQuery);
+						</script>
+						<script>
+							var htmlDivCss = unescape(".hesperiden.tparrows%20%7B%0A%09cursor%3Apointer%3B%0A%09background%3Argba%280%2C0%2C0%2C0.5%29%3B%0A%09width%3A40px%3B%0A%09height%3A40px%3B%0A%09position%3Aabsolute%3B%0A%09display%3Ablock%3B%0A%09z-index%3A100%3B%0A%20%20%20%20border-radius%3A%2050%25%3B%0A%7D%0A.hesperiden.tparrows%3Ahover%20%7B%0A%09background%3Argba%280%2C%200%2C%200%2C%201%29%3B%0A%7D%0A.hesperiden.tparrows%3Abefore%20%7B%0A%09font-family%3A%20%22revicons%22%3B%0A%09font-size%3A20px%3B%0A%09color%3Argb%28255%2C%20255%2C%20255%29%3B%0A%09display%3Ablock%3B%0A%09line-height%3A%2040px%3B%0A%09text-align%3A%20center%3B%0A%7D%0A.hesperiden.tparrows.tp-leftarrow%3Abefore%20%7B%0A%09content%3A%20%22%5Ce82c%22%3B%0A%20%20%20%20margin-left%3A-3px%3B%0A%7D%0A.hesperiden.tparrows.tp-rightarrow%3Abefore%20%7B%0A%09content%3A%20%22%5Ce82d%22%3B%0A%20%20%20%20margin-right%3A-3px%3B%0A%7D.hesperiden.tparrows%20%7B%0A%09cursor%3Apointer%3B%0A%09background%3Argba%280%2C0%2C0%2C0.5%29%3B%0A%09width%3A40px%3B%0A%09height%3A40px%3B%0A%09position%3Aabsolute%3B%0A%09display%3Ablock%3B%0A%09z-index%3A100%3B%0A%20%20%20%20border-radius%3A%2050%25%3B%0A%7D%0A.hesperiden.tparrows%3Ahover%20%7B%0A%09background%3Argba%280%2C%200%2C%200%2C%201%29%3B%0A%7D%0A.hesperiden.tparrows%3Abefore%20%7B%0A%09font-family%3A%20%22revicons%22%3B%0A%09font-size%3A20px%3B%0A%09color%3Argb%28255%2C%20255%2C%20255%29%3B%0A%09display%3Ablock%3B%0A%09line-height%3A%2040px%3B%0A%09text-align%3A%20center%3B%0A%7D%0A.hesperiden.tparrows.tp-leftarrow%3Abefore%20%7B%0A%09content%3A%20%22%5Ce82c%22%3B%0A%20%20%20%20margin-left%3A-3px%3B%0A%7D%0A.hesperiden.tparrows.tp-rightarrow%3Abefore%20%7B%0A%09content%3A%20%22%5Ce82d%22%3B%0A%20%20%20%20margin-right%3A-3px%3B%0A%7D%0A");
+							var htmlDiv = document.getElementById('rs-plugin-settings-inline-css');
+							if (htmlDiv) {
+								htmlDiv.innerHTML = htmlDiv.innerHTML + htmlDivCss;
+							}
+							else {
+								var htmlDiv = document.createElement('div');
+								htmlDiv.innerHTML = '<style>' + htmlDivCss + '</style>';
+								document.getElementsByTagName('head')[0].appendChild(htmlDiv.childNodes[0]);
+							}
+						</script>
+					</div>
+					<!-- END REVOLUTION SLIDER -->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</article>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="blocks_products">
+					<div class="page-title">
+						<h1>Promoções</h1>
+						<!-- <a class="d-flex justify-content-end" href="#">Ver tudo</a>-->
+					</div>
+					<ul id="owl-featured" class="products-grid owl-carousel owl-theme owl-loaded owl-drag">
+						<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 2355px;">
+								<div class="owl-item active" style="width: 196.25px;">
+									<li class="item">
+										<a href="#"	class="product-image">
+											<div class="only_bottom_left">
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">- 20€</span>
+												</span>
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">
+														<span>PVPr</span>
+														<span class="price">349,00&nbsp;€</span>
+													</span>
+												</span>
+											</div>
+											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_85_103.jpg"
+											 width="176" height="176" alt="Mini-PC MSI Cubi 3 Silent S-005BEU i3-7100 Preto">
+										</a>
+										<h3 class="product-name">
+											<a href="#">
+												Mini-PC MSI Cubi 3 Silent S-005BEU i3-7100 Preto</a>
+										</h3>
+										<div class="extra-info">
+											<i class="icon-availability icon-stock-in"></i>
+											<span class="stock-in"> Em Stock</span>
+										</div>
+										<div class="actions">
+											<div class="price-box Tsaleable">
+												<p class="old-price">
+													<span class="price-label">Preço Regular:</span>
+													<span class="price" id="old-price-13927-new">
+														349,00&nbsp;€ </span>
+												</p>
+												<p class="special-price">
+													<span class="price-label"></span>
+													<span class="price" id="product-price-13927-new">
+														329,00&nbsp;€ </span>
+												</p>
+											</div>
+											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+												<span>
+													<i class="icon-pc-cart"></i>
+													<span>Comprar</span>
+												</span>
+											</button>
+										</div>
+									</li>
+								</div>
+								<div class="owl-item active" style="width: 196.25px;">
+									<li class="item">
+										<a href="#"
+										 class="product-image">
+											<div class="only_bottom_left">
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">- 100€</span>
+												</span>
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">
+														<span>PVPr</span>
+														<span class="price">1&nbsp;349,00&nbsp;€</span>
+													</span>
+												</span>
+											</div>
+											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_74_54.jpg"
+											 width="176" height="176" alt="Portátil MSI 17.3&quot; GP72MVR 7RFX(Leopard Pro)-854XPT">
+										</a>
+										<h3 class="product-name">
+											<a href="#">
+												Portátil MSI 17.3" GP72MVR 7RFX(Leopard Pro)-854XPT</a>
+										</h3>
+										<div class="extra-info">
+											<i class="icon-availability icon-stock-in"></i>
+											<span class="stock-in"> Em Stock</span>
+										</div>
+										<div class="actions">
+											<div class="price-box Tsaleable">
+												<p class="old-price">
+													<span class="price-label">Preço Regular:</span>
+													<span class="price" id="old-price-13103-new">
+														1&nbsp;349,00&nbsp;€ </span>
+												</p>
+												<p class="special-price">
+													<span class="price-label"></span>
+													<span class="price" id="product-price-13103-new">
+														1&nbsp;249,00&nbsp;€ </span>
+												</p>
+											</div>
+											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13103/form_key/XpgVuKjQlnxiQjPt/')">
+												<span>
+													<i class="icon-pc-cart"></i>
+													<span>Comprar</span>
+												</span>
+											</button>
+										</div>
+									</li>
+								</div>
+								<div class="owl-item active" style="width: 196.25px;">
+									<li class="item">
+										<a href="#"
+										 class="product-image">
+											<div class="only_bottom_left">
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">- 130€</span>
+												</span>
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">
+														<span>PVPr</span>
+														<span class="price">459,90&nbsp;€</span>
+													</span>
+												</span>
+											</div>
+											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_30_35.jpg"
+											 width="176" height="176" alt="Smartphone Honor 9 5.15&quot; 64GB Dual SIM Cinza">
+										</a>
+										<h3 class="product-name">
+											<a href="#">
+												Smartphone Honor 9 5.15" 64GB Dual SIM Cinza</a>
+										</h3>
+										<div class="extra-info">
+											<i class="icon-availability icon-stock-in"></i>
+											<span class="stock-in"> Em Stock</span>
+										</div>
+										<div class="actions">
+											<div class="price-box Tsaleable">
+												<p class="old-price">
+													<span class="price-label">Preço Regular:</span>
+													<span class="price" id="old-price-9824-new">
+														459,90&nbsp;€ </span>
+												</p>
+												<p class="special-price">
+													<span class="price-label"></span>
+													<span class="price" id="product-price-9824-new">
+														329,90&nbsp;€ </span>
+												</p>
+											</div>
+											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/9824/form_key/XpgVuKjQlnxiQjPt/')">
+												<span>
+													<i class="icon-pc-cart"></i>
+													<span>Comprar</span>
+												</span>
+											</button>
+										</div>
+									</li>
+								</div>
+								<div class="owl-item" style="width: 196.25px;">
+									<li class="item">
+										<a href="#"
+										 class="product-image">
+											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_75_29.jpg"
+											 width="176" height="176" alt="SSD 2.5&quot; Samsung 860 Evo 250GB MLC V-NAND SATA">
+										</a>
+										<h3 class="product-name">
+											<a href="#">
+												SSD 2.5" Samsung 860 Evo 250GB MLC V-NAND SATA</a>
+										</h3>
+										<div class="extra-info">
+											<i class="icon-availability icon-stock-in"></i>
+											<span class="stock-in"> Em Stock</span>
+										</div>
+										<div class="actions">
+											<div class="price-box Tsaleable">
+												<span class="regular-price" id="product-price-13138-new">
+													<span class="price">89,90&nbsp;€</span>
+												</span>
+											</div>
+											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13138/form_key/XpgVuKjQlnxiQjPt/')">
+												<span>
+													<i class="icon-pc-cart"></i>
+													<span>Comprar</span>
+												</span>
+											</button>
+										</div>
+									</li>
+								</div>
+								<div class="owl-item" style="width: 196.25px;">
+									<li class="item">
+										<a href="#"
+										 class="product-image">
+											<div class="only_bottom_left">
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">- 180€</span>
+												</span>
+												<span class="sticker-wrapper bottom-right">
+													<span class="sticker sale">
+														<span>PVPr</span>
+														<span class="price">719,90&nbsp;€</span>
+													</span>
+												</span>
+											</div>
+											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_15_135.jpg"
+											 width="176" height="176" alt="Samsung Galaxy Tab S3 9.7&quot; 32GB Wi-Fi Prateado">
+										</a>
+										<h3 class="product-name">
+											<a href="#">
+												Samsung Galaxy Tab S3 9.7" 32GB Wi-Fi Prateado</a>
+										</h3>
+										<div class="extra-info">
+											<i class="icon-availability icon-stock-in"></i>
+											<span class="stock-in"> Em Stock</span>
+										</div>
+										<div class="actions">
+											<div class="price-box Tsaleable">
+												<p class="old-price">
+													<span class="price-label">Preço Regular:</span>
+													<span class="price" id="old-price-7932-new">
+														719,90&nbsp;€ </span>
+												</p>
+												<p class="special-price">
+													<span class="price-label"></span>
+													<span class="price" id="product-price-7932-new">
+														539,90&nbsp;€ </span>
+												</p>
+											</div>
+											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/7932/form_key/XpgVuKjQlnxiQjPt/')">
+												<span>
+													<i class="icon-pc-cart"></i>
+													<span>Comprar</span>
+												</span>
+											</button>
+										</div>
+									</li>
+								</div>
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="blocks_products">
+					<div class="page-title">
+						<h1>Novidades</h1>
+						<!-- <a class="d-flex justify-content-end" href="#">Ver tudo</a>-->
+					</div>
+					<ul id="owl-featured" class="products-grid owl-carousel owl-theme owl-loaded owl-drag">
+						<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 2355px;">
+								{% for p in new_products %}
+									<div class="owl-item active" style="width: 196.25px;">
+										<li class="item">
+											<a href="{% url 'product_details' ean=p.ean %}" class="product-image">
+												<img src="http://localhost:8000/static/products/{{p.image}}"
+													width="176" height="176" alt="{{p.image}}">
+											</a>
+											<h3 class="product-name">
+												<a href="{% url 'product_details' ean=p.ean %}">
+													{{p.name}}</a>
+											</h3>
+											<div class="extra-info">
+												<i class="icon-availability icon-stock-in"></i>
+												<span class="stock-in"> Em Stock</span>
+											</div>
+											<div class="actions">
+												<div class="price-box Tsaleable">
+													<p class="old-price">
+														<span class="price-label">Preço Regular:</span>
+														<span class="price" id="old-price-13927-new">
+															349,00&nbsp;€ </span>
+													</p>
+													<p class="special-price">
+														<span class="price-label"></span>
+														<span class="price" id="product-price-13927-new">
+															{{p.price}}&nbsp;€ </span>
+													</p>
+												</div>
+												<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+													<span>
+														<i class="icon-pc-cart"></i>
+														<span>Comprar</span>
+													</span>
+												</button>
+											</div>
+										</li>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="blocks_products">
+					<div class="page-title">
+						<h1>Mais vendidos</h1>
+						<!-- <a class="d-flex justify-content-end" href="#">Ver tudo</a>-->
+					</div>
+					<ul id="owl-featured" class="products-grid owl-carousel owl-theme owl-loaded owl-drag">
+						<div class="owl-stage-outer">
+							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 2355px;">
+								{% for p in best_sellers %}
+									<div class="owl-item active" style="width: 196.25px;">
+										<li class="item">
+											<a href="{% url 'product_details' ean=p.ean %}" class="product-image">
+												<img src="http://localhost:8000/static/products/{{p.image}}"
+													width="176" height="176" alt="{{p.image}}">
+											</a>
+											<h3 class="product-name">
+												<a href="{% url 'product_details' ean=p.ean %}">
+													{{p.name}}</a>
+											</h3>
+											<div class="extra-info">
+												<i class="icon-availability icon-stock-in"></i>
+												<span class="stock-in"> Em Stock</span>
+											</div>
+											<div class="actions">
+												<div class="price-box Tsaleable">
+													<p class="old-price">
+														<span class="price-label">Preço Regular:</span>
+														<span class="price" id="old-price-13927-new">
+															349,00&nbsp;€ </span>
+													</p>
+													<p class="special-price">
+														<span class="price-label"></span>
+														<span class="price" id="product-price-13927-new">
+															{{p.price}}&nbsp;€ </span>
+													</p>
+												</div>
+												<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+													<span>
+														<i class="icon-pc-cart"></i>
+														<span>Comprar</span>
+													</span>
+												</button>
+											</div>
+										</li>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
 {% endblock %}

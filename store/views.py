@@ -1,11 +1,14 @@
 from .forms import CostumerRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
-from .models import Costumer
+from .models import Costumer, Product
 
 
 def home_view(request):
-    return render(request, 'store/home.html')
+	on_sale = Product.objects.all().filter(is_on_sale=True)
+	new = Product.objects.all().filter(is_new=True)
+	best_sellers = Product.objects.all().filter(is_bestseller=True)
+	return render(request, 'store/home.html', {'products_on_sale': on_sale, 'new_products': new, 'best_sellers': best_sellers})
 
 
 def register_view(request):
@@ -57,3 +60,7 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return redirect('home')
+
+def product_details_view(request, ean):
+	product = Product.objects.get(ean=ean)
+	return render(request, 'store/product_details.html', {'product': product})

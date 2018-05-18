@@ -2,6 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -21,50 +22,114 @@
 <body>
     <div>
         <nav class="navbar navbar-expand-lg bg-light">
-          <a style="margin-left: 15px" class="navbar-brand" href="/store/">PC World</a>
-          
-          <form style="margin-left: 4%; width: 65%" class="form-inline my-2 my-lg-0">
-              <input style="width: 80%" class="form-control mr-sm-2" type="text" placeholder="Produtos">
-              <button class="btn btn-primary my-2 my-sm-0" type="button">Procurar</button>
-          </form>
+            <a style="margin-left: 15px" class="navbar-brand" href="/store/">PC World</a>
 
-          <div class="collapse navbar-collapse" id="navb">
-            <ul class="navbar-nav ml-auto">
-                {% if request.user.is_authenticated %}
+            <form style="margin-left: 4%; width: 65%" class="form-inline my-2 my-lg-0">
+                <input style="width: 80%" class="form-control mr-sm-2" type="text" placeholder="Produtos">
+                <button class="btn btn-primary my-2 my-sm-0" type="button">Procurar</button>
+            </form>
+
+            <div class="collapse navbar-collapse" id="navb">
+                <ul class="navbar-nav ml-auto">
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'profile' %}">{{request.user.username}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a> 
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
-                {% else %}
+                    {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Iniciar sessão</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'register' %}">Registar</a>
                     </li>
-                {% endif %}
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:void(0)">Carrinho</a>
                     </li>
-            </ul>
-          </div>
+                </ul>
+            </div>
         </nav>
     </div>
 
     <div class="btn-group">
-      <button type="button" class="btn btn-primary">Computadores</button>
-      <button type="button" class="btn btn-primary">Mobilidade</button>
-      <button type="button" class="btn btn-primary">Componentes</button>
-      <button type="button" class="btn btn-primary">Imagem</button>
-      <button type="button" class="btn btn-primary">Periféricos</button>
-      <button type="button" class="btn btn-primary">Armazenamento</button>
-      <button type="button" class="btn btn-primary">Redes/Comunicação</button>
+        <button type="button" class="btn btn-primary">Computadores</button>
+        <button type="button" class="btn btn-primary">Mobilidade</button>
+        <button type="button" class="btn btn-primary">Componentes</button>
+        <button type="button" class="btn btn-primary">Imagem</button>
+        <button type="button" class="btn btn-primary">Periféricos</button>
+        <button type="button" class="btn btn-primary">Armazenamento</button>
+        <button type="button" class="btn btn-primary">Redes/Comunicação</button>
     </div>
 
-    {% block main %}
-    {% endblock %}
+    {% block main %} {% endblock %}
 
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Loja</h5>
+                    <ul>
+                        <li>
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'register' %}">Registar</a>
+                        </li>
+                        <li>
+                            <a href="#">Promoções</a>
+                        </li>
+                        <li>
+                            <a href="#">Novidades</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Informações</h5>
+                    <ul>
+                        <li>
+                            <a href="#">Modos de Pagamento</a>
+                        </li>
+                        <li>
+                            <a href="#">Envio de Encomendas e Portes</a>
+                        </li>
+                        <li>
+                            <a href="#">Trocas e Devoluções</a>
+                        </li>
+                        <li>
+                            <a href="#">Garantia</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Contactos</h5>
+                    <ul>
+                        <li>
+                            <a href="#">R. Manuel Almeida Passos Nº 36-38 Braga 4705-159-Braga</a>
+                        </li>
+                        <li>
+                            <a href="#">encomendas@pcworld.com</a>
+                        </li>
+                        <li>
+                            <a href="#">304 500 600</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Sobre nós</h5>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="social-networks">
+        </div>
+        <div class="footer-copyright">
+            <p>© 2018 Copyright PC World </p>
+        </div>
+    </footer>
 </body>
+
 </html>

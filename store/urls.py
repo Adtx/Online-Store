@@ -8,5 +8,6 @@ urlpatterns = [
     path('login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
     path('update_profile', views.update_profile_view, name='update_profile'),
-    path('profile', views.profile_view, name='profile')
+    path('profile', views.profile_view, name='profile'),
+    path(r'products/(?P<ean>\d+)/$', views.product_details_view, name='product_details')
 ]
