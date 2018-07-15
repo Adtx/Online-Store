@@ -24,9 +24,9 @@
         <nav class="navbar navbar-expand-lg bg-light">
             <a style="margin-left: 15px" class="navbar-brand" href="/store/">PC World</a>
 
-            <form style="margin-left: 4%; width: 65%" class="form-inline my-2 my-lg-0">
-                <input style="width: 80%" class="form-control mr-sm-2" type="text" placeholder="Produtos">
-                <button class="btn btn-primary my-2 my-sm-0" type="button">Procurar</button>
+            <form action="{% url 'product_search' %}" method="GET" style="margin-left: 4%; width: 65%" class="form-inline my-2 my-lg-0">
+                <input style="width: 80%" class="form-control mr-sm-2" type="text" name="q1" placeholder="Produtos, marcas,...">
+                <input class="btn btn-primary my-2 my-sm-0" type="submit" value="Procurar">
             </form>
 
             <div class="collapse navbar-collapse" id="navb">
@@ -54,7 +54,456 @@
         </nav>
     </div>
 
-    <div class="btn-group">
+
+    <div id="header-nav" class="skip-content">
+
+        <!-- Desktop Navigation -->
+
+        <div class="megamenu-pc ms-megamenu">
+            <ul id="ms-topmenu" class="ms-topmenu">
+                <li class="ms-level0 nav-1" id="nav-1" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Computadores</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-1" style="width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:60%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="{% url 'product_search' %}?q1=Computador&q2=PC">Desktops</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1">All-in-One</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="">Notebooks</a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level2"></a>                                                
+                                                <a class="form-group level1 link1">Servidores</a>                                                
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level2"></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1">Eletrónica / DIY</a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level1 link1">Mini PCs</a>
+                                                <a class="form-group level2"></a>                                                
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level1 link1">Garantias</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1">Acessórios Portáteis</a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level1 link1">Barebones</a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level2"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:40%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;" href="https://www.pcdiga.com/#q=P013234%20P013235%20P013236%20P013237&amp;idx=prod_pcdiga_pt_products&amp;p=0&amp;is_v=1?ref=menu_computadores">
+                                                <img alt="Novo Dell XPS 13" src="https://www.pcdiga.com/media/megamenu2/images/Dell_newxps13_2018_v3.jpg">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="ms-level0 nav-2" id="nav-2" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Mobilidade</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-2" style="width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:50%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="{% url 'product_search' %}?q1=Smartphone">Smartphones</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Telemóveis</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Tablets</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Wearables</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Acessórios</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:50%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;" href="https://www.pcdiga.com/samsung-galaxy-s9-s9-plus?ref=menu_mobilidade">
+                                                <img alt="Galaxy S9 | S9+" src="https://www.pcdiga.com/media/megamenu2/images/Galaxy_S9_menu.jpg">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="ms-level0 nav-3" id="nav-3" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Componentes</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-3" style="background-image: url(&quot;https://www.pcdiga.com/media/megamenu2/background/ryzen2_menu_componentes.jpg&quot;); width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:75%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="{% url 'product_search' %}?q1=Processador">Processadores</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" href="https://www.pcdiga.com/placas-graficas">Placas Gráficas</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Fontes de Alimentação</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Motherboards</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Memórias RAM</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2"></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Coolers CPU</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Caixas</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Placas de Som</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Drives Ópticas</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Placas de Comunicação</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Ventoinhas</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:25%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;">
+                                                <img alt="Processadores AMD Ryzen" src="https://www.pcdiga.com/media/megamenu2/images/clicavel.png">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="ms-level0 nav-4" id="nav-4" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Imagem</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-4" style="width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:50%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="{% url 'product_search' %}?q1=Monitor">Monitores</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Televisores</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Câmaras</a>
+                                                <a class="form-group level1 link1" >Projectores</a>
+                                                <a class="form-group level1 link1" >Suportes / Acessórios</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:50%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;" href="https://www.pcdiga.com/monitor-curvo-asus-rog-strix-xg27vq-va-27-fhd-16-9-144hz-freesync">
+                                                <img alt="Asus Strix XG27VQ" src="https://www.pcdiga.com/media/megamenu2/images/rog-strix-menu.jpg">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="ms-level0 nav-5" id="nav-5" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Periféricos</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-5" style="width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:60%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Áudio</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Cadeiras</a>
+                                                <a class="form-group level1 link1" >Bundles</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="{% url 'product_search' %}?q1=Teclado&q2=Keyboard">Teclados</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Mesas Digitalizadoras</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Impressoras</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Placas de Captura</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Comandos</a>
+                                                <a class="form-group level1 link1" >Gamepads</a>
+                                                <a class="form-group level1 link1" >Volantes</a>
+                                                <a class="form-group level1 link1" >WebCams</a>
+                                                <a class="form-group level1 link1" >UPS / Tomadas</a>
+                                                <a class="form-group level1 link1" >HUBs</a>
+                                                <a class="form-group level1 link1" >Drones</a>
+                                                <a class="form-group level1 link1" >Óculos</a>
+                                                <a class="form-group level1 link1" >Outros</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:40%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;" href="https://www.pcdiga.com/teclado-mecanico-msi-vigor-gk70-cr-pt-cherry-mx-red">
+                                                <img alt="Teclado Mecânico MSI Vigor GK70 CR PT Cherry MX " src="https://www.pcdiga.com/media/megamenu2/images/Msi_perifericos_GK70.jpg">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="ms-level0 nav-6" id="nav-6" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Armazenamento</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-6" style="width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:60%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" href="{% url 'product_search' %}?q1=SSD">Armazenamento Interno</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Cartões Memória</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Pen Drives</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Caixas Externas</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >NAS</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Docking Station</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Controladoras</a>
+                                                <a class="form-group level1 link1" >Adaptadores Internos</a>
+                                                <a class="form-group level1 link1" >Leitores de Cartões</a>
+                                                <a class="form-group level1 link1" >Acessórios</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:40%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;">
+                                                <img alt="SSD A400 Kingston" src="https://www.pcdiga.com/media/megamenu2/images/kingston_a400_armazenamento.jpg">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="ms-level0 nav-7" id="nav-7" onmouseover="onMouseOverBehaviour(this)" onmouseout="onMouseOutLi(this)">
+                    <a class="ms-label ms-hassubmenu">Redes/Comunicação</a>
+                    <div class="ms-submenu col-xs-12 sub_left" id="submenu-7" style="background-image: url(&quot;https://www.pcdiga.com/media/megamenu2/background/redes.jpg&quot;); width: 1400px; top: 52px; left: 0px; display: none;" onmouseout="onMouseOutDiv(this)">
+                        <div class="ms-content">
+                            <div class="ms-maincontent" style="float:left;width:50%;">
+                                <div class="submenu-desktop">
+                                    <div class="ms-maincontent" style="float: left;">
+                                        <div class="row ms-category">
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >APs / Repetidores</a>
+                                                <a class="form-group level1 link1" >Routers</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a></a>
+                                                <a class="form-group level1 link1" >Switch</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Antenas</a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Bluetooth</a>
+                                                <a class="form-group level1 link1" >Placas de Rede</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Powerlines</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                            <div class="col-category col-xs-3">
+                                                <a class="form-group level1 link1" >Vigilância</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level1 link1" >Smart Home</a>
+                                                <a class="form-group level2" ></a>
+                                                <a class="form-group level2" ></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-featured" style="float:right;width:50%;">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p class="visible-lg" style="display: block!important; margin-top: -10px; text-align: right; margin-right:0px; padding: 0px; margin-bottom: 0px;">
+                                            <a style="padding: 0px; margin: 0px;">
+                                                <img alt="Repetidores Asus" src="https://www.pcdiga.com/media/megamenu2/images/repetidor_asus_opt.png">
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <style type="text/css">
+            @media screen and (max-width: 1169px) {
+                div.ms-featured {
+                    display: none;
+                }
+                div.ms-maincontent {
+                    width: 100% !important;
+                }
+            }
+        </style>
+
+        <!-- End of desktop Navigation -->
+    </div>
+
+    <!-- <div class="btn-group">
         <button type="button" class="btn btn-primary">Computadores</button>
         <button type="button" class="btn btn-primary">Mobilidade</button>
         <button type="button" class="btn btn-primary">Componentes</button>
@@ -62,7 +511,7 @@
         <button type="button" class="btn btn-primary">Periféricos</button>
         <button type="button" class="btn btn-primary">Armazenamento</button>
         <button type="button" class="btn btn-primary">Redes/Comunicação</button>
-    </div>
+    </div> -->
 
     {% block main %} {% endblock %}
 
@@ -131,5 +580,30 @@
         </div>
     </footer>
 </body>
+
+<script>
+
+    // var listItems = document.getElementById("ms-topmenu")
+    //                         .getElementsByTagName("li");
+
+    // var i;
+    // for (i = 0; i < listItems.length; i++) { 
+    //     listItems[i].onmouseover = onMouseOverBehaviour(listItems[i])
+    // }
+
+
+    function onMouseOverBehaviour(listItem) {
+        listItem.classList.add('active');
+        listItem.getElementsByTagName("div")[0].style.display = "block";
+    }
+
+    function onMouseOutLi(listItem) {
+        listItem.getElementsByTagName("div")[0].style.display = "none";
+    }
+
+    function onMouseOutDiv(div) {
+        div.style.display = "none";
+    }
+</script>
 
 </html>

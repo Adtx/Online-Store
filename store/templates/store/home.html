@@ -720,227 +720,55 @@
 					<ul id="owl-featured" class="products-grid owl-carousel owl-theme owl-loaded owl-drag">
 						<div class="owl-stage-outer">
 							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 2355px;">
-								<div class="owl-item active" style="width: 196.25px;">
-									<li class="item">
-										<a href="#"	class="product-image">
-											<div class="only_bottom_left">
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">- 20€</span>
-												</span>
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">
-														<span>PVPr</span>
-														<span class="price">349,00&nbsp;€</span>
+								{% for p in new_products %}
+									<div class="owl-item active" style="width: 196.25px;">
+										<li class="item">
+											<a href="#"	class="product-image">
+												<div class="only_bottom_left">
+													<span class="sticker-wrapper bottom-right">
+														<span class="sticker sale">- 20€</span>
 													</span>
-												</span>
-											</div>
-											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_85_103.jpg"
-											 width="176" height="176" alt="Mini-PC MSI Cubi 3 Silent S-005BEU i3-7100 Preto">
-										</a>
-										<h3 class="product-name">
-											<a href="#">
-												Mini-PC MSI Cubi 3 Silent S-005BEU i3-7100 Preto</a>
-										</h3>
-										<div class="extra-info">
-											<i class="icon-availability icon-stock-in"></i>
-											<span class="stock-in"> Em Stock</span>
-										</div>
-										<div class="actions">
-											<div class="price-box Tsaleable">
-												<p class="old-price">
-													<span class="price-label">Preço Regular:</span>
-													<span class="price" id="old-price-13927-new">
-														349,00&nbsp;€ </span>
-												</p>
-												<p class="special-price">
-													<span class="price-label"></span>
-													<span class="price" id="product-price-13927-new">
-														329,00&nbsp;€ </span>
-												</p>
-											</div>
-											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
-												<span>
-													<i class="icon-pc-cart"></i>
-													<span>Comprar</span>
-												</span>
-											</button>
-										</div>
-									</li>
-								</div>
-								<div class="owl-item active" style="width: 196.25px;">
-									<li class="item">
-										<a href="#"
-										 class="product-image">
-											<div class="only_bottom_left">
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">- 100€</span>
-												</span>
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">
-														<span>PVPr</span>
-														<span class="price">1&nbsp;349,00&nbsp;€</span>
+													<span class="sticker-wrapper bottom-right">
+														<span class="sticker sale">
+															<span>PVPr</span>
+															<span class="price">349,00&nbsp;€</span>
+														</span>
 													</span>
-												</span>
+												</div>
+												<img src="http://localhost/static/products/{{p.image}}"
+												width="176" height="176" alt="{{p.name}}">
+											</a>
+											<h3 class="product-name">
+												<a href="#">
+													Mini-PC MSI Cubi 3 Silent S-005BEU i3-7100 Preto</a>
+											</h3>
+											<div class="extra-info">
+												<i class="icon-availability icon-stock-in"></i>
+												<span class="stock-in"> Em Stock</span>
 											</div>
-											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_74_54.jpg"
-											 width="176" height="176" alt="Portátil MSI 17.3&quot; GP72MVR 7RFX(Leopard Pro)-854XPT">
-										</a>
-										<h3 class="product-name">
-											<a href="#">
-												Portátil MSI 17.3" GP72MVR 7RFX(Leopard Pro)-854XPT</a>
-										</h3>
-										<div class="extra-info">
-											<i class="icon-availability icon-stock-in"></i>
-											<span class="stock-in"> Em Stock</span>
-										</div>
-										<div class="actions">
-											<div class="price-box Tsaleable">
-												<p class="old-price">
-													<span class="price-label">Preço Regular:</span>
-													<span class="price" id="old-price-13103-new">
-														1&nbsp;349,00&nbsp;€ </span>
-												</p>
-												<p class="special-price">
-													<span class="price-label"></span>
-													<span class="price" id="product-price-13103-new">
-														1&nbsp;249,00&nbsp;€ </span>
-												</p>
-											</div>
-											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13103/form_key/XpgVuKjQlnxiQjPt/')">
-												<span>
-													<i class="icon-pc-cart"></i>
-													<span>Comprar</span>
-												</span>
-											</button>
-										</div>
-									</li>
-								</div>
-								<div class="owl-item active" style="width: 196.25px;">
-									<li class="item">
-										<a href="#"
-										 class="product-image">
-											<div class="only_bottom_left">
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">- 130€</span>
-												</span>
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">
-														<span>PVPr</span>
-														<span class="price">459,90&nbsp;€</span>
+											<div class="actions">
+												<div class="price-box Tsaleable">
+													<p class="old-price">
+														<span class="price-label">Preço Regular:</span>
+														<span class="price" id="old-price-13927-new">
+															349,00&nbsp;€ </span>
+													</p>
+													<p class="special-price">
+														<span class="price-label"></span>
+														<span class="price" id="product-price-13927-new">
+															329,00&nbsp;€ </span>
+													</p>
+												</div>
+												<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+													<span>
+														<i class="icon-pc-cart"></i>
+														<span>Comprar</span>
 													</span>
-												</span>
+												</button>
 											</div>
-											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_30_35.jpg"
-											 width="176" height="176" alt="Smartphone Honor 9 5.15&quot; 64GB Dual SIM Cinza">
-										</a>
-										<h3 class="product-name">
-											<a href="#">
-												Smartphone Honor 9 5.15" 64GB Dual SIM Cinza</a>
-										</h3>
-										<div class="extra-info">
-											<i class="icon-availability icon-stock-in"></i>
-											<span class="stock-in"> Em Stock</span>
-										</div>
-										<div class="actions">
-											<div class="price-box Tsaleable">
-												<p class="old-price">
-													<span class="price-label">Preço Regular:</span>
-													<span class="price" id="old-price-9824-new">
-														459,90&nbsp;€ </span>
-												</p>
-												<p class="special-price">
-													<span class="price-label"></span>
-													<span class="price" id="product-price-9824-new">
-														329,90&nbsp;€ </span>
-												</p>
-											</div>
-											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/9824/form_key/XpgVuKjQlnxiQjPt/')">
-												<span>
-													<i class="icon-pc-cart"></i>
-													<span>Comprar</span>
-												</span>
-											</button>
-										</div>
-									</li>
-								</div>
-								<div class="owl-item" style="width: 196.25px;">
-									<li class="item">
-										<a href="#"
-										 class="product-image">
-											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_75_29.jpg"
-											 width="176" height="176" alt="SSD 2.5&quot; Samsung 860 Evo 250GB MLC V-NAND SATA">
-										</a>
-										<h3 class="product-name">
-											<a href="#">
-												SSD 2.5" Samsung 860 Evo 250GB MLC V-NAND SATA</a>
-										</h3>
-										<div class="extra-info">
-											<i class="icon-availability icon-stock-in"></i>
-											<span class="stock-in"> Em Stock</span>
-										</div>
-										<div class="actions">
-											<div class="price-box Tsaleable">
-												<span class="regular-price" id="product-price-13138-new">
-													<span class="price">89,90&nbsp;€</span>
-												</span>
-											</div>
-											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13138/form_key/XpgVuKjQlnxiQjPt/')">
-												<span>
-													<i class="icon-pc-cart"></i>
-													<span>Comprar</span>
-												</span>
-											</button>
-										</div>
-									</li>
-								</div>
-								<div class="owl-item" style="width: 196.25px;">
-									<li class="item">
-										<a href="#"
-										 class="product-image">
-											<div class="only_bottom_left">
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">- 180€</span>
-												</span>
-												<span class="sticker-wrapper bottom-right">
-													<span class="sticker sale">
-														<span>PVPr</span>
-														<span class="price">719,90&nbsp;€</span>
-													</span>
-												</span>
-											</div>
-											<img src="https://www.pcdiga.com/media/catalog/product/cache/1/small_image/176x/9df78eab33525d08d6e5fb8d27136e95/1/_/1_15_135.jpg"
-											 width="176" height="176" alt="Samsung Galaxy Tab S3 9.7&quot; 32GB Wi-Fi Prateado">
-										</a>
-										<h3 class="product-name">
-											<a href="#">
-												Samsung Galaxy Tab S3 9.7" 32GB Wi-Fi Prateado</a>
-										</h3>
-										<div class="extra-info">
-											<i class="icon-availability icon-stock-in"></i>
-											<span class="stock-in"> Em Stock</span>
-										</div>
-										<div class="actions">
-											<div class="price-box Tsaleable">
-												<p class="old-price">
-													<span class="price-label">Preço Regular:</span>
-													<span class="price" id="old-price-7932-new">
-														719,90&nbsp;€ </span>
-												</p>
-												<p class="special-price">
-													<span class="price-label"></span>
-													<span class="price" id="product-price-7932-new">
-														539,90&nbsp;€ </span>
-												</p>
-											</div>
-											<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/7932/form_key/XpgVuKjQlnxiQjPt/')">
-												<span>
-													<i class="icon-pc-cart"></i>
-													<span>Comprar</span>
-												</span>
-											</button>
-										</div>
-									</li>
-								</div>
+										</li>
+									</div>
+								{% endfor %}
 							</div>
 						</div>
 					</ul>
@@ -966,8 +794,8 @@
 									<div class="owl-item active" style="width: 196.25px;">
 										<li class="item">
 											<a href="{% url 'product_details' ean=p.ean %}" class="product-image">
-												<img src="http://localhost:8000/static/products/{{p.image}}"
-													width="176" height="176" alt="{{p.image}}">
+												<img src="http://localhost/static/products/{{p.image}}"
+													width="176" height="176" alt="{{p.name}}">
 											</a>
 											<h3 class="product-name">
 												<a href="{% url 'product_details' ean=p.ean %}">
@@ -1025,8 +853,8 @@
 									<div class="owl-item active" style="width: 196.25px;">
 										<li class="item">
 											<a href="{% url 'product_details' ean=p.ean %}" class="product-image">
-												<img src="http://localhost:8000/static/products/{{p.image}}"
-													width="176" height="176" alt="{{p.image}}">
+												<img src="http://localhost/static/products/{{p.image}}"
+													width="176" height="176" alt="{{p.name}}">
 											</a>
 											<h3 class="product-name">
 												<a href="{% url 'product_details' ean=p.ean %}">

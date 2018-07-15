@@ -1,0 +1,322 @@
+{% extends "store/store_base.html" %} {% block main %}
+
+<div class="main-container col2-left-layout">
+    <div class="algolia-instant-results-wrapper">
+        <div class="main algolia-instant-replaced-content">
+            <div class="manab-breadcrumbs mb-breadcrumbs">
+                <div class="breadcrumbs">
+                    <ul>
+                        <li class="home">
+                            <a href="https://www.pcdiga.com/" title="Ir para a Página Inicial">Início</a>
+                            <span> &gt; </span>
+                        </li>
+                        <li class="category5">
+                            <a href="https://www.pcdiga.com/imagem" title="">Imagem</a>
+                            <span> &gt; </span>
+                        </li>
+                        <li class="category102">
+                            <strong>Monitores</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-main">
+                <div class="manab-content mb-content">
+                    <div id="algolia-autocomplete-container"></div>
+                    <style>
+                        .bestsllerbrand .shopbybrand-title h1,
+                        .brand-search .shopbybrand-title h1,
+                        .shopbybrand-title h1 {
+                            background-color: #1C4894;
+                            color: #FFFFFF;
+                        }
+
+                        .shopbybrand-list .brands .brandslist .brand-begin-label strong {
+                            background-color: #00A2FF;
+                            color: #FFFFFF;
+                        }
+
+                        .shopbybrand-list .charlist a {
+                            background-color: #EEEEEE !important;
+                            color: #707070 !important;
+                        }
+
+                        .shopbybrand-list .brands .brandslist .brand-begin-label {
+                            border-bottom: 1px solid #00A2FF !important;
+                        }
+
+                        .shopbybrand-list .filterbar #charaters-list ul li.charlist a:hover,
+                        .shopbybrand-list .filterbar #charaters-list ul li.isActiveCate a,
+                        .shopbybrand-list .filterbar #charaters-list ul li.charlist a.isActiveCate {
+                            background-color: #1C4894 !important;
+                            color: #FFFFFF !important;
+                        }
+
+                        .shopbybrand-list a {
+                            color: #00A2FF !important;
+                        }
+
+                        .shopbybrand-list a:hover {
+                            color: #1C4894 !important;
+                        }
+
+                        @media screen and (min-width:768px) and (max-width: 979px) {
+                            .shopbybrand_sidebar .shopbybrand-title h1,
+                            .brand-search .shopbybrand-title h1,
+                            .bestsllerbrand .shopbybrand-title h1 {
+                                background-color: #1C4894 !important;
+                            }
+                        }
+                    </style>
+                    <div class="manab-category-products mb-category-products">
+                        <div class="page-title category-title">
+                            <h1>Monitores</h1>
+                        </div>
+
+
+                        <p class="category-image">
+                            <img src="https://www.pcdiga.com/media/catalog/category/Monitors_cat.jpg" alt="Monitores" title="Monitores">
+                        </p>
+                        <div class="category-description std">
+                            <script type="text/javascript">// <![CDATA[
+                                var new_background = "https://www.pcdiga.com/media/background/backgrounds/asus_vg255_takeover.jpg";
+                                var new_background_cor = "#000000";
+                                var new_background_url = "https://www.pcdiga.com/monitor-asus-vg255h-tn-24-5-fhd-16-9-75hz-freesync?ref=takeover";
+// ]]></script> </div>
+
+
+
+                        <div class="category-products">
+                            <div class="toolbar">
+                                <div class="sorter">
+                                    <p class="view-mode">
+                                    </p>
+                                </div>
+                                <div class="pager">
+                                    <div class="count-container">
+                                        <p class="amount amount--has-pages">
+                                            1-24 of 288 </p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="pages">
+                                    <strong>Pagina:</strong>
+                                    <ol>
+
+
+
+                                        <li class="current">1</li>
+                                        <li>
+                                            <a href="https://www.pcdiga.com/monitores/page/2">2</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pcdiga.com/monitores/page/3">3</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pcdiga.com/monitores/page/4">4</a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.pcdiga.com/monitores/page/5">5</a>
+                                        </li>
+
+
+
+
+                                        <li>
+                                            <a class="next" href="https://www.pcdiga.com/monitores/page/2" title="Seguinte">
+                                                Next </a>
+                                        </li>
+                                    </ol>
+
+                                </div>
+
+                                <div class="sort-by">
+                                    <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
+                                        {% csrf_token %}
+                                        <input id="escondido" type="hidden" value="" name="selected_option" />
+                                        <label>Ordenar por</label>
+                                        <select title="Ordenar por" name="sortby" form="sortForm" onclick="if (typeof(this.selectedIndex) != 'undefined') setValue(this.selectedIndex)">
+                                            <option value="price" selected="{{selected1}}">
+                                                Mais barato </option>
+                                            <option value="-price" selected="{{selected2}}">
+                                                Mais caro </option>
+                                        </select>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <ul class="products-grid products-grid--max-4-col first last odd">
+                                {% for p in products %}
+                                <li class="item last">
+
+                                    <a href="{% url 'product_details' ean=p.ean %}" title="{{p.name}}" class="product-image">
+                                        <img id="product-collection-image-456" src="http://localhost/static/products/{{p.image}}" alt="{{p.name}}">
+                                    </a>
+                                    <div class="product-info" style="padding-bottom: 28px; min-height: 178px;">
+                                        <h2 class="product-name" style="margin-top:10px;">
+                                            <a href="{% url 'product_details' ean=p.ean %}" title="{{p.name}}">{{p.name}}</a>
+                                        </h2>
+
+                                        <div class="extra-info">
+                                            <i class="icon-availability icon-stock-in"></i>
+                                            <span class="stock-in"> Em Stock</span>
+                                        </div>
+
+                                        <div class="actions">
+
+                                            <div class="price-box Tsaleable">
+
+                                                <p class="special-price">
+                                                    <span class="price-label"></span>
+                                                    <span class="price" id="product-price-456">
+                                                        {{p.price}}&nbsp;€ </span>
+                                                </p>
+
+                                            </div>
+
+                                            <button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXM,/product/456/form_key/KFOmacvFSSkeyjEi/')">
+                                                <span>
+                                                    <i class="icon-pc-cart"></i>
+                                                    <span>Comprar</span>
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                    </div>
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                            <!-- <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd', 'even', 'first', 'last'])</script> -->
+
+
+                            <div class="toolbar-bottom">
+                                <div class="toolbar">
+                                    <div class="sorter">
+                                        <p class="view-mode">
+                                        </p>
+                                    </div>
+                                    <div class="pager">
+                                        <div class="count-container">
+                                            <p class="amount amount--has-pages">
+                                                1-24 of 288 </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="pages">
+                                        <strong>Pagina:</strong>
+                                        <ol>
+
+                                            <li class="current">1</li>
+                                            <li>
+                                                <a href="https://www.pcdiga.com/monitores/page/2">2</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.pcdiga.com/monitores/page/3">3</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.pcdiga.com/monitores/page/4">4</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.pcdiga.com/monitores/page/5">5</a>
+                                            </li>
+
+                                            <li>
+                                                <a class="next" href="https://www.pcdiga.com/monitores/page/2" title="Seguinte">
+                                                    Next </a>
+                                            </li>
+                                        </ol>
+
+                                    </div>
+
+
+
+                                    <div class="sort-by">
+                                        <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
+                                            {% csrf_token %}
+                                            <input id="escondido" type="hidden" value="" name="selected_option" />
+                                            <label>Ordenar por</label>
+                                            <select title="Ordenar por" name="sortby" form="sortForm" onclick="if (typeof(this.selectedIndex) != 'undefined') setValue(this.selectedIndex)">
+                                                <option value="price" selected="{{selected1}}">
+                                                    Mais barato </option>
+                                                <option value="-price" selected="{{selected2}}">
+                                                    Mais caro </option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <script>
+                            function setValue(arg) {
+                                document.getElementById('escondido').value = arg;
+                                document.getElementById('sortForm').submit();
+                            }
+                        </script>
+
+                        <!-- <script>
+                            function setValue(this) {
+                                var valor = 0;
+                                var options = this.children;
+                                for (i = 0; i < options.length; i++) {
+                                    if (options[i].selected == "true"){
+                                        valor = i;
+                                    }
+                                }
+                                document.getElementById('escondido').value = valor;
+                                this.form.submit();
+                            }
+                        </script> -->
+
+
+                        <!-- <script>
+                            function sortResults(order) {
+                                // var url = "https://127.0.0.1/store/product_search/sort?order=" + order
+                                $.get("https://127.0.0.1/store/product_search/sort", { sortby: order });
+                            }
+                        </script> -->
+
+
+                        <script type="text/javascript">
+                            jQuery(document).ready(function () {
+
+                                jQuery(window).scroll(function () {
+                                    if (jQuery(this).scrollTop() > 100) {
+                                        jQuery('.gotoTop').fadeIn();
+                                    } else {
+                                        jQuery('.gotoTop').fadeOut();
+                                    }
+                                });
+
+                                jQuery('.gotoTop').click(function () {
+                                    jQuery("html, body").animate({
+                                        scrollTop: 0
+                                    }, 600);
+                                    return false;
+                                });
+
+                            });
+                        </script>
+
+
+
+
+                        <!--RTB House-->
+                        <!-- <script type="text/javascript"> (function () { var x = document.createElement('script'); x.async = true; x.src = "//creativecdn.com/tags?type=script&" + (MageUserIdLoggedIn ? 'id0=pr_niO5dRX5PECEvayZYg2r_uid_' + MageUserIdLoggedIn + '&' : '') + "id=pr_niO5dRX5PECEvayZYg2r_category2_102"; document.getElementsByTagName('head')[0].appendChild(x); }()); </script> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

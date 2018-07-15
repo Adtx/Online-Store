@@ -25,13 +25,15 @@ SECRET_KEY = 'mwj7+11gxvu+6@(gk#-uvo^wo2y@4-=#^r19oi0@z@p@$j^d&o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 
+CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
 
 INSTALLED_APPS = [
     'store.apps.StoreConfig',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,13 +44,13 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'online_store.urls'
@@ -70,7 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'online_store.wsgi.application'
-
+X_FRAME_OPTIONS = 'DENY'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
@@ -126,13 +128,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/www/staticfiles'
 STATICFILES_DIRS = (
-    '/store/static',
+    '/home/adt/Desktop/Online-Store/store/static',
 )
 
 AUTH_USER_MODEL = 'store.Costumer'
 
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 #SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+#CSRF_COOKIE_SECURE = True
 #SECURE_SSL_REDIRECT = True
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True

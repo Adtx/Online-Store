@@ -2,6 +2,8 @@ from .forms import CostumerRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from .models import Costumer, Product
+import pickle
+from django.db.models import Q
 
 
 def home_view(request):
@@ -64,3 +66,39 @@ def logout_view(request):
 def product_details_view(request, ean):
 	product = Product.objects.get(ean=ean)
 	return render(request, 'store/product_details.html', {'product': product})
+
+def product_search_view(request):
+	search_term_1 = request.GET.get('q1')
+	search_term_2 = request.GET.get('q2', 'as9df8DSA')
+	search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2))
+	request.session['q1'] = search_term_1
+	request.session['q2'] = search_term_2
+	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': 'true', 'selected2': 'false'})
+
+def sort_results_view(request):
+	search_term_1 = request.session['q1']
+	search_term_2 = request.session['q2']
+	sort_property = request.POST['sortby']
+	if not search_term_2: search_term_2 = 'as9df8DSA'
+	search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2)).order_by(sort_property)
+	selected_option = request.POST['selected_option']
+	selection_info = ['true','false']
+	selected1 = selection_info[(0+int(selected_option))%2]
+	selected2 = selection_info[(1+int(selected_option))%2]
+	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': selected1, 'selected2': selected2})
+
+# def filter_results_view(request):
+# 	search_term_1 = request.session['q1']
+# 	search_term_2 = request.session['q2']
+# 	min = request.POST['min']
+# 	max = request.POST['max']
+# 	brand = request.POST['brand']
+# 	if not search_term_2: search_term_2 = 'as9df8DSA'
+# 	if not brand:
+# 		search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2)).filter(price between min max)
+# 	elif not min:
+# 		search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2) & Q(name__icontains=brand)
+# 	else:
+# 		search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2) & Q(name__icontains=brand).filter(price between min max)
+# 	return render(request, 'store/search_results.html', {'products': search_results})
+		
