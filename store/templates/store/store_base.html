@@ -17,6 +17,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+    {% block additional_scripts %} {% endblock %}
 </head>
 
 <body>
@@ -47,7 +49,7 @@
                     </li>
                     {% endif %}
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)">Carrinho</a>
+                        <a class="nav-link" href="{% url 'show_cart' %}">Carrinho</a>
                     </li>
                 </ul>
             </div>

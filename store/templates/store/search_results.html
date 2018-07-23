@@ -1,23 +1,162 @@
-{% extends "store/store_base.html" %} {% block main %}
+{% extends "store/store_base.html" %} {% block additional_scripts %}
+
+<script type="text/javascript" src="https://www.pcdiga.com/js/prototype/prototype.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/prototype/validation.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/scriptaculous/builder.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/scriptaculous/effects.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/scriptaculous/dragdrop.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/scriptaculous/controls.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/scriptaculous/slider.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/varien/js.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/varien/form.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/js/aw_ajaxcartpro/updaters/sidebar.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/rwd/default/js/manapro_filterajax.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filtercolors.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/rwd/default/js/manapro_filterexpandcollapse.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/rwd/default/js/manapro_filtergroup.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filterhelp.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filterpositioning.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filtershowmore.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/price_slider.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filterslider.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filtersuperslider.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filtertree.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/js/jquery.themepunch.tools.min.js"></script>
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/js/jquery.themepunch.revolution.min.js"></script> 
+
+{% endblock %} 
+
+{% block main %}
 
 <div class="main-container col2-left-layout">
     <div class="algolia-instant-results-wrapper">
         <div class="main algolia-instant-replaced-content">
-            <div class="manab-breadcrumbs mb-breadcrumbs">
-                <div class="breadcrumbs">
-                    <ul>
-                        <li class="home">
-                            <a href="https://www.pcdiga.com/" title="Ir para a Página Inicial">Início</a>
-                            <span> &gt; </span>
-                        </li>
-                        <li class="category5">
-                            <a href="https://www.pcdiga.com/imagem" title="">Imagem</a>
-                            <span> &gt; </span>
-                        </li>
-                        <li class="category102">
-                            <strong>Monitores</strong>
-                        </li>
-                    </ul>
+            <div class="col-left sidebar col-left-first">
+                <div class="manab-left-first mb-left-first">
+                    <div class="manab-mana-catalog-leftnav mb-mana-catalog-leftnav">
+                        <div class="block block-layered-nav block-layered-nav--no-filters">
+                            <div class="block-title">
+                                <strong>
+                                    <span>Pesquise por</span>
+                                </strong>
+                            </div>
+                            <div class="block-content toggle-content">
+
+                                <div class="block-subtitle block-subtitle--filter m-filter-group " data-id="left-0">
+                                    <span class="wide-title ">Pesquise por</span>
+                                    <span class="mobile-title">Filtro</span>
+                                </div>
+
+                                <dl class="narrow-by-list" id="narrow-by-list-0">
+                                    <dt class="odd" data-id="m_left_manufacturer_filter">
+                                        Marca </dt>
+                                    <dd class="odd">
+
+                                        <ol class="m-filter-css-checkboxes  m-expandable-filter" style="height: 108px;">
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=intel"
+                                                    title="AOC">Intel
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=apple"
+                                                    title="Acer">Apple
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=asus"
+                                                    title="Asus">Asus
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=benq"
+                                                    title="BenQ">BenQ
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=samsung"
+                                                    title="Dell">Samsung
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=hp"
+                                                    title="HP">HP
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=lg"
+                                                    title="LG">LG
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=lenovo"
+                                                    title="Lenovo">Lenovo
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=msi"
+                                                    title="MSI">MSI
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=philips"
+                                                    title="Philips">Philips
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=samsung"
+                                                    title="Samsung">Samsung
+                                                </a>
+                                            </li>
+                                        </ol>
+
+                                    </dd>
+                                    <dt class="even" data-id="m_left_price_filter">
+                                        Preço </dt>
+                                    <form method="POST" action="{% url 'filter_results' %}" id="priceRangeForm" style="padding: 0px; margin: 0px;">
+                                        {% csrf_token %}
+                                        <input id="minmaxhidden" type="hidden" value="" name="priceRange" />
+                                    </form>
+                                    <dd class="even">
+                                        <div id="left_price-track" class="m-filter-slider style2">
+                                            <div id="left_price-span" class="m-slider-span" style="left: 5px; width: 240px;"></div>
+                                            <div id="left_price-from" class="m-slider-from selected" style="left: 0px;" onmouseup="sendPriceRange()"></div>
+                                            <div id="left_price-to" class="m-slider-to" style="left: 240px;" onmouseup="sendPriceRange()"></div>
+                                        </div>
+                                        <div class="m-slider-values">
+                                            <span id="left_price-range-from" class="m-slider-min-value">{{min}}&nbsp;€</span>
+                                            <span id="left_price-range-to" class="m-slider-max-value">{{max}}&nbsp;€</span>
+                                            <span id="left_price-applied" class="m-slider-selected-value">{{min}}&nbsp;€ até {{max}}&nbsp;€</span>
+                                        </div>
+
+                                        <script type="text/javascript">
+                                            //<![CDATA[
+                                            ManaPro.filterSuperSlider('left_price', {
+                                                rangeFrom: 0,
+                                                rangeTo: 4300,
+                                                appliedFrom: 0,
+                                                appliedTo: 4300,
+                                                numberFormat: "0 €",
+                                                appliedFormat: '__0__ to __1__',
+                                                url: 'aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXMvcHJlJUMzJUE3by9fXzBfXy1fXzFfXw==',
+                                                clearUrl: 'aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXM=',
+                                                manualEntry: 0,
+                                                formatThreshold: 0,
+                                                numberFormat2: "0",
+                                                existingValues: {},
+                                                decimalDigits: 0,
+                                                decimalDigits2: 0,
+                                                thousandSeparator: '0',
+                                                decimalSymbol: ",",
+                                                groupSymbol: " "
+                                            });
+                    //]]>
+                                        </script>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-main">
@@ -68,25 +207,107 @@
                             }
                         }
                     </style>
-                    <div class="manab-category-products mb-category-products">
-                        <div class="page-title category-title">
-                            <h1>Monitores</h1>
+
+                    <div class="category-products">
+                        <div class="toolbar">
+                            <div class="sorter">
+                                <p class="view-mode">
+                                </p>
+                            </div>
+                            <div class="pager">
+                                <div class="count-container">
+                                    <p class="amount amount--has-pages">
+                                        1-24 of 288 </p>
+                                </div>
+                            </div>
+
+                            <div class="pages">
+                                <strong>Pagina:</strong>
+                                <ol>
+
+                                    <li class="current">1</li>
+                                    <li>
+                                        <a href="https://www.pcdiga.com/monitores/page/2">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pcdiga.com/monitores/page/3">3</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pcdiga.com/monitores/page/4">4</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.pcdiga.com/monitores/page/5">5</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="next" href="https://www.pcdiga.com/monitores/page/2" title="Seguinte">
+                                            Next </a>
+                                    </li>
+                                </ol>
+
+                            </div>
+
+                            <div class="sort-by">
+                                <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
+                                    {% csrf_token %}
+                                    <input id="escondido" type="hidden" value="" name="selected_option" />
+                                    <label>Ordenar por</label>
+                                    <select title="Ordenar por" name="sortby" form="sortForm" onchange="if (typeof(this.selectedIndex) != 'undefined') setValue(this.selectedIndex)">
+                                        <option value="price" selected="{{selected1}}">
+                                            Mais barato </option>
+                                        <option value="-price" selected="{{selected2}}">
+                                            Mais caro </option>
+                                    </select>
+                                </form>
+                            </div>
                         </div>
 
+                        <ul class="products-grid products-grid--max-4-col first last odd">
+                            {% for p in products %}
+                            <li class="item last">
 
-                        <p class="category-image">
-                            <img src="https://www.pcdiga.com/media/catalog/category/Monitors_cat.jpg" alt="Monitores" title="Monitores">
-                        </p>
-                        <div class="category-description std">
-                            <script type="text/javascript">// <![CDATA[
-                                var new_background = "https://www.pcdiga.com/media/background/backgrounds/asus_vg255_takeover.jpg";
-                                var new_background_cor = "#000000";
-                                var new_background_url = "https://www.pcdiga.com/monitor-asus-vg255h-tn-24-5-fhd-16-9-75hz-freesync?ref=takeover";
-// ]]></script> </div>
+                                <a href="{% url 'product_details' ean=p.ean %}" title="{{p.name}}" class="product-image">
+                                    <img id="product-collection-image-456" src="http://localhost/static/products/{{p.image}}" alt="{{p.name}}">
+                                </a>
+                                <div class="product-info" style="padding-bottom: 28px; min-height: 178px;">
+                                    <h2 class="product-name" style="margin-top:10px;">
+                                        <a href="{% url 'product_details' ean=p.ean %}" title="{{p.name}}">{{p.name}}</a>
+                                    </h2>
+
+                                    <div class="extra-info">
+                                        <i class="icon-availability icon-stock-in"></i>
+                                        <span class="stock-in"> Em Stock</span>
+                                    </div>
+
+                                    <div class="actions">
+
+                                        <div class="price-box Tsaleable">
+
+                                            <p class="special-price">
+                                                <span class="price-label"></span>
+                                                <span class="price" id="product-price-456">
+                                                    {{p.price}}&nbsp;€ </span>
+                                            </p>
+
+                                        </div>
+
+                                        <button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXM,/product/456/form_key/KFOmacvFSSkeyjEi/')">
+                                            <span>
+                                                <i class="icon-pc-cart"></i>
+                                                <span>Comprar</span>
+                                            </span>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                        </ul>
+                        <!-- <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd', 'even', 'first', 'last'])</script> -->
 
 
-
-                        <div class="category-products">
+                        <div class="toolbar-bottom">
                             <div class="toolbar">
                                 <div class="sorter">
                                     <p class="view-mode">
@@ -99,14 +320,9 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="pages">
                                     <strong>Pagina:</strong>
                                     <ol>
-
-
 
                                         <li class="current">1</li>
                                         <li>
@@ -122,9 +338,6 @@
                                             <a href="https://www.pcdiga.com/monitores/page/5">5</a>
                                         </li>
 
-
-
-
                                         <li>
                                             <a class="next" href="https://www.pcdiga.com/monitores/page/2" title="Seguinte">
                                                 Next </a>
@@ -133,12 +346,14 @@
 
                                 </div>
 
+
+
                                 <div class="sort-by">
                                     <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
                                         {% csrf_token %}
                                         <input id="escondido" type="hidden" value="" name="selected_option" />
                                         <label>Ordenar por</label>
-                                        <select title="Ordenar por" name="sortby" form="sortForm" onclick="if (typeof(this.selectedIndex) != 'undefined') setValue(this.selectedIndex)">
+                                        <select title="Ordenar por" name="sortby" form="sortForm" onchange="setValue(this.selectedIndex);">
                                             <option value="price" selected="{{selected1}}">
                                                 Mais barato </option>
                                             <option value="-price" selected="{{selected2}}">
@@ -147,119 +362,27 @@
                                     </form>
                                 </div>
                             </div>
-
-                            <ul class="products-grid products-grid--max-4-col first last odd">
-                                {% for p in products %}
-                                <li class="item last">
-
-                                    <a href="{% url 'product_details' ean=p.ean %}" title="{{p.name}}" class="product-image">
-                                        <img id="product-collection-image-456" src="http://localhost/static/products/{{p.image}}" alt="{{p.name}}">
-                                    </a>
-                                    <div class="product-info" style="padding-bottom: 28px; min-height: 178px;">
-                                        <h2 class="product-name" style="margin-top:10px;">
-                                            <a href="{% url 'product_details' ean=p.ean %}" title="{{p.name}}">{{p.name}}</a>
-                                        </h2>
-
-                                        <div class="extra-info">
-                                            <i class="icon-availability icon-stock-in"></i>
-                                            <span class="stock-in"> Em Stock</span>
-                                        </div>
-
-                                        <div class="actions">
-
-                                            <div class="price-box Tsaleable">
-
-                                                <p class="special-price">
-                                                    <span class="price-label"></span>
-                                                    <span class="price" id="product-price-456">
-                                                        {{p.price}}&nbsp;€ </span>
-                                                </p>
-
-                                            </div>
-
-                                            <button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXM,/product/456/form_key/KFOmacvFSSkeyjEi/')">
-                                                <span>
-                                                    <i class="icon-pc-cart"></i>
-                                                    <span>Comprar</span>
-                                                </span>
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </li>
-                                {% endfor %}
-
-                            </ul>
-                            <!-- <script type="text/javascript">decorateGeneric($$('ul.products-grid'), ['odd', 'even', 'first', 'last'])</script> -->
-
-
-                            <div class="toolbar-bottom">
-                                <div class="toolbar">
-                                    <div class="sorter">
-                                        <p class="view-mode">
-                                        </p>
-                                    </div>
-                                    <div class="pager">
-                                        <div class="count-container">
-                                            <p class="amount amount--has-pages">
-                                                1-24 of 288 </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="pages">
-                                        <strong>Pagina:</strong>
-                                        <ol>
-
-                                            <li class="current">1</li>
-                                            <li>
-                                                <a href="https://www.pcdiga.com/monitores/page/2">2</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.pcdiga.com/monitores/page/3">3</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.pcdiga.com/monitores/page/4">4</a>
-                                            </li>
-                                            <li>
-                                                <a href="https://www.pcdiga.com/monitores/page/5">5</a>
-                                            </li>
-
-                                            <li>
-                                                <a class="next" href="https://www.pcdiga.com/monitores/page/2" title="Seguinte">
-                                                    Next </a>
-                                            </li>
-                                        </ol>
-
-                                    </div>
-
-
-
-                                    <div class="sort-by">
-                                        <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
-                                            {% csrf_token %}
-                                            <input id="escondido" type="hidden" value="" name="selected_option" />
-                                            <label>Ordenar por</label>
-                                            <select title="Ordenar por" name="sortby" form="sortForm" onclick="if (typeof(this.selectedIndex) != 'undefined') setValue(this.selectedIndex)">
-                                                <option value="price" selected="{{selected1}}">
-                                                    Mais barato </option>
-                                                <option value="-price" selected="{{selected2}}">
-                                                    Mais caro </option>
-                                            </select>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
 
-                        <script>
-                            function setValue(arg) {
-                                document.getElementById('escondido').value = arg;
-                                document.getElementById('sortForm').submit();
-                            }
-                        </script>
+                    </div>
 
-                        <!-- <script>
+                    <script>
+                        function setValue(arg) {
+                            alert("funcao chamada");
+                            document.getElementById('escondido').value = arg;
+                            document.getElementById('sortForm').submit();
+                        }
+                    </script>
+
+                    <script>
+                        function sendPriceRange() {
+                            priceRangeData = document.getElementById("left_price-applied").innerHTML;
+                            document.getElementById('minmaxhidden').value = priceRangeData;
+                            document.getElementById('priceRangeForm').submit();
+                        }
+                    </script>
+
+                    <!-- <script>
                             function setValue(this) {
                                 var valor = 0;
                                 var options = this.children;
@@ -274,7 +397,7 @@
                         </script> -->
 
 
-                        <!-- <script>
+                    <!-- <script>
                             function sortResults(order) {
                                 // var url = "https://127.0.0.1/store/product_search/sort?order=" + order
                                 $.get("https://127.0.0.1/store/product_search/sort", { sortby: order });
@@ -282,37 +405,37 @@
                         </script> -->
 
 
-                        <script type="text/javascript">
-                            jQuery(document).ready(function () {
+                    <!-- <script type="text/javascript">
+                        jQuery(document).ready(function () {
 
-                                jQuery(window).scroll(function () {
-                                    if (jQuery(this).scrollTop() > 100) {
-                                        jQuery('.gotoTop').fadeIn();
-                                    } else {
-                                        jQuery('.gotoTop').fadeOut();
-                                    }
-                                });
-
-                                jQuery('.gotoTop').click(function () {
-                                    jQuery("html, body").animate({
-                                        scrollTop: 0
-                                    }, 600);
-                                    return false;
-                                });
-
+                            jQuery(window).scroll(function () {
+                                if (jQuery(this).scrollTop() > 100) {
+                                    jQuery('.gotoTop').fadeIn();
+                                } else {
+                                    jQuery('.gotoTop').fadeOut();
+                                }
                             });
-                        </script>
+
+                            jQuery('.gotoTop').click(function () {
+                                jQuery("html, body").animate({
+                                    scrollTop: 0
+                                }, 600);
+                                return false;
+                            });
+
+                        });
+                    </script> -->
 
 
 
 
-                        <!--RTB House-->
-                        <!-- <script type="text/javascript"> (function () { var x = document.createElement('script'); x.async = true; x.src = "//creativecdn.com/tags?type=script&" + (MageUserIdLoggedIn ? 'id0=pr_niO5dRX5PECEvayZYg2r_uid_' + MageUserIdLoggedIn + '&' : '') + "id=pr_niO5dRX5PECEvayZYg2r_category2_102"; document.getElementsByTagName('head')[0].appendChild(x); }()); </script> -->
-                    </div>
+                    <!--RTB House-->
+                    <!-- <script type="text/javascript"> (function () { var x = document.createElement('script'); x.async = true; x.src = "//creativecdn.com/tags?type=script&" + (MageUserIdLoggedIn ? 'id0=pr_niO5dRX5PECEvayZYg2r_uid_' + MageUserIdLoggedIn + '&' : '') + "id=pr_niO5dRX5PECEvayZYg2r_category2_102"; document.getElementsByTagName('head')[0].appendChild(x); }()); </script> -->
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </div>
 

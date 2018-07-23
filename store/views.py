@@ -2,8 +2,10 @@ from .forms import CostumerRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from .models import Costumer, Product
-import pickle
 from django.db.models import Q
+from functools import reduce
+from .cart import *
+import operator
 
 
 def home_view(request):
@@ -65,40 +67,112 @@ def logout_view(request):
 
 def product_details_view(request, ean):
 	product = Product.objects.get(ean=ean)
-	return render(request, 'store/product_details.html', {'product': product})
+	return render(request, 'store/product_details.html', {'product': product, 'ean': product.ean})
 
 def product_search_view(request):
-	search_term_1 = request.GET.get('q1')
-	search_term_2 = request.GET.get('q2', 'as9df8DSA')
+	search_term_1 = request.session['q1'] = request.GET.get('q1')
+	search_term_2 = request.session['q2'] = request.GET.get('q2', 'as9df8DSA')
 	search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2))
-	request.session['q1'] = search_term_1
-	request.session['q2'] = search_term_2
-	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': 'true', 'selected2': 'false'})
+	if 'brands' in request.session: del request.session['brands']
+	if 'min' in request.session or 'max' in request.session: 
+		del request.session['min']
+		del request.session['max']
+	request.session.modified = True
+	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': 'true', 'selected2': 'false', 'min': 0, 'max': 4300})
 
 def sort_results_view(request):
 	search_term_1 = request.session['q1']
 	search_term_2 = request.session['q2']
 	sort_property = request.POST['sortby']
 	if not search_term_2: search_term_2 = 'as9df8DSA'
-	search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2)).order_by(sort_property)
+	
 	selected_option = request.POST['selected_option']
 	selection_info = ['true','false']
 	selected1 = selection_info[(0+int(selected_option))%2]
 	selected2 = selection_info[(1+int(selected_option))%2]
+
+	search_terms = [Q(name__icontains=search_term_1), Q(name__icontains=search_term_2)]
+
+	if 'brands' in request.session:
+		brand_filters = []
+		for brandName in request.session['brands']:
+			brand_filters.append(Q(name__icontains=brandName))
+		search_results = Product.objects.all().filter(reduce(operator.or_, search_terms)).filter(reduce(operator.or_, brand_filters)).order_by(sort_property)
+	else:
+		search_results = Product.objects.all().filter(reduce(operator.or_, search_terms)).order_by(sort_property)
+
 	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': selected1, 'selected2': selected2})
 
-# def filter_results_view(request):
-# 	search_term_1 = request.session['q1']
-# 	search_term_2 = request.session['q2']
-# 	min = request.POST['min']
-# 	max = request.POST['max']
-# 	brand = request.POST['brand']
-# 	if not search_term_2: search_term_2 = 'as9df8DSA'
-# 	if not brand:
-# 		search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2)).filter(price between min max)
-# 	elif not min:
-# 		search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2) & Q(name__icontains=brand)
-# 	else:
-# 		search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2) & Q(name__icontains=brand).filter(price between min max)
-# 	return render(request, 'store/search_results.html', {'products': search_results})
-		
+
+def filter_results_view(request):
+	search_term_1 = request.session['q1']
+	search_term_2 = request.session['q2']
+	if not search_term_2: search_term_2 = 'as9df8DSA'
+	if 'min' in request.session or 'max' in request.session:
+		min = request.session['min']
+		max = request.session['max']
+	else:
+		min = 0
+		max = 4300
+	brand_filters = []
+
+	brand = request.GET.get('brand')
+	if brand != None:
+		if 'brands' not in request.session:
+			request.session['brands'] = []
+			request.session['brands'].append(brand)
+		else:
+			request.session['brands'].append(brand)
+
+		for brandName in request.session['brands']:
+			brand_filters.append(Q(name__icontains=brandName))
+			
+	else:
+		priceRangeString = request.POST['priceRange']
+		priceRangeString = priceRangeString.replace("&nbsp;", " ")
+
+		minMaxList = [int(s) for s in priceRangeString.split() if s.isdigit()]
+
+		if len(minMaxList) == 2:
+			min = minMaxList[0]
+			max = minMaxList[1]
+		elif len(minMaxList) == 3:
+			min = minMaxList[0]
+			max = minMaxList[1] * 1000 + minMaxList[2]
+		else:
+			min = minMaxList[0] * 1000 + minMaxList[1]
+			max = minMaxList[2] * 1000 + minMaxList[3]
+
+		request.session['min'] = min
+		request.session['max'] = max
+
+		if 'brands' in request.session:
+			for brandName in request.session['brands']:
+				brand_filters.append(Q(name__icontains=brandName))
+
+	search_terms = [Q(name__icontains=search_term_1), Q(name__icontains=search_term_2)]
+
+	if len(brand_filters) > 0:
+		search_results = Product.objects.all().filter(reduce(operator.or_, search_terms)).filter(reduce(operator.or_, brand_filters)).filter(price__gte=min,price__lte=max)
+	else:
+	 	search_results = Product.objects.all().filter(reduce(operator.or_, search_terms)).filter(price__gte=min,price__lte=max)
+
+	return render(request, 'store/search_results.html', {'products': search_results, 'min': min, 'max': max})
+
+def show_cart_view(request):
+	items = get_cart_items(request)
+	cart_total = cart_subtotal(request)
+	return render(request, 'store/shopping_cart.html', {'cart_items': items, 'cart_total': cart_total})
+
+def add_cart_item_view(request):
+	#add to cart
+	add_to_cart(request)
+	return redirect(request.META['HTTP_REFERER'])
+
+def remove_cart_item_view(request):
+	remove_from_cart(request)
+	return redirect('show_cart')
+
+def update_cart_item_view(request):
+	update_cart(request)
+	return redirect('show_cart')
