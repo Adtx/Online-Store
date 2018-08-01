@@ -24,6 +24,8 @@ class Product(models.Model):
     is_featured = models.BooleanField(default=False)
     quantity = models.IntegerField()
     description = models.TextField(blank=True)
+    brand = models.CharField(max_length=255, blank=True)
+    category = models.CharField(max_length=255, blank=True)
     #categories = models.ManyToManyField(Category)
 
     class Meta:

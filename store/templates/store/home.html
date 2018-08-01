@@ -720,10 +720,10 @@
 					<ul id="owl-featured" class="products-grid owl-carousel owl-theme owl-loaded owl-drag">
 						<div class="owl-stage-outer">
 							<div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: 0s; width: 2355px;">
-								{% for p in new_products %}
+								{% for p in products_on_sale %}
 									<div class="owl-item active" style="width: 196.25px;">
 										<li class="item">
-											<a href="#"	class="product-image">
+											<a href="{% url 'product_details' ean=p.ean %}"	class="product-image">
 												<div class="only_bottom_left">
 													<span class="sticker-wrapper bottom-right">
 														<span class="sticker sale">- 20€</span>
@@ -739,33 +739,37 @@
 												width="176" height="176" alt="{{p.name}}">
 											</a>
 											<h3 class="product-name">
-												<a href="#">
+												<a href="{% url 'product_details' ean=p.ean %}">
 													Mini-PC MSI Cubi 3 Silent S-005BEU i3-7100 Preto</a>
 											</h3>
 											<div class="extra-info">
 												<i class="icon-availability icon-stock-in"></i>
 												<span class="stock-in"> Em Stock</span>
 											</div>
-											<div class="actions">
-												<div class="price-box Tsaleable">
-													<p class="old-price">
-														<span class="price-label">Preço Regular:</span>
-														<span class="price" id="old-price-13927-new">
-															349,00&nbsp;€ </span>
-													</p>
-													<p class="special-price">
-														<span class="price-label"></span>
-														<span class="price" id="product-price-13927-new">
-															329,00&nbsp;€ </span>
-													</p>
+											<form method="POST" id="addCartItem1" action="{% url 'add_cart_item' %}" style="padding: 0px; margin: 0px;">
+												{% csrf_token %}
+												<input type="hidden" name="product_ean" value="{{p.ean}}" />
+												<div class="actions" onclick="sendDados(this)">
+													<div class="price-box Tsaleable">
+														<p class="old-price">
+															<span class="price-label">Preço Regular:</span>
+															<span class="price" id="old-price-13927-new">
+																349,00&nbsp;€ </span>
+														</p>
+														<p class="special-price">
+															<span class="price-label"></span>
+															<span class="price" id="product-price-13927-new">
+																{{p.price}}&nbsp;€</span>
+														</p>
+													</div>
+													<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+														<span>
+															<i class="icon-pc-cart"></i>
+															<span>Comprar</span>
+														</span>
+													</button>
 												</div>
-												<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
-													<span>
-														<i class="icon-pc-cart"></i>
-														<span>Comprar</span>
-													</span>
-												</button>
-											</div>
+											</form>
 										</li>
 									</div>
 								{% endfor %}
@@ -805,26 +809,30 @@
 												<i class="icon-availability icon-stock-in"></i>
 												<span class="stock-in"> Em Stock</span>
 											</div>
-											<div class="actions">
-												<div class="price-box Tsaleable">
-													<p class="old-price">
-														<span class="price-label">Preço Regular:</span>
-														<span class="price" id="old-price-13927-new">
-															349,00&nbsp;€ </span>
-													</p>
-													<p class="special-price">
-														<span class="price-label"></span>
-														<span class="price" id="product-price-13927-new">
-															{{p.price}}&nbsp;€ </span>
-													</p>
+											<form method="POST" id="addCartItem2" action="{% url 'add_cart_item' %}" style="padding: 0px; margin: 0px;">
+												{% csrf_token %}
+												<input type="hidden" name="product_ean" value="{{p.ean}}" />
+												<div class="actions" onclick="sendDados(this)">
+													<div class="price-box Tsaleable">
+														<p class="old-price">
+															<span class="price-label">Preço Regular:</span>
+															<span class="price" id="old-price-13927-new">
+																349,00&nbsp;€ </span>
+														</p>
+														<p class="special-price">
+															<span class="price-label"></span>
+															<span class="price" id="product-price-13927-new">
+																{{p.price}}&nbsp;€ </span>
+														</p>
+													</div>
+													<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+														<span>
+															<i class="icon-pc-cart"></i>
+															<span>Comprar</span>
+														</span>
+													</button>
 												</div>
-												<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
-													<span>
-														<i class="icon-pc-cart"></i>
-														<span>Comprar</span>
-													</span>
-												</button>
-											</div>
+											</form>
 										</li>
 									</div>
 								{% endfor %}
@@ -864,26 +872,30 @@
 												<i class="icon-availability icon-stock-in"></i>
 												<span class="stock-in"> Em Stock</span>
 											</div>
-											<div class="actions">
-												<div class="price-box Tsaleable">
-													<p class="old-price">
-														<span class="price-label">Preço Regular:</span>
-														<span class="price" id="old-price-13927-new">
-															349,00&nbsp;€ </span>
-													</p>
-													<p class="special-price">
-														<span class="price-label"></span>
-														<span class="price" id="product-price-13927-new">
-															{{p.price}}&nbsp;€ </span>
-													</p>
+											<form method="POST" id="addCartItem3" action="{% url 'add_cart_item' %}" style="padding: 0px; margin: 0px;">
+												{% csrf_token %}
+												<input type="hidden" name="product_ean" value="{{p.ean}}" />
+												<div class="actions" onclick="sendDados(this)">
+													<div class="price-box Tsaleable">
+														<p class="old-price">
+															<span class="price-label">Preço Regular:</span>
+															<span class="price" id="old-price-13927-new">
+																349,00&nbsp;€ </span>
+														</p>
+														<p class="special-price">
+															<span class="price-label"></span>
+															<span class="price" id="product-price-13927-new">
+																{{p.price}}&nbsp;€ </span>
+														</p>
+													</div>
+													<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
+														<span>
+															<i class="icon-pc-cart"></i>
+															<span>Comprar</span>
+														</span>
+													</button>
 												</div>
-												<button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS8,/product/13927/form_key/XpgVuKjQlnxiQjPt/')">
-													<span>
-														<i class="icon-pc-cart"></i>
-														<span>Comprar</span>
-													</span>
-												</button>
-											</div>
+											</form>
 										</li>
 									</div>
 								{% endfor %}
@@ -895,5 +907,12 @@
 		</div>
 	</div>
 </section>
+
+<script>
+	function sendDados(el) {
+		el.parentNode.submit();
+		//element.form.submit();
+	}
+</script>
 
 {% endblock %}

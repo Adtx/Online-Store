@@ -221,7 +221,7 @@
                                         {% csrf_token %}
                                         <input type="hidden" name="item_ean" value="{{item.product.ean}}" />
                                         <input type="text" pattern="\d*" name="quantity" value="{{item.quantity}}" size="4" title="Qt" class="input-text qty"
-                                            maxlength="12" onfocus="this.nextElementSibling.style.display='inline-block'">
+                                            maxlength="12" onfocus="this.nextElementSibling.style.display='inline-block'" style="border-width: 2px; border-color: darkgray; background-color: #bbbbbb; color: black;">
                                         <button type="submit" title="Atualizar" class="button btn-update" onclick="sendData2()">
                                             <span>
                                                 <span>Atualizar</span>

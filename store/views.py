@@ -72,13 +72,17 @@ def product_details_view(request, ean):
 def product_search_view(request):
 	search_term_1 = request.session['q1'] = request.GET.get('q1')
 	search_term_2 = request.session['q2'] = request.GET.get('q2', 'as9df8DSA')
-	search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2))
+	search_results = Product.objects.all().filter(Q(name__icontains=search_term_1) | Q(name__icontains=search_term_2) | Q(brand__iexact=search_term_1) | Q(category__iexact=search_term_1) | Q(category__iexact=search_term_2) | Q(description__icontains=search_term_1) | Q(description__icontains=search_term_2))
 	if 'brands' in request.session: del request.session['brands']
 	if 'min' in request.session or 'max' in request.session: 
 		del request.session['min']
 		del request.session['max']
 	request.session.modified = True
-	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': 'true', 'selected2': 'false', 'min': 0, 'max': 4300})
+	brands = ['Intel','Apple','Asus','BenQ','Samsung','HP','LG','Lenovo','MSI','Philips']
+	checkboxclass = {}
+	for brand in brands:
+		checkboxclass[brand] = 'm-checkbox-unchecked'
+	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': 'true', 'selected2': 'false', 'min': 0, 'max': 4300, 'checkboxclass': checkboxclass})
 
 def sort_results_view(request):
 	search_term_1 = request.session['q1']
@@ -107,6 +111,7 @@ def sort_results_view(request):
 def filter_results_view(request):
 	search_term_1 = request.session['q1']
 	search_term_2 = request.session['q2']
+	
 	if not search_term_2: search_term_2 = 'as9df8DSA'
 	if 'min' in request.session or 'max' in request.session:
 		min = request.session['min']
@@ -119,14 +124,11 @@ def filter_results_view(request):
 	brand = request.GET.get('brand')
 	if brand != None:
 		if 'brands' not in request.session:
-			request.session['brands'] = []
-			request.session['brands'].append(brand)
+			request.session['brands'] = [brand]
+		elif brand in request.session['brands']:
+			request.session['brands'].remove(brand)
 		else:
 			request.session['brands'].append(brand)
-
-		for brandName in request.session['brands']:
-			brand_filters.append(Q(name__icontains=brandName))
-			
 	else:
 		priceRangeString = request.POST['priceRange']
 		priceRangeString = priceRangeString.replace("&nbsp;", " ")
@@ -146,9 +148,11 @@ def filter_results_view(request):
 		request.session['min'] = min
 		request.session['max'] = max
 
-		if 'brands' in request.session:
-			for brandName in request.session['brands']:
-				brand_filters.append(Q(name__icontains=brandName))
+	request.session.modified = True
+	
+	if 'brands' in request.session:
+		for brandName in request.session['brands']:
+			brand_filters.append(Q(name__icontains=brandName))
 
 	search_terms = [Q(name__icontains=search_term_1), Q(name__icontains=search_term_2)]
 
@@ -157,7 +161,14 @@ def filter_results_view(request):
 	else:
 	 	search_results = Product.objects.all().filter(reduce(operator.or_, search_terms)).filter(price__gte=min,price__lte=max)
 
-	return render(request, 'store/search_results.html', {'products': search_results, 'min': min, 'max': max})
+	brands = ['Intel','Apple','Asus','BenQ','Samsung','HP','LG','Lenovo','MSI','Philips']
+	checkboxclass = {}
+	for brand in brands:
+		if brand in request.session['brands']:
+			checkboxclass[brand] = "m-checkbox-checked"
+		else:
+			checkboxclass[brand] = "m-checkbox-unchecked"
+	return render(request, 'store/search_results.html', {'products': search_results, 'min': min, 'max': max, 'checkboxclass': checkboxclass})
 
 def show_cart_view(request):
 	items = get_cart_items(request)

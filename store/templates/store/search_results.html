@@ -48,66 +48,18 @@
                                 </div>
 
                                 <dl class="narrow-by-list" id="narrow-by-list-0">
-                                    <dt class="odd" data-id="m_left_manufacturer_filter">
+                                    <dt class="even" data-id="m_left_manufacturer_filter">
                                         Marca </dt>
-                                    <dd class="odd">
+                                    <dd class="even">
 
                                         <ol class="m-filter-css-checkboxes  m-expandable-filter" style="height: 108px;">
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=intel"
-                                                    title="AOC">Intel
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=apple"
-                                                    title="Acer">Apple
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=asus"
-                                                    title="Asus">Asus
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=benq"
-                                                    title="BenQ">BenQ
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=samsung"
-                                                    title="Dell">Samsung
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=hp"
-                                                    title="HP">HP
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=lg"
-                                                    title="LG">LG
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=lenovo"
-                                                    title="Lenovo">Lenovo
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=msi"
-                                                    title="MSI">MSI
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=philips"
-                                                    title="Philips">Philips
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="m-checkbox-unchecked" onclick="this.className='m-checkbox-checked'" href="{% url 'filter_results' %}?brand=samsung"
-                                                    title="Samsung">Samsung
-                                                </a>
-                                            </li>
+                                            {% for key, value in checkboxclass.items %}
+                                                <li>
+                                                    <a class="{{value}}" href="{% url 'filter_results' %}?brand={{key}}"
+                                                        title="AOC">{{key}}
+                                                    </a>
+                                                </li>
+                                            {% endfor %}
                                         </ol>
 
                                     </dd>
@@ -221,7 +173,7 @@
                                 </div>
                             </div>
 
-                            <div class="pages">
+                            <!-- <div class="pages">
                                 <strong>Pagina:</strong>
                                 <ol>
 
@@ -245,7 +197,7 @@
                                     </li>
                                 </ol>
 
-                            </div>
+                            </div> -->
 
                             <div class="sort-by">
                                 <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
@@ -278,26 +230,30 @@
                                         <i class="icon-availability icon-stock-in"></i>
                                         <span class="stock-in"> Em Stock</span>
                                     </div>
+                                    
+                                    <form method="POST" id="addCartItem1" action="{% url 'add_cart_item' %}" style="padding: 0px; margin: 0px;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="product_ean" value="{{p.ean}}" />
+                                        <div class="actions" onclick="sendDados(this)">
 
-                                    <div class="actions">
+                                            <div class="price-box Tsaleable">
 
-                                        <div class="price-box Tsaleable">
+                                                <p class="special-price">
+                                                    <span class="price-label"></span>
+                                                    <span class="price" id="product-price-456">
+                                                        {{p.price}}&nbsp;€ </span>
+                                                </p>
 
-                                            <p class="special-price">
-                                                <span class="price-label"></span>
-                                                <span class="price" id="product-price-456">
-                                                    {{p.price}}&nbsp;€ </span>
-                                            </p>
+                                            </div>
 
+                                            <button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXM,/product/456/form_key/KFOmacvFSSkeyjEi/')">
+                                                <span>
+                                                    <i class="icon-pc-cart"></i>
+                                                    <span>Comprar</span>
+                                                </span>
+                                            </button>
                                         </div>
-
-                                        <button type="button" title="Comprar" class="button btn-cart" onclick="setLocation('https://www.pcdiga.com/checkout/cart/add/uenc/aHR0cHM6Ly93d3cucGNkaWdhLmNvbS9tb25pdG9yZXM,/product/456/form_key/KFOmacvFSSkeyjEi/')">
-                                            <span>
-                                                <i class="icon-pc-cart"></i>
-                                                <span>Comprar</span>
-                                            </span>
-                                        </button>
-                                    </div>
+                                    </form>
 
                                 </div>
                             </li>
@@ -320,7 +276,7 @@
                                     </div>
                                 </div>
 
-                                <div class="pages">
+                                <!-- <div class="pages">
                                     <strong>Pagina:</strong>
                                     <ol>
 
@@ -344,7 +300,7 @@
                                         </li>
                                     </ol>
 
-                                </div>
+                                </div> -->
 
 
 
@@ -379,6 +335,13 @@
                             priceRangeData = document.getElementById("left_price-applied").innerHTML;
                             document.getElementById('minmaxhidden').value = priceRangeData;
                             document.getElementById('priceRangeForm').submit();
+                        }
+                    </script>
+
+                    <script>
+                        function sendDados(el) {
+                            el.parentNode.submit();
+                            //element.form.submit();
                         }
                     </script>
 
