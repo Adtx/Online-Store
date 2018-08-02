@@ -22,11 +22,7 @@
 <script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filtersuperslider.js"></script>
 <script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/manapro_filtertree.js"></script>
 <script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/js/jquery.themepunch.revolution.min.js"></script> 
-
-{% endblock %} 
-
-{% block main %}
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/nwdthemes/revslider/public/assets/js/jquery.themepunch.revolution.min.js"></script> {% endblock %} {% block main %}
 
 <div class="main-container col2-left-layout">
     <div class="algolia-instant-results-wrapper">
@@ -54,11 +50,10 @@
 
                                         <ol class="m-filter-css-checkboxes  m-expandable-filter" style="height: 108px;">
                                             {% for key, value in checkboxclass.items %}
-                                                <li>
-                                                    <a class="{{value}}" href="{% url 'filter_results' %}?brand={{key}}"
-                                                        title="AOC">{{key}}
-                                                    </a>
-                                                </li>
+                                            <li>
+                                                <a class="{{value}}" href="{% url 'filter_results' %}?brand={{key}}" title="AOC">{{key}}
+                                                </a>
+                                            </li>
                                             {% endfor %}
                                         </ol>
 
@@ -200,14 +195,14 @@
                             </div> -->
 
                             <div class="sort-by">
-                                <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
+                                <form method="POST" action="{% url 'sort_results' %}" id="sortForm1" onsubmit="enableSelect('select1');" style="padding: 0px; margin: 0px;">
                                     {% csrf_token %}
-                                    <input id="escondido" type="hidden" value="" name="selected_option" />
+                                    <input id="escondido1" type="hidden" value="" name="selected_option" />
                                     <label>Ordenar por</label>
-                                    <select title="Ordenar por" name="sortby" form="sortForm" onchange="if (typeof(this.selectedIndex) != 'undefined') setValue(this.selectedIndex)">
-                                        <option value="price" selected="{{selected1}}">
+                                    <select title="Ordenar por" id="select1" name="sortby" form="sortForm" onchange="myfunc(this.selectedIndex,'sortForm1','escondido1')">
+                                        <option value="price" {{selected1}}>
                                             Mais barato </option>
-                                        <option value="-price" selected="{{selected2}}">
+                                        <option value="-price" {{selected2}}>
                                             Mais caro </option>
                                     </select>
                                 </form>
@@ -230,7 +225,7 @@
                                         <i class="icon-availability icon-stock-in"></i>
                                         <span class="stock-in"> Em Stock</span>
                                     </div>
-                                    
+
                                     <form method="POST" id="addCartItem1" action="{% url 'add_cart_item' %}" style="padding: 0px; margin: 0px;">
                                         {% csrf_token %}
                                         <input type="hidden" name="product_ean" value="{{p.ean}}" />
@@ -305,14 +300,14 @@
 
 
                                 <div class="sort-by">
-                                    <form method="POST" action="{% url 'sort_results' %}" id="sortForm" style="padding: 0px; margin: 0px;">
+                                    <form method="POST" action="{% url 'sort_results' %}" id="sortForm2" onsubmit="enableSelect('select2');" style="padding: 0px; margin: 0px;">
                                         {% csrf_token %}
-                                        <input id="escondido" type="hidden" value="" name="selected_option" />
+                                        <input id="escondido2" type="hidden" value="" name="selected_option" />
                                         <label>Ordenar por</label>
-                                        <select title="Ordenar por" name="sortby" form="sortForm" onchange="setValue(this.selectedIndex);">
-                                            <option value="price" selected="{{selected1}}">
+                                        <select title="Ordenar por" id="select2" name="sortby" form="sortForm" onchange="myfunc(this.selectedIndex,'sortForm2','escondido2');">
+                                            <option value="price" {{selected1}}>
                                                 Mais barato </option>
-                                            <option value="-price" selected="{{selected2}}">
+                                            <option value="-price" {{selected2}}>
                                                 Mais caro </option>
                                         </select>
                                     </form>
@@ -323,42 +318,23 @@
                     </div>
 
                     <script>
-                        function setValue(arg) {
-                            alert("funcao chamada");
-                            document.getElementById('escondido').value = arg;
-                            document.getElementById('sortForm').submit();
+                        function myfunc(selectedIndex, formId, inputId) {
+                            document.getElementById(inputId).value = selectedIndex;
+                            document.getElementById(formId).submit();
                         }
-                    </script>
 
-                    <script>
                         function sendPriceRange() {
                             priceRangeData = document.getElementById("left_price-applied").innerHTML;
                             document.getElementById('minmaxhidden').value = priceRangeData;
                             document.getElementById('priceRangeForm').submit();
                         }
-                    </script>
 
-                    <script>
-                        function sendDados(el) {
-                            el.parentNode.submit();
-                            //element.form.submit();
+                        function sendDados(el) { el.parentNode.submit(); }
+
+                        function enableSelect(id) {
+                            document.getElementById(id).disabled = false;
                         }
                     </script>
-
-                    <!-- <script>
-                            function setValue(this) {
-                                var valor = 0;
-                                var options = this.children;
-                                for (i = 0; i < options.length; i++) {
-                                    if (options[i].selected == "true"){
-                                        valor = i;
-                                    }
-                                }
-                                document.getElementById('escondido').value = valor;
-                                this.form.submit();
-                            }
-                        </script> -->
-
 
                     <!-- <script>
                             function sortResults(order) {
@@ -399,10 +375,5 @@
         </div>
     </div>
 </div>
-
-</div>
-
-
-
 
 {% endblock %}
