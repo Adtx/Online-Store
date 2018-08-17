@@ -18,6 +18,7 @@ from django.urls import include, path
 
 urlpatterns = [
 	path('', include('store.urls')),
+    path(r'^paypal/', include('paypal.standard.ipn.urls')),
     path('store/', include('store.urls')),
     path('admin/', admin.site.urls),
 ]

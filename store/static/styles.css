@@ -6408,3 +6408,393 @@ i.icon-stock-in {
     @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;}
     @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
     @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+
+    /* -------------------------------------------------------- CHECKOUT -------------------------------------------------------- */
+
+   /*! CSS Used from: https://www.pcdiga.com/media/css_secure/c705c0f12829ee69dba5bcecdbc3fe18.css ; media=all */
+@media all{
+    .col-md-4,.col-md-6,.col-md-8,.col-md-12{position:relative;min-height:1px;padding-right:15px;padding-left:15px;}
+    @media (min-width: 992px){
+    .col-md-4,.col-md-6,.col-md-8,.col-md-12{float:left;}
+    .col-md-12{width:100%;}
+    .col-md-8{width:66.66666667%;}
+    .col-md-6{width:50%;}
+    .col-md-4{width:33.33333333%;}
+    }
+    @media (max-width: 767px) and (min-width: 461px){
+    .hidden-xs{display:none!important;}
+    }
+    #three-d-modal{position:fixed;top:0;left:0;display:flex;align-items:center;height:100vh;width:100vw;z-index:100000;visibility:visible;transition:0.4s;opacity:1;}
+    #three-d-modal.hidden{visibility:hidden;transition:0.4s;opacity:0;}
+    #three-d-modal.hidden .bt-modal-frame{transition:0.4s;transform:translateY(80px);}
+    #three-d-modal .bt-modal-frame{height:450px;width:440px;margin:auto;background-color:#ffffff;z-index:2;border-radius:6px;transition:0.4s;transform:translateY(0);}
+    #three-d-modal .bt-modal-body{height:380px;margin:0 20px;background-color:white;border:1px solid lightgray;}
+    #three-d-modal .bt-modal-header{height:40px;text-align:center;line-height:40px;}
+    #three-d-modal .bt-mask{position:absolute;top:0;left:0;height:100%;width:100%;background-color:black;opacity:0.75;}
+    @media (max-width: 650px){
+    #three-d-modal .bt-modal-frame{width:100%;}
+    }
+    #payment_form_gene_braintree_paypal p{padding:0;}
+    #payment_form_gene_braintree_paypal{padding-top:6px;padding-bottom:6px;}
+    *{font-family:'Roboto', sans-serif!important;}
+    body,div.wrapper{background-color:#f2f2f2;}
+    table{border-bottom:1px solid silver;}
+    a,button{cursor:pointer;}
+    table>tfoot>tr:last-child td{border-top:1px solid silver;font-size:18px;background-color:white;color:black;}
+    img#logoPcdiga-Checkout{width:197px;height:33px;}
+    table>tfoot>tr>td.a-right:first-child{text-align:left;}
+    div.clear-checkout{clear:both;}
+    a.updateOpener{float:right;}
+    div.main-container{padding-bottom:15px;}
+    div.footer-row{padding:20px 10px;margin-top:15px;}
+    div.page-title-checkout{margin-bottom:20px;}
+    div.page-title-checkout span{font-size:26px;color:#1C4894;font-weight:bold;line-height:36px;vertical-align:middle;}
+    @media only screen and (max-width: 479px){
+    .mobile-hide{display:none!important;}
+    }
+    div.page-title-checkout img{margin:0px 20px 0px 0px;height:36px;padding:0px;float:left;}
+    div.progress{height:auto;margin-bottom:10px;}
+    div.progress-bar{background-color:#1C4894;}
+    div.panel{border:0px!important;background-color:transparent!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+    div.panel-default div.panel-heading{border:0px!important;background-color:transparent!important;padding-left:0px;}
+    div.panel-body{background-color:white!important;border:1px solid #ccc;border-radius:3px;padding:0px;border-collapse:collapse!important;}
+    div.panel-child{padding:15px!important;}
+    div#osc-review-final{position:relative;}
+    div#billing-new-address-form,div#edit-shipping-address-detail{padding:30px;}
+    div#billing-new-address-form label,div#edit-shipping-address-detail label{display:block;margin:0px;margin-bottom:3px;padding:0px;font-size:12px;text-align:left;}
+    div.form-group-2columns{float:left;width:45%;margin-right:5%;min-width:280px;}
+    div#billing-new-address-form label em,div#edit-shipping-address-detail label em{display:inline;color:#C30;}
+    div#billing-new-address-form button,div#edit-shipping-address-detail button{float:right;margin-left:12px;}
+    div#billing-new-address-form input[type=text],div#edit-shipping-address-detail input[type=text]{border:0px;outline:none;border-bottom:2px solid #ddd;padding:0 0 4px 0;}
+    @media only screen and (max-width: 420px){
+    div#billing-new-address-form input[type=text],div#edit-shipping-address-detail input[type=text],div#billing-new-address-form select{width:100%!important;}
+    div.form-group-2columns,div.address-form-container{margin:0px 0px 10px 0px!important;display:block!important;width:100%!important;min-width:100%!important;float:none;}
+    div#billing-new-address-form,div#edit-shipping-address-detail{padding:0px!important;}
+    button.button{text-align:center!important;float:none!important;margin:0px 0px 10px 0px!important;width:100%!important;}
+    div#button-order-container{position:fixed!important;bottom:0px!important;margin:0px!important;left:0px!important;width:100%!important;padding:0px!important;}
+    div#button-order-container button{width:100%!important;margin:0px!important;}
+    }
+    @media only screen and (max-width: 400px){
+    img#logoPcdiga-Checkout{width:130px!important;height:36px!important;}
+    }
+    div#button-order-container{background-color:white;}
+    div#button-order-container button{border-radius:0px!important;}
+    div#billing-new-address-form select{border:0px;outline:none;border-bottom:2px solid #ddd;padding:0 0 4px 0;}
+    div#billing-new-address-form input[type=text]:focus,div#edit-shipping-address-detail input[type=text]:focus{border-bottom:2px solid #4a90e2;}
+    div#save-new-address-input input{height:20px;width:20px;margin:0px;margin-right:15px;}
+    div#save-new-address-input{font-size:16px;line-height:20px;vertical-align:middle;margin:20px 0px!important;}
+    div#save-new-address-input label{background-color:transparent;font-size:14px;}
+    div.loading-zipcode-float{position:absolute;bottom:0px;width:34px;height:34px;right:0px;background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/images/loading.gif);background-position:center center;background-repeat:no-repeat;background-size:26px 26px;}
+    div.select-shipping-type{padding-bottom:10px;}
+    div.select-shipping-type div.option{padding:10px;color:#AAA;line-height:36px;font-size:18px;font-weight:bold;background-color:#ddd;cursor:pointer;}
+    div.select-shipping-type div.active{background-color:#fff;color:#000;}
+    div.select-shipping-type div.option img{float:left;width:36px;height:36px;margin-right:10px;}
+    div#checkout-load-shipping_compact{border-bottom:1px solid #ccc;}
+    div.payment-options-method-container,div.shipping-options-method-container{padding:10px;clear:both;border-bottom:1px solid #ccc;}
+    div.payment-options-method-container div.payment-row-description,div.shipping-options-method-container div.shipping-row-description{cursor:pointer;line-height:20px;font-size:16px;display:block;vertical-align:middle;}
+    div.payment-options-method-container div.payment-row-description input,div.shipping-options-method-container div.shipping-row-description input{display:inline;width:20px;height:20px;margin:0px 15px 0px 0px;vertical-align:middle;padding:0px;}
+    div.checkout-loading-for-shipping_method,div.checkout-loading-for-shipping,div.checkout-loading-for-payment,div.checkout-loading-for-billing,div.checkout-loading-for-montagem,div.checkout-loading-for-shipping_method_warning{position:relative;}
+    p.edit-card-link{display:block;text-align:right;padding:10px;}
+    button#order_submit_button{width:90%;margin:10px 5%;text-align:center;border-radius:3px;}
+    p.agreements-message{display:block;color:#aaa;margin:0px;padding:0px;}
+    div#message-missing-step{color:#dd1e31;font-size:14px;line-height:18px;text-align:left;display:block;margin-bottom:15px;}
+    a.link-with-arrow{display:block;text-align:left;background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/images/arrow-down.png);background-position:right center;background-repeat:no-repeat;background-size:15px 10px;}
+    div.payment-options-method-info{display:block;padding-left:35px;font-size:13px;color:#777;}
+    div.payment-options-method-info ul{padding-top:10px;margin:0px;}
+    div.payment-options-method-info p{margin:0px;padding:0px;}
+    div.payment-row-description{line-height:24px;}
+    #table-shipping-info-details th,#table-shipping-info-details td{font-size:12px;vertical-align:middle;}
+    #table-shipping-info-details th{text-align:center;font-weight:bold;background-color:#fafafa;vertical-align:middle;}
+    #Suggestion_Rating td,#Suggestion_Rating th{width:25%!important;text-align:center;}
+    #Suggestion_Rating input[type=radio]{display:inline;}
+    #sugestions-form-co textarea{width:100%;resize:none;max-width:100%;}
+    button.button-cancel-color{background-color:#999;}
+    span.product-name-tworows{line-height:21px;vertical-align:middle;padding:0px;margin:0px;display:block;}
+    td.vacenter{vertical-align:middle!important;}
+    span.gene_braintree_paypal{background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/methods/gene_braintree_paypal.svg);}
+    span.mbway{background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/methods/mbway.svg);}
+    span.cf{background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/methods/cf.svg);}
+    span.banktransfer{background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/methods/banktransfer.svg);}
+    span.cashondelivery{background-image:url(https://www.pcdiga.com/skin/frontend/base/default/css/pcdiga/checkout/methods/cashondelivery.svg);}
+    span.payment_method_icon_on_select{float:right;height:36px;margin:-7px 3px;background-repeat:no-repeat;background-position:center right;background-size:contain;width:50px;}
+    input::-ms-clear{display:none;}
+    #algolia-autocomplete-container:after{clear:both;content:'';}
+    }
+    /*! CSS Used from: https://www.pcdiga.com/media/css_secure/91c0afcafcf2f1eb65e8ebfdbb82ff02.css ; media=all */
+    @media all{
+    body{margin:0;}
+    a:focus{outline:thin dotted;}
+    a:active,a:hover{outline:0;}
+    strong{font-weight:bold;}
+    small{font-size:80%;}
+    img{border:0;}
+    button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}
+    button,input{line-height:normal;}
+    button{-webkit-appearance:button;cursor:pointer;}
+    button[disabled],input[disabled]{cursor:default;}
+    input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}
+    button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+    textarea{overflow:auto;vertical-align:top;}
+    table{border-collapse:collapse;border-spacing:0;}
+    *,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+    body{background:#FFFFFF;color:#000000;line-height:1;}
+    body,img{border:0;}
+    h3,h4{font-size:100%;font-weight:normal;}
+    th{font-weight:normal;font-style:normal;text-align:left;}
+    img{display:block;}
+    ol,ul{list-style:none;}
+    input:focus{outline-offset:-2px;}
+    a,button{-ms-touch-action:manipulation;touch-action:manipulation;}
+    body,button,input,select,table,textarea{font-family:"Helvetica Neue", Verdana, Arial, sans-serif;color:#636363;font-size:14px;line-height:1.5;}
+    a{color:#3399cc;text-decoration:none;}
+    a:hover{color:#2e8ab8;text-decoration:underline;}
+    a:focus{outline-color:#3091c2;color:#143d52;}
+    ol,ul{list-style:none;margin:0;padding:0;}
+    h3{margin:0;margin-bottom:10px;color:#636363;font-family:"Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;font-size:18px;font-weight:400;font-style:normal;line-height:1.4;text-rendering:optimizeSpeed;text-transform:uppercase;}
+    h4{margin:0;margin-bottom:10px;color:#636363;font-family:"Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;font-size:14px;font-weight:bold;font-style:normal;line-height:1.4;text-rendering:optimizeSpeed;text-transform:uppercase;}
+    .button{background:#3399cc;display:inline-block;padding:7px 15px;border:0;color:#FFFFFF;font-size:13px;font-weight:normal;font-family:"Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;line-height:19px;text-align:center;text-transform:uppercase;vertical-align:middle;white-space:nowrap;}
+    .button:hover{background:#2e8ab8;cursor:pointer;}
+    .button:active{background:#297aa3;color:#FFFFFF;}
+    .button:focus{background-color:#297aa3;outline:none;color:#FFFFFF;}
+    .button:disabled{background:#C8C8C8;opacity:0.6;cursor:not-allowed;}
+    .button + .button{margin-left:5px;}
+    .main-container{position:relative;max-width:1260px;margin:0 auto;padding:15px;}
+    .main-container:after{content:'';display:table;clear:both;}
+    @media only screen and (min-width: 480px){
+    .main-container{padding:30px;}
+    }
+    .main:after{content:'';display:table;clear:both;}
+    .col-main{padding:0 10px;}
+    .col-main{float:left;width:75%;}
+    .col1-layout .col-main{float:none;width:auto;padding:0;}
+    @media only screen and (max-width: 1024px){
+    .col-main,.col1-layout .col-main{padding:0;margin-bottom:10px;float:none;width:auto;}
+    .col-main{float:none;width:auto;}
+    }
+    .price{font-family:"Helvetica Neue", Verdana, Arial, sans-serif;}
+    .a-right{text-align:right;}
+    .hidden{display:none;}
+    label{display:inline-block;font-size:13px;font-family:"Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;font-weight:600;-moz-user-select:none;-ms-user-select:none;-webkit-user-select:none;-o-user-select:none;user-select:none;}
+    label.required:after{content:' *';color:#df280a;font-weight:normal;font-family:"Helvetica Neue", Verdana, Arial, sans-serif;font-size:12px;}
+    label.required em{display:none;}
+    select{font-size:14px;}
+    textarea{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;max-width:450px;padding:5px;}
+    .input-text{-webkit-appearance:none;-moz-appearance:none;appearance:none;-webkit-border-radius:2px;-moz-border-radius:2px;-ms-border-radius:2px;-o-border-radius:2px;border-radius:2px;border:1px solid silver;background:#FFFFFF;font-size:15px;}
+    .input-text:focus{border:1px solid #3399cc;}
+    input[type=text]{height:30px;padding:0 8px;}
+    input[type=text]{width:365px;max-width:100%;}
+    @media only screen and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 0){
+    input[type=text],select{font-size:16px;}
+    }
+    ::-webkit-input-placeholder{color:#a0a0a0;}
+    input:-moz-placeholder{color:#a0a0a0;}
+    .checkbox{position:relative;top:-1px;display:inline-block;}
+    .checkbox + label{width:auto;max-width:85%;padding:0 0 0 8px;font-size:14px;font-weight:normal;vertical-align:top;}
+    .form-list > li{margin-bottom:10px;}
+    .data-table{width:100%;}
+    .data-table td,.data-table th{padding:10px;vertical-align:top;}
+    .data-table th{background:#f4f4f4;text-transform:uppercase;font-family:"Raleway", "Helvetica Neue", Verdana, Arial, sans-serif;line-height:1.4;white-space:nowrap;}
+    .data-table thead th,.data-table tbody td{border-bottom:1px solid silver;}
+    .data-table tbody td,.data-table tfoot td{font-family:Georgia, Times, "Times New Roman", serif;}
+    .data-table tfoot tr{background:#f4f4f4;}
+    body{height:100%;}
+    .wrapper{min-width:320px;min-height:100%;margin:0 auto;background:#FFFFFF;}
+    .wrapper:after{content:'';display:table;clear:both;}
+    @media only screen and (max-width: 599px){
+    .btn-checkout{width:100%;}
+    }
+    .clearfix:after{content:'';display:table;clear:both;}
+    }
+    /*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css */
+    body{margin:0;}
+    a{background-color:transparent;}
+    a:active,a:hover{outline:0;}
+    strong{font-weight:700;}
+    small{font-size:80%;}
+    img{border:0;}
+    button,input,select,textarea{margin:0;font:inherit;color:inherit;}
+    button{overflow:visible;}
+    button,select{text-transform:none;}
+    button{-webkit-appearance:button;cursor:pointer;}
+    button[disabled],html input[disabled]{cursor:default;}
+    button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0;}
+    input{line-height:normal;}
+    input[type=checkbox],input[type=radio]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0;}
+    textarea{overflow:auto;}
+    table{border-spacing:0;border-collapse:collapse;}
+    td,th{padding:0;}
+    @media print{
+    *,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+    a,a:visited{text-decoration:underline;}
+    a[href]:after{content:" (" attr(href) ")";}
+    thead{display:table-header-group;}
+    img,tr{page-break-inside:avoid;}
+    img{max-width:100%!important;}
+    h3,p{orphans:3;widows:3;}
+    h3{page-break-after:avoid;}
+    .table{border-collapse:collapse!important;}
+    .table td,.table th{background-color:#fff!important;}
+    }
+    *{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+    :after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+    body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;background-color:#fff;}
+    button,input,select,textarea{font-family:inherit;font-size:inherit;line-height:inherit;}
+    a{color:#337ab7;text-decoration:none;}
+    a:focus,a:hover{color:#23527c;text-decoration:underline;}
+    a:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+    img{vertical-align:middle;}
+    h3,h4{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
+    h3{margin-top:20px;margin-bottom:10px;}
+    h4{margin-top:10px;margin-bottom:10px;}
+    h3{font-size:24px;}
+    h4{font-size:18px;}
+    p{margin:0 0 10px;}
+    small{font-size:85%;}
+    ol,ul{margin-top:0;margin-bottom:10px;}
+    .container-fluid{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto;}
+    .row{margin-right:-15px;margin-left:-15px;}
+    .col-md-12,.col-md-4,.col-md-6,.col-md-8{position:relative;min-height:1px;padding-right:15px;padding-left:15px;}
+    @media (min-width:992px){
+    .col-md-12,.col-md-4,.col-md-6,.col-md-8{float:left;}
+    .col-md-12{width:100%;}
+    .col-md-8{width:66.66666667%;}
+    .col-md-6{width:50%;}
+    .col-md-4{width:33.33333333%;}
+    }
+    table{background-color:transparent;}
+    th{text-align:left;}
+    .table{width:100%;max-width:100%;margin-bottom:20px;}
+    .table>tbody>tr>td,.table>thead>tr>th{padding:8px;line-height:1.42857143;vertical-align:top;border-top:1px solid #ddd;}
+    .table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd;}
+    .table>thead:first-child>tr:first-child>th{border-top:0;}
+    label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700;}
+    input[type=checkbox],input[type=radio]{margin:4px 0 0;margin-top:1px\9;line-height:normal;}
+    select[size]{height:auto;}
+    input[type=checkbox]:focus,input[type=radio]:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+    .form-group{margin-bottom:15px;}
+    .checkbox{position:relative;display:block;margin-top:10px;margin-bottom:10px;}
+    .btn{display:inline-block;padding:6px 12px;margin-bottom:0;font-size:14px;font-weight:400;line-height:1.42857143;text-align:center;white-space:nowrap;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-image:none;border:1px solid transparent;border-radius:4px;}
+    .btn:active:focus,.btn:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+    .btn:focus,.btn:hover{color:#333;text-decoration:none;}
+    .btn:active{background-image:none;outline:0;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125);}
+    .btn-default{color:#333;background-color:#fff;border-color:#ccc;}
+    .btn-default:focus{color:#333;background-color:#e6e6e6;border-color:#8c8c8c;}
+    .btn-default:hover{color:#333;background-color:#e6e6e6;border-color:#adadad;}
+    .btn-default:active{color:#333;background-color:#e6e6e6;border-color:#adadad;}
+    .btn-default:active:focus,.btn-default:active:hover{color:#333;background-color:#d4d4d4;border-color:#8c8c8c;}
+    .btn-default:active{background-image:none;}
+    .btn-primary{color:#fff;background-color:#337ab7;border-color:#2e6da4;}
+    .btn-primary:focus{color:#fff;background-color:#286090;border-color:#122b40;}
+    .btn-primary:hover{color:#fff;background-color:#286090;border-color:#204d74;}
+    .btn-primary:active{color:#fff;background-color:#286090;border-color:#204d74;}
+    .btn-primary:active:focus,.btn-primary:active:hover{color:#fff;background-color:#204d74;border-color:#122b40;}
+    .btn-primary:active{background-image:none;}
+    .fade{opacity:0;-webkit-transition:opacity .15s linear;-o-transition:opacity .15s linear;transition:opacity .15s linear;}
+    .alert{padding:15px;margin-bottom:20px;border:1px solid transparent;border-radius:4px;}
+    .alert-warning{color:#8a6d3b;background-color:#fcf8e3;border-color:#faebcc;}
+    .progress{height:20px;margin-bottom:20px;overflow:hidden;background-color:#f5f5f5;border-radius:4px;-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.1);box-shadow:inset 0 1px 2px rgba(0,0,0,.1);}
+    .progress-bar{float:left;width:0;height:100%;font-size:12px;line-height:20px;color:#fff;text-align:center;background-color:#337ab7;-webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);-webkit-transition:width .6s ease;-o-transition:width .6s ease;transition:width .6s ease;}
+    .panel{margin-bottom:20px;background-color:#fff;border:1px solid transparent;border-radius:4px;-webkit-box-shadow:0 1px 1px rgba(0,0,0,.05);box-shadow:0 1px 1px rgba(0,0,0,.05);}
+    .panel-body{padding:15px;}
+    .panel-heading{padding:10px 15px;border-bottom:1px solid transparent;border-top-left-radius:3px;border-top-right-radius:3px;}
+    .panel-title{margin-top:0;margin-bottom:0;font-size:16px;color:inherit;}
+    .panel-default{border-color:#ddd;}
+    .panel-default>.panel-heading{color:#333;background-color:#f5f5f5;border-color:#ddd;}
+    .close{float:right;font-size:21px;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;filter:alpha(opacity=20);opacity:.2;}
+    .close:focus,.close:hover{color:#000;text-decoration:none;cursor:pointer;filter:alpha(opacity=50);opacity:.5;}
+    button.close{-webkit-appearance:none;padding:0;cursor:pointer;background:0 0;border:0;}
+    .modal{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;display:none;overflow:hidden;-webkit-overflow-scrolling:touch;outline:0;}
+    .modal.fade .modal-dialog{-webkit-transition:-webkit-transform .3s ease-out;-o-transition:-o-transform .3s ease-out;transition:transform .3s ease-out;-webkit-transform:translate(0,-25%);-ms-transform:translate(0,-25%);-o-transform:translate(0,-25%);transform:translate(0,-25%);}
+    .modal-dialog{position:relative;width:auto;margin:10px;}
+    .modal-content{position:relative;background-color:#fff;-webkit-background-clip:padding-box;background-clip:padding-box;border:1px solid #999;border:1px solid rgba(0,0,0,.2);border-radius:6px;outline:0;-webkit-box-shadow:0 3px 9px rgba(0,0,0,.5);box-shadow:0 3px 9px rgba(0,0,0,.5);}
+    .modal-header{min-height:16.43px;padding:15px;border-bottom:1px solid #e5e5e5;}
+    .modal-header .close{margin-top:-2px;}
+    .modal-title{margin:0;line-height:1.42857143;}
+    .modal-body{position:relative;padding:15px;}
+    .modal-footer{padding:15px;text-align:right;border-top:1px solid #e5e5e5;}
+    .modal-footer .btn+.btn{margin-bottom:0;margin-left:5px;}
+    @media (min-width:768px){
+    .modal-dialog{width:600px;margin:30px auto;}
+    .modal-content{-webkit-box-shadow:0 5px 15px rgba(0,0,0,.5);box-shadow:0 5px 15px rgba(0,0,0,.5);}
+    }
+    .clearfix:after,.clearfix:before,.container-fluid:after,.container-fluid:before,.modal-footer:after,.modal-footer:before,.panel-body:after,.panel-body:before,.row:after,.row:before{display:table;content:" ";}
+    .clearfix:after,.container-fluid:after,.modal-footer:after,.panel-body:after,.row:after{clear:both;}
+    .hide{display:none!important;}
+    .hidden{display:none!important;}
+    .visible-xs{display:none!important;}
+    @media (max-width:767px){
+    .visible-xs{display:block!important;}
+    }
+    @media (max-width:767px){
+    .hidden-xs{display:none!important;}
+    }
+    /*! CSS Used from: https://www.pcdiga.com/skin/frontend/toogas/toogasdev/css/custom.css?v=18.0 */
+    a:focus{outline:none!important;}
+    a:focus,a:hover{text-decoration:none!important;}
+    a{-webkit-transition:all 0.4s ease-out 0s;-moz-transition:all 0.4s ease-out 0s;-o-transition:all 0.4s ease-out 0s;transition:all 0.4s ease-out 0s;}
+    body{color:#58595b;}
+    body,button,input,select,table,textarea,label{font-family:"Roboto", sans-serif!important;}
+    .input-text{border:1px solid #CED0D1;}
+    .input-text:focus{border:1px solid #00A2FF;}
+    .button{font-family:"Roboto", sans-serif;background:#f5370b;border-radius:3px;}
+    .button:hover{background:#E4E5E6;}
+    .wrapper{background:transparent;}
+    input[type="text"]{height:34px;}
+    input[type=radio],input[type=checkbox]{display:none;}
+    input[type=checkbox] + label{display:inline-block;cursor:pointer;position:relative;padding-left:25px;margin-right:15px;font-size:13px;background:#ced0d1;border:0;padding-left:40px!important;}
+    input[type=radio],input[type=checkbox]{display:none;}
+    input[type=checkbox] + label{display:inline-block;cursor:pointer;position:relative;padding-left:25px;margin-right:15px;font-size:13px;background:#ced0d1;border:0;padding-left:40px!important;}
+    input[type=checkbox] + label:hover:before{border:1px solid #F5370B;}
+    input[type=checkbox] + label:before{content:"";display:inline-block;width:21px;height:21px;margin-right:10px;position:absolute;left:10px;top:0px;background-color:#fff;border:1px solid #ccc;color:#fff;font-size:10px;-webkit-transition:all 0.3s ease-out 0s;-moz-transition:all 0.3s ease-out 0s;-o-transition:all 0.3s ease-out 0s;transition:all 0.3s ease-out 0s;}
+    input[type=checkbox]:checked + label:before{content:"\e908";font-family:"pcdiga-icons";color:#fff;font-size:10px;text-align:center;line-height:21px;background:#F5370B;border:1px solid #F5370B;}
+    .button.btn-checkout{background:#1c4895;text-transform:capitalize;border-radius:0;color:#e5e6e7;height:46px;line-height:46px;padding:0 35px;letter-spacing:0.05em;-webkit-transition:all 0.3s ease-out 0s;-moz-transition:all 0.3s ease-out 0s;-o-transition:all 0.3s ease-out 0s;transition:all 0.3s ease-out 0s;}
+    .button.btn-checkout:hover{background:#00a2ff;color:#fff;}
+    .main-container{background:#f2f2f2;clear:both;}
+    .data-table th{font-family:"Roboto",sans-serif;background:#f2f2f2;}
+    .main-container{position:relative;}
+    label.required::after{font-family:"Roboto", sans-serif;float:right;padding-left:5px;}
+    @media only screen and (max-width: 1350px){
+    body{background:none!important;}
+    }
+    @media only screen and (min-width: 771px){
+    .main-container{max-width:1170px;padding:15px 15px 0 15px!important;margin:0px auto!important;border:0px none!important;}
+    }
+    @media only screen and (max-width: 950px){
+    #page-content-wrapper{position:relative;height:100%;}
+    .main-container{padding:15px 15px 0 15px!important;}
+    }
+    .alert{margin-bottom:0px!important;margin:10px!important;}
+    ul.form-list{margin-top:0px;margin-bottom:0px;}
+    .price{font-family:Roboto, Arial, sans-serif;}
+    /*! CSS Used from: Embedded */
+    .cf_process_note{margin-bottom:15px;}
+    /*! CSS Used fontfaces */
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fCRc4EsA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fABc4EsA.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fCBc4EsA.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBxc4EsA.woff2) format('woff2');unicode-range:U+0370-03FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fCxc4EsA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fChc4EsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:300;src:local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fBBc4.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu5mxKOzY.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7mxKOzY.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4WxKOzY.woff2) format('woff2');unicode-range:U+0370-03FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7WxKOzY.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu7GxKOzY.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:400;src:local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxK.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fCRc4EsA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fABc4EsA.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fCBc4EsA.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBxc4EsA.woff2) format('woff2');unicode-range:U+0370-03FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fCxc4EsA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fChc4EsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:500;src:local('Roboto Medium'), local('Roboto-Medium'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmEU9fBBc4.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfCRc4EsA.woff2) format('woff2');unicode-range:U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfABc4EsA.woff2) format('woff2');unicode-range:U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfCBc4EsA.woff2) format('woff2');unicode-range:U+1F00-1FFF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBxc4EsA.woff2) format('woff2');unicode-range:U+0370-03FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfCxc4EsA.woff2) format('woff2');unicode-range:U+0102-0103, U+0110-0111, U+1EA0-1EF9, U+20AB;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfChc4EsA.woff2) format('woff2');unicode-range:U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;}
+    @font-face{font-family:'Roboto';font-style:normal;font-weight:700;src:local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;}
+    @font-face{font-family:'pcdiga-icons';src:url('https://www.pcdiga.com/skin/frontend/toogas/toogasdev/fonts/pcdiga-icons.eot?1j0z1y');src:url('https://www.pcdiga.com/skin/frontend/toogas/toogasdev/fonts/pcdiga-icons.eot?1j0z1y#iefix') format('embedded-opentype'),         url('https://www.pcdiga.com/skin/frontend/toogas/toogasdev/fonts/pcdiga-icons.ttf?1j0z1y') format('truetype'),         url('https://www.pcdiga.com/skin/frontend/toogas/toogasdev/fonts/pcdiga-icons.woff?1j0z1y') format('woff'),         url('https://www.pcdiga.com/skin/frontend/toogas/toogasdev/fonts/pcdiga-icons.svg?1j0z1y#pcdiga-icons') format('svg');font-weight:normal;font-style:normal;}

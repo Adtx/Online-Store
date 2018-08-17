@@ -1,0 +1,551 @@
+{% extends "store/store_base.html" %} {% block main %}
+
+<div id="page-content-wrapper" class="page">
+        <div class="main-container col1-layout">
+            <div class="main">
+                <div class="col-main">
+                    <div id="algolia-autocomplete-container"></div>
+<style>
+    .bestsllerbrand .shopbybrand-title h1,
+    .brand-search .shopbybrand-title h1,
+    .shopbybrand-title h1 {
+        background-color: #1C4894;
+        color:#FFFFFF;
+    }
+    .shopbybrand-list .brands .brandslist .brand-begin-label strong{
+        background-color: #00A2FF;
+        color:#FFFFFF;
+    }
+    .shopbybrand-list .charlist a{
+        background-color: #EEEEEE !important;
+        color:#707070 !important;
+    }
+    .shopbybrand-list .brands .brandslist .brand-begin-label{
+        border-bottom: 1px solid #00A2FF  !important;
+    }
+    .shopbybrand-list .filterbar #charaters-list ul li.charlist a:hover,
+    .shopbybrand-list .filterbar #charaters-list ul li.isActiveCate a,
+    .shopbybrand-list .filterbar #charaters-list ul li.charlist a.isActiveCate{
+        background-color: #1C4894 !important;
+        color:#FFFFFF !important;
+    }
+  
+    .shopbybrand-list a{
+        color:#00A2FF !important;
+    }
+    .shopbybrand-list a:hover {
+        color:#1C4894 !important;
+    }
+    @media screen and (min-width:768px) and (max-width: 979px) {
+            .shopbybrand_sidebar .shopbybrand-title h1,
+            .brand-search .shopbybrand-title h1,
+            .bestsllerbrand .shopbybrand-title h1{
+            background-color: #1C4894 !important;
+        }   
+    }
+</style>
+<script type="text/javascript">
+    // Only init the vzero class once
+    if (typeof vzero === 'undefined') {
+
+        // Pass some data over to vZero integration JS
+        var vzero = new vZero(
+            'gene_braintree_creditcard',
+            'eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiIzZDdjNGU0Yzk1YjI2Yjg5ODA5MjU3YmIyZTU2NjExOTNhMDY1ODczNzM3MmUxZWYyN2RjMzJhYzlmNmIxYzk4fGNyZWF0ZWRfYXQ9MjAxOC0wOC0xN1QxNjoxNzoxOS44ODUxNjQ1MTIrMDAwMFx1MDAyNm1lcmNoYW50X2lkPXlxNWd6bTdxNWY2aDQycXBcdTAwMjZwdWJsaWNfa2V5PTZrZmM4eWs0d3R3bjd6dnMiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL3lxNWd6bTdxNWY2aDQycXAvY2xpZW50X2FwaS92MS9jb25maWd1cmF0aW9uIiwiY2hhbGxlbmdlcyI6W10sImVudmlyb25tZW50IjoicHJvZHVjdGlvbiIsImNsaWVudEFwaVVybCI6Imh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMveXE1Z3ptN3E1ZjZoNDJxcC9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLmNvbSIsImFuYWx5dGljcyI6eyJ1cmwiOiJodHRwczovL2NsaWVudC1hbmFseXRpY3MuYnJhaW50cmVlZ2F0ZXdheS5jb20veXE1Z3ptN3E1ZjZoNDJxcCJ9LCJ0aHJlZURTZWN1cmVFbmFibGVkIjpmYWxzZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiUGNkaWdhLCBMREEiLCJjbGllbnRJZCI6IkFYclZ6SEVzc1c2R1M5WWdWNHdVMUNnWTVfWk9mV2pSb01fMEg2WTcwcWZTN0czelJ2Z2F5YVhYV0lfQmlvY0lNNXFYMHBjQWRGaVQ5RnZpIiwicHJpdmFjeVVybCI6Imh0dHBzOi8vd3d3LnBjZGlnYS5jb20vcG9saXRpY2EtZGUtcHJpdmFjaWRhZGUtZS1jb29raWVzIiwidXNlckFncmVlbWVudFVybCI6Imh0dHBzOi8vd3d3LnBjZGlnYS5jb20vdGVybW9zIiwiYmFzZVVybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9jaGVja291dC5wYXlwYWwuY29tIiwiZGlyZWN0QmFzZVVybCI6bnVsbCwiYWxsb3dIdHRwIjpmYWxzZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOmZhbHNlLCJlbnZpcm9ubWVudCI6ImxpdmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJBUktyWVJEaDNBR1hEelc3c09fM2JTa3EtVTFDN0hHX3VXTkMtejU3TGpZU0ROVU9TYU90SWE5cTZWcFciLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsIm1lcmNoYW50QWNjb3VudElkIjoicGNkaWdhbGRhRVVSIiwiY3VycmVuY3lJc29Db2RlIjoiRVVSIn0sIm1lcmNoYW50SWQiOiJ5cTVnem03cTVmNmg0MnFwIiwidmVubW8iOiJvZmYifQ==',
+            false,
+            true,
+            false,
+            false,
+            'https://www.pcdiga.com/braintree/checkout/quoteTotal/',
+            'https://www.pcdiga.com/braintree/checkout/tokenizeCard/'
+        );
+
+        // Pass the supported card types over to the front-end
+        vzero.setSupportedCards('');
+
+        // Pass over the merchants Kount credentials
+        vzero.setKount(
+            'sandbox',
+            ''
+        );
+
+        
+        vzero.setThreeDFailedAction('0');
+
+                // Pass some data through to the PayPal integration
+        var vzeroPaypal = new vZeroPayPalButton(
+            'eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiIzZDdjNGU0Yzk1YjI2Yjg5ODA5MjU3YmIyZTU2NjExOTNhMDY1ODczNzM3MmUxZWYyN2RjMzJhYzlmNmIxYzk4fGNyZWF0ZWRfYXQ9MjAxOC0wOC0xN1QxNjoxNzoxOS44ODUxNjQ1MTIrMDAwMFx1MDAyNm1lcmNoYW50X2lkPXlxNWd6bTdxNWY2aDQycXBcdTAwMjZwdWJsaWNfa2V5PTZrZmM4eWs0d3R3bjd6dnMiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzL3lxNWd6bTdxNWY2aDQycXAvY2xpZW50X2FwaS92MS9jb25maWd1cmF0aW9uIiwiY2hhbGxlbmdlcyI6W10sImVudmlyb25tZW50IjoicHJvZHVjdGlvbiIsImNsaWVudEFwaVVybCI6Imh0dHBzOi8vYXBpLmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMveXE1Z3ptN3E1ZjZoNDJxcC9jbGllbnRfYXBpIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhdXRoVXJsIjoiaHR0cHM6Ly9hdXRoLnZlbm1vLmNvbSIsImFuYWx5dGljcyI6eyJ1cmwiOiJodHRwczovL2NsaWVudC1hbmFseXRpY3MuYnJhaW50cmVlZ2F0ZXdheS5jb20veXE1Z3ptN3E1ZjZoNDJxcCJ9LCJ0aHJlZURTZWN1cmVFbmFibGVkIjpmYWxzZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiUGNkaWdhLCBMREEiLCJjbGllbnRJZCI6IkFYclZ6SEVzc1c2R1M5WWdWNHdVMUNnWTVfWk9mV2pSb01fMEg2WTcwcWZTN0czelJ2Z2F5YVhYV0lfQmlvY0lNNXFYMHBjQWRGaVQ5RnZpIiwicHJpdmFjeVVybCI6Imh0dHBzOi8vd3d3LnBjZGlnYS5jb20vcG9saXRpY2EtZGUtcHJpdmFjaWRhZGUtZS1jb29raWVzIiwidXNlckFncmVlbWVudFVybCI6Imh0dHBzOi8vd3d3LnBjZGlnYS5jb20vdGVybW9zIiwiYmFzZVVybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXNzZXRzVXJsIjoiaHR0cHM6Ly9jaGVja291dC5wYXlwYWwuY29tIiwiZGlyZWN0QmFzZVVybCI6bnVsbCwiYWxsb3dIdHRwIjpmYWxzZSwiZW52aXJvbm1lbnROb05ldHdvcmsiOmZhbHNlLCJlbnZpcm9ubWVudCI6ImxpdmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJBUktyWVJEaDNBR1hEelc3c09fM2JTa3EtVTFDN0hHX3VXTkMtejU3TGpZU0ROVU9TYU90SWE5cTZWcFciLCJiaWxsaW5nQWdyZWVtZW50c0VuYWJsZWQiOnRydWUsIm1lcmNoYW50QWNjb3VudElkIjoicGNkaWdhbGRhRVVSIiwiY3VycmVuY3lJc29Db2RlIjoiRVVSIn0sIm1lcmNoYW50SWQiOiJ5cTVnem03cTVmNmg0MnFwIiwidmVubW8iOiJvZmYifQ==',
+            'PCDIGA',
+            true,
+            '',
+            false,
+            false        );
+            }
+</script>
+
+<script type="text/html" id="braintree-paypal-button">
+    <button type="button" name="braintree-paypal-button" class="braintree-paypal-button order_submit_button button">
+		Encomendar com <img src="https://www.pcdiga.com/skin/frontend/base/default/images/gene/braintree/paypal.png" class="image_button_paypal">
+    </button>
+</script>
+
+<div id="three-d-modal" class="hidden">
+    <div class="bt-mask"></div>
+    <div class="bt-modal-frame">
+        <div class="bt-modal-header">
+            <div class="header-text">Authentication</div>
+        </div>
+        <div class="bt-modal-body"></div>
+    </div>
+</div>
+
+<style type="text/css">
+    #braintree-paypal-loggedin {
+        display: none!important;
+    }
+    #braintree-paypal-loggedout {
+        display: block!important;
+    }
+</style><div class="container-fluid pcdiga-checkout-container checkout-loading-for-review"> 
+  <script type="text/javascript">
+		
+		var src_shipping_address = [];		
+		var Mage_userId = 164034;
+		var Mage_sub_total = 0;
+		var Mage_number_products = 0;
+		
+		ga('set', 'dimension1', Mage_userId);
+		
+	</script>
+  <div id="checkout-header-main-container">
+    <div class="page-title-checkout"> <span>Checkout</span>
+      <div class="clear-checkout"></div>
+    </div>
+    <div class="clear-checkout"></div>
+  </div>
+  
+  <!-- Modal Sugestões Checkout -->
+  
+  <div class="modal fade" id="SuggestionsBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel_Suggestions">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+          <h4 class="modal-title" id="myModalLabel_Suggestions">Checkout da PCDIGA</h4>
+        </div>
+        <div class="modal-body checkout-loading-for-commentsSuggestions"> <img src="https://www.pcdiga.com/skin/frontend/toogas/toogasdev/images/logo.svg" height="36" width="130">
+          <div class="clear-checkout"></div>
+          <p>Está satisfeito com a experiência de checkout da PCDIGA?</p>
+          <form id="sugestions-form-co">
+            <table class="table" id="Suggestion_Rating">
+              <thead>
+                <tr>
+                  <th><small>Nada satisfeito</small></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th><small>Muito satisfeito</small></th>
+                </tr>
+                <tr>
+                  <th>1</th>
+                  <th>2</th>
+                  <th>3</th>
+                  <th>4</th>
+                  <th>5</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="radio" name="suggestion_rating" value="1"></td>
+                  <td><input type="radio" name="suggestion_rating" value="2"></td>
+                  <td><input type="radio" name="suggestion_rating" value="3"></td>
+                  <td><input type="radio" name="suggestion_rating" value="4"></td>
+                  <td><input type="radio" name="suggestion_rating" value="5"></td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Conte-nos sobre a sua experiência com o processo de checkout.</p>
+            <textarea id="suggestion_comments" name="suggestion_comments" rows="5" placeholder="Não inclua dados pessoais como email, nome ou contactos"></textarea>
+          </form>
+          <div class="clear-checkout"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="checkout.SendSuggestionComment()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- End Modal Sugestions -->
+  
+  <div class="row">
+        <div class="col-md-8">
+            <div id="osc-billing" class="panel panel-default">
+        <div class="panel-body hide" id="checkout-step-billing-compact"> <div class="panel-child">
+	<a class="updateOpener" onclick="billing.editBillingAddress(true)">atualizar</a>
+    <strong></strong>
+    <br>Nº Contribuinte:     <br>Telemóvel:     <br>Morada: ,      <div class="clear-checkout"></div>
+</div> </div>
+      </div>
+      <div class="clearfix"></div>
+                  <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Dados da Encomenda</h3>
+        </div>
+        <div class="panel-body" id="review-edition-panel"> <table class="data-table">
+  <thead>
+    <tr>
+      <th class="mobile-hide"></th>
+      <th>Produto</th>
+      <th align="center">Qtd</th>
+      <th class="mobile-hide" align="right">Preço</th>
+      <th align="right">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+        {% for item in items %}
+    <tr>
+	<td class="mobile-hide" style="padding:0px 4px;"><img src="http://localhost/static/products/{{item.product.image}}" width="83" height="83" alt="{{item.name}}" style="margin:0px;"></td>
+    <td class="vacenter"><span class="product-name-tworows">{{item.name}}</span><span class="partnumber-name-one-ro">{{item.product.ean}}</span></td>
+    <td align="center" class="vacenter">{{item.quantity}}</td>
+    <td class="mobile-hide vacenter" align="right"><span class="price">{{item.price}}&nbsp;€</span></td>
+    <td align="right" class="vacenter"><span class="price">{{item.price}}&nbsp;€</span></td>
+</tr>
+{% endfor %}
+  </tbody>
+</table>
+ 
+<script type="text/javascript">
+    //<![CDATA[
+    truncateOptions();
+    //]]>
+</script>
+<div class="clear-checkout"></div><p class="edit-card-link">Esqueceu-se de um produto? <a href="https://www.pcdiga.com/checkout/cart/"> Edite o Seu Carrinho</a></p> </div>
+      </div>
+          </div>
+    
+    <!-- right content -->
+    
+    <div class="col-md-4">
+      <div class="panel panel-default" id="osc-review-final" style="">
+        <div class="panel-body" id="review-final-edition-panel"> <div class="checkout-loading-for-shipping_method checkout-loading-for-payment checkout-loading-for-montagem" id="checkout-load-review">
+    <div id="checkout-final-review">
+    <table class="data-table" id="checkout-final-review-table">
+    	        <tbody><tr>
+        	<td class="a-left" colspan="3">{{number}} produtos            </td>
+            <td class="a-right">{{total}}&nbsp;€</td>
+        </tr>
+        
+                
+        </tbody><tfoot>
+            <tr>
+    <td style="" class="a-right" colspan="3">
+        <strong>Total</strong>
+    </td>
+    <td style="" class="a-right">
+        <strong><span class="price">{{total}}&nbsp;€</span></strong>
+    </td>
+</tr>
+    
+	
+	    
+    
+</tfoot>
+    </table>
+</div>
+
+<script type="text/javascript">	
+	Mage_sub_total = 1458.9;
+	Mage_number_products = 2;
+</script></div>
+<form id="checkout-agreements">
+  
+    <input type="hidden" id="agreement-1" name="agreement[1]" value="1" title="Li e concordo com os Termos de uso">
+    
+  <div class="modal fade" id="TermsAndConditions" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="myModalLabel">Termos e Condições PCDIGA</h4>
+      </div>
+      <div class="modal-body">
+                <ol>
+<li><a href="https://www.pcdiga.com/termos#ponto1" target="_self">Objetivo</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto2" target="_self">Condições de utilização de www.pcdiga.com</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto3" target="_self">Alteração das presentes Condições</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto4" target="_self">Propriedade intelectual</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto5" target="_self">Informação sobre os Produtos e sobre Preços</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto6" target="_self">Garantia</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto7" target="_self">Devoluções</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto8" target="_self">Responsabilidade</a></li>
+<li><a href="https://www.pcdiga.com/termos#ponto9" target="_self">Política de privacidade e proteção de dados</a></li>
+</ol>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto1"></a>1. Objetivo</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;">O presente documento estabelece a informação pré-contratual relativa aos contratos celebrados à distância na página web <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>, a que alude o artigo 4º do Decreto-Lei nº 24/2014 de 14 de fevereiro, e de todos os subdomínios/sub-websites. O domínio <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a> é propriedade da PCDIGA, LDA.,&nbsp;com sede em Leiria, pessoa coletiva n° 507 082 907, que é também o seu número de matrícula na Conservatória do Registo Comercial de Leiria, com o capital social de 150.000,00&nbsp;€, de ora em diante abreviadamente designada por PCDIGA.</p>
+<p style="text-align: justify;">A PCDIGA reserva-se o direito de modificar livremente a presente informação pré-contratual de modo a adequa-la à legislação aplicável, sem necessidade de qualquer pré-aviso.</p>
+<p style="text-align: justify;"><span>Tanto a navegação pelo website <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>, seus subdomínios e sub-websites, bem como a compra de qualquer produto naqueles endereços, pressupõe a aceitação das presentes informações e Condições Gerais de Utilização constantes nesta página.</span></p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto2"></a>2. Condições de utilização de www.pcdiga.com</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;"><span><span>O Utilizador compromete-se a utilizar este website em cumprimento com o disposto na legislação aplicável, abstendo-se de utilizar a página Web para atividades contrárias à lei, à moral e bons costumes, ou direitos e interesses de terceiros.</span></span></p>
+<p style="text-align: justify;"><span>O website <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>&nbsp;pode possuir ligações a outros websites, os quais poderão conter informações/ferramentas úteis para os seus utilizadores. As presentes condições gerais não serão aplicáveis a websites de terceiros. Como tal, caso o utilizador visite outro website, redirecionado a partir do nosso website, deverá ler a política de privacidade do mesmo.</span></p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto3"></a>3. Alteração das presentes Condições</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;"><span><span>A PCDIGA reserva-se o direito de modificar unilateralmente e em qualquer momento, sem aviso prévio, a apresentação e conteúdo do sítio Web, seus serviços e as condições gerais de utilização, ressalvando-se os contratos já celebrados e em execução. Essas modificações servirão para uma melhoria do website, melhorando simultaneamente os serviços oferecidos ao utilizador do website que, caso não concorde com as alterações introduzidas, poderá resolver o contrato.</span></span></p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto4"></a>4. Propriedade intelectual</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;"><span><span><span>Todo o conteúdo e informação constantes em <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>&nbsp;e seus subdomínios, são propriedade da PCDIGA e por isso a utilização, reprodução, cópia e divulgação por outros meios de logotipos, textos, imagens e vídeos constantes naquele website está sujeita à sua autorização prévia nesse sentido.</span></span></span></p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto5"></a>5. Informação sobre os Produtos e sobre Preços</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;"><strong>5.1 Informação de Produtos</strong><br>A PCDIGA tem em consideração a informação relativa às caraterísticas essenciais dos produtos mediante descrições técnicas partilhadas pelos seus fornecedores, e de fotografias que ilustram os produtos comercializados, em rigoroso respeito pelos melhores padrões do mercado.</p>
+<p style="text-align: justify;"><strong>5.2 Informação de Preços</strong><br><span>Os preços de venda ao público indicados em <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>&nbsp;e seus subdomínios são apresentados em euros. O IVA está incluído em todos os preços mencionados.</span><br><br><span>Os custos do serviço de envio poderão ser por conta do utilizador e comprador, e acrescem ao total do valor dos produtos selecionados. O utilizador será informado destes encargos antes de confirmar o seu pedido e concluir o processo de compra. A PCDIGA reserva-se o direito de alterar os preços em qualquer momento. No entanto, a PCDIGA compromete-se a aplicar as taxas e preços indicados no momento da realização do pedido de compra.</span><br><br><span>No caso de ocorrência de erro informático, manual, técnico, ou de qualquer outra origem, que cause uma alteração substancial não prevista pela PCDIGA. no preço de venda ao público, de tal modo que este se transforme exorbitante ou manifestamente irrisório, o pedido de compra será considerado inválido e anulado.</span><br><br><span>Os preços dos produtos disponibilizados em <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>&nbsp;são válidos para pedidos de compra realizados através de <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>,&nbsp;coincindo com aqueles apresentados nas lojas físicas PCDIGA.</span></p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto6"></a>6. Garantia</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;"><span><span>Os artigos comercializados pela PCDIGA em <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>&nbsp;estão abrangidos pelo regime da garantia legal, de acordo com o disposto no artigo 5º do Decreto-Lei nº 67/2003, de 8 de Abril, com alterações introduzidas pelo Decreto-Lei n.º 84/2008, de 21 de Maio.</span></span></p>
+<ul>
+<li style="text-align: justify;">Produto avariado – Deverá dirigir-se a uma loja física da PCDIGA, apresentando a fatura e o artigo completo. No caso de esta opção não ser possível, poderá abrir um <span style="text-decoration: underline;"><a href="https://www.pcdiga.com/solicitacao-rma" target="_blank">pedido de RMA</a></span> (Return Merchandise Authorization) através da loja online e seguir com o indicado no processo.</li>
+<li style="text-align: justify;">Devoluções por danos de transporte - Caso o cliente detete alguma anomalia ou dano causado pelo transporte do artigo que encomendou deve comunicar de imediato a ocorrência à PCDIGA.</li>
+</ul>
+<p style="text-align: justify;">No caso dos grandes volumes, o cliente deve aquando da sua receção e desembalamento verificar a existência de algum dano visível que possa ter sido causado pelo transporte. Caso o artigo tenha algum dano não o deve aceitar. Após a assinatura da guia de transporte a PCDIGA não se responsabiliza por qualquer dano físico provocado pelo transporte.</p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto7"></a>7. Devoluções e Direito de livre resolução do contrato</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;">O consumidor dispõe de um prazo de 14 dias, a contar do dia em que adquira a posse física dos bens ou do dia em que adquira a posse física do último bem, no caso de vários bens encomendados numa única encomenda e entregues separadamente, para proceder à devolução da sua encomenda, e sem necessidade de indicar o motivo. Consulte <span style="text-decoration: underline;"><a href="https://www.pcdiga.com/trocas-devolucoes" target="_blank">esta</a></span> página para informações detalhadas sobre este tema na PCDIGA.</p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto8"></a>8. Responsabilidade</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;">A PCDIGA não é responsável pelos prejuízos decorrentes de quaisquer vírus informáticos ou quaisquer outras situações a que seja alheia e que impeçam o acesso e correto funcionamento do domínio <a href="https://www.pcdiga.com" target="_self">www.pcdiga.com</a>&nbsp;bem como dos serviços disponibilizados no mesmo.</p>
+<div style="padding: 10px; background-color: #1c4894;"><span style="color: #ffffff; font-family: arial, helvetica, sans-serif;"><strong><a id="ponto9"></a>9. Política de privacidade e proteção de dados</strong></span>&nbsp;</div>
+<br>
+<p style="text-align: justify;">A PCDIGA respeita a privacidade de todos os utilizadores do seu website e compromete-se a proteger as informações pessoais que cada utilizador decidir partilhar. Algumas secções e/ou funcionalidades deste website podem ser navegadas sem recurso a divulgação de qualquer informação pessoal por parte do utilizador.</p>
+<p style="text-align: justify;">No entanto, quando for necessária a recolha de informação pessoal para disponibilizar serviços ou quando cada utilizador decidir fornecer alguns dos seus dados pessoais, a utilização daquela informação e daqueles dados será efetuada no cumprimento da legislação aplicável sobre proteção de dados pessoais - Lei 67/98 de 26 de Outubro, Lei de Proteção de Dados - de forma a ser assegurada a confidencialidade e segurança dos dados pessoais fornecidos.</p>
+<p style="text-align: justify;">A entidade responsável pela recolha e tratamento de dados pessoais é a PCDIGA, LDA.</p>
+<p style="text-align: justify;">No âmbito da gestão de dados de cliente, os dados pessoais recolhidos serão transmitidos a terceiros que sejam empresas transportadoras de mercadorias tendo como única e exclusiva finalidade a realização e execução cabal dos serviços ou produtos comprados pelo utilizador, titular dos dados pessoais recolhidos.</p>
+<p style="text-align: justify;">O fornecimento de dados pessoais é facultativo e será sempre garantido, nos termos da lei, o direito de acesso, retificação e anulação de qualquer dado fornecido, podendo aquele direito ser exercido pessoalmente ou por escrito, diretamente para o endereço da sede social, constante na homepage do website.</p>              </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  
+  <div class="panel-child"> <strong style="color:#1C4894;">Deseja adicionar algum comentário?</strong>
+    <div class="clear-checkout"></div>
+    <div id="show-comments-form">
+      <textarea maxlength="254" id="order:comments" style="resize:none; margin-top:7px;" name="order[comments]" rows="1" onfocus="checkout.commentsBoxControlVisibility(true,this)" onblur="checkout.commentsBoxControlVisibility(false,this)" placeholder="Observações da encomenda"></textarea>
+      <p style="margin:0px; padding:0px;"><small>Esta mensagem apenas vai ser enviada depois de colocada a encomenda.</small></p>
+    </div>
+  </div>
+  <div style="border-bottom: 1px solid #ccc;"></div>
+  
+</form>
+            
+            <div class="panel-child"><strong style="color:#1C4894;">Deseja incluir montagem?</strong>
+              <div class="clear-checkout"></div>
+              <div id="show-montagem-form">
+                <div class="show-montagem-form-inner">
+                  <form id="checkout-montagem">
+                    <label for="product_montagem" class="montagem-selectbox-label">Montagem - <span class="price">36,90&nbsp;€</span></label>
+                    <select onchange="review.submitMontagemQty(this)" size="1" id="product_montagem" class="montagem-selectbox" name="product_montagem">
+                      <option value="0">Não incluir</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                          </select>
+                  </form>
+                </div>
+                <div class="clear-checkout"></div>
+                <p style="margin:0px; padding:0px;"><small>Deverá selecionar uma montagem por cada máquina.</small></p>
+              </div>
+            </div>
+            <div style="border-bottom: 1px solid #ccc;"></div>
+			<div class="clear-checkout"></div>
+<div class="clear-checkout"></div>
+<div class="alert alert-warning" style="padding:3px 15px; font-size:smaller; margin:0px !important;border-bottom: 1px solid #ccc; border-radius:0px;">
+	<strong>Nota:</strong> Após finalização da sua encomenda, não garantiremos qualquer alteração à mesma. Certifique-se que tudo se encontra em conformidade com o pretendido.
+</div>
+<div class="clear-checkout"></div>
+<div id="button-order-container">
+<button type="button" title="Encomendar" class="button btn-checkout order_submit_button" id="order_submit_button"><span><span>Encomendar</span></span></button>
+	<div class="clear-checkout"></div>
+</div>
+<div class="clear-checkout"></div>
+<div class="panel-child">
+  <p class="agreements-message">Ao clicar em "Encomendar" está aceitar com os nossos <a href="/termos" target="_blank">termos e condições</a>.</p>
+</div>
+<div class="clear-checkout"></div>
+<script type="text/javascript">
+    //<![CDATA[
+    var buttonUpdateText = 'Update order before placing',
+        buttonSaveText = 'Encomendar',
+        buttonWaitText = 'Por favor aguarde';
+        //]]>
+</script> </div>
+      </div>
+    </div>
+  </div>
+  <div class="row footer-row"> <img class="mobile-hide" src="https://www.pcdiga.com/media/wysiwyg/footer.svg" alt="Meios de Pagamento" style="width:300px; float:right; margin-bottom:15px;">
+    <p><small>© 2018 PcWorld. Todos os Direitos Reservados.</small></p>
+    <div class="clear-checkout"></div>
+  </div>
+</div>
+<div class="modal fade" tabindex="-1" role="dialog" id="myModal-Warnings">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p class="modal-message-warning"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    //<![CDATA[
+    var baseUrl = 'https://www.pcdiga.com/';
+	var options_spinner = { 
+		lines: 11,
+		length: 6,
+		width: 17,
+		radius: 42,
+		scale: 0.5,
+		corners: 1,
+		color: '#000',
+		opacity: 0.45,
+		rotate: 0,
+		direction: 1,
+		speed: 0.8,
+		trail: 56,
+		fps: 20,
+		zIndex: 2e9,
+		className: 'spinner',
+		top: '50%',
+		left: '50%',
+		shadow: false,
+		hwaccel: false,
+		position: 'absolute'
+	}
+	
+    //]]>
+</script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/loading.js"></script> 
+<script type="text/javascript">
+	var spinner = new Spinner(options_spinner);
+</script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/MethodStep.js"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/Checkout.js?v=2"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/Billing.js"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/Shipping.js"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/ShippingMethod.js"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/Payment.js?v=2"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/classes/Review.js"></script> 
+<script type="text/javascript" src="https://www.pcdiga.com/skin/frontend/base/default/js/pcdiga/checkout/onestep.js"></script>
+<!--RTB House-->
+<script type="text/javascript"> (function(){var  x = document.createElement('script'); x.async = true; x.src = "//creativecdn.com/tags?type=script&"+(MageUserIdLoggedIn?'id0=pr_niO5dRX5PECEvayZYg2r_uid_'+MageUserIdLoggedIn+'&':'')+"id=pr_niO5dRX5PECEvayZYg2r_startorder"; document.getElementsByTagName('head')[0].appendChild(x);}()); </script>
+
+<!--Tag Session-->
+<script>
+  __insp.push(['tagSession', "viewed checkout"]);
+</script><!-- FME QUCKCHECKOUT BRAINTREE SUPPORT -->
+<script type="text/javascript">
+
+    vZeroIntegration.addMethods({
+
+        /**
+         * Validate the entire checkout
+         */
+        validateAll: function() {
+            
+			if(
+				jQuery("#osc-billing").hasClass("sectionComplete") &&
+				jQuery("#osc-shipping_method").hasClass("sectionComplete") &&
+				jQuery("#osc-payment").hasClass("sectionComplete")
+			)
+				return true;
+			else
+				return false;
+			
+			
+        },
+
+        /**
+         * Hook into the checkouts loading states
+         */
+        setLoading: function () {
+            return review.startLoader();
+        },
+        resetLoading: function () {
+            return review.stopLoader();
+        },
+
+        /**
+         * Capture the original submit function
+         */
+        captureOriginalSubmitFn: function () {
+            this._originalSubmitFn = review.submit;
+            return true;
+        },
+
+        /**
+         * Attach an observer to the submit action of the checkout to tokenize the card details
+         */
+        prepareSubmitObserver: function() {
+
+            // Store a pointer to the vZero integration
+            var vzeroIntegration = this;
+
+            // Re-define the original method so we can do some jazz with it
+            Review.prototype.save = function () {
+
+                if (vzeroIntegration.shouldInterceptSubmit('creditcard')) {
+
+                    // Store a pointer to the payment class
+                    var paymentThis = this;
+                    var paymentArguments = arguments;
+
+                    // If everything was a success on the checkout end, let's submit the vZero integration
+                    vzeroIntegration.submit('creditcard', function () {
+                        return vzeroIntegration._originalSubmitFn.apply(paymentThis, paymentArguments);
+                    });
+
+                } else {
+                    // If not run the original code
+                    return vzeroIntegration._originalSubmitFn.apply(this, arguments);
+                }
+
+            };
+
+        },
+
+        /**
+         * The action to run after the PayPal action has been completed
+         */
+        submitCheckout: function() {
+            // Run the original checkouts submit action
+            return review.submit();
+        }
+
+    });
+
+    /**
+     * Start a new instance of our integration
+     *
+     * @type {vZeroIntegration}
+     */
+    new vZeroIntegration(
+        (window.vzero || false),
+        (window.vzeroPaypal || false),
+        '<div id="paypal-complete"><div id="paypal-container"></div></div>',
+        '#button-order-container #order_submit_button',
+        true,
+        {
+            ignoreAjax: ['checkout/onestep/submitOrder']
+        }
+    );
+
+</script>                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

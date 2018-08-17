@@ -1,9 +1,13 @@
 from .forms import CostumerRegistrationForm, SignInForm
 from django.shortcuts import render, redirect
+from django.urls import reverse
+from paypal.standard.forms import PayPalPaymentsForm
 from django.contrib.auth import login, logout
 from .models import Costumer, Product
+from django.conf import settings
 from django.db.models import Q
 from functools import reduce
+from decimal import Decimal
 from .cart import *
 import operator
 
@@ -43,12 +47,10 @@ def update_profile_view(request):
 		return render(request, 'store/update_profile.html', {'user': request.user})
 	return redirect('home')
 		
-
 def profile_view(request):
 	if request.user.is_authenticated:
 		return render(request, 'store/profile.html')
 	return redirect('home')
-
 
 def login_view(request):
 	if request.method == 'POST':
@@ -64,6 +66,7 @@ def login_view(request):
 def logout_view(request):
 	logout(request)
 	return redirect('home')
+
 
 def product_details_view(request, ean):
 	product = Product.objects.get(ean=ean)
@@ -120,7 +123,6 @@ def sort_results_view(request):
 				checkboxclass[brand] = "m-checkbox-unchecked"
 
 	return render(request, 'store/search_results.html', {'products': search_results, 'selected1': selected1, 'selected2': selected2, 'min': request.session['min'], 'max': request.session['max'], 'checkboxclass': checkboxclass})
-
 
 def filter_results_view(request):
 	search_term_1 = request.session['q1']
@@ -187,6 +189,7 @@ def filter_results_view(request):
 				checkboxclass[brand] = "m-checkbox-unchecked"
 	return render(request, 'store/search_results.html', {'products': search_results, 'min': min, 'max': max, 'checkboxclass': checkboxclass})
 
+
 def show_cart_view(request):
 	items = get_cart_items(request)
 	cart_total = cart_subtotal(request)
@@ -204,3 +207,26 @@ def remove_cart_item_view(request):
 def update_cart_item_view(request):
 	update_cart(request)
 	return redirect('show_cart')
+
+def process_payment_view(request):
+	order_id = request.GET.get('order_id')
+	host = request.get_host()
+	order_total = cart_subtotal(request)
+	items = get_cart_items(request)
+
+	paypal_dict = {
+		'business': settings.PAYPAL_RECEIVER_EMAIL,
+		'amount': '%.2f' % order_total.quantize(Decimal('.01')),
+		'item_name': 'Encomenda {}'.format(order_id),
+		'invoice': str(order_id),
+		'currency_code': 'USD',
+		'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),
+		'return_url': 'https://{}{}'.format(host, reverse('home')),
+		'cancel_return': 'https://{}{}'.format(host, reverse('home')),
+	}
+
+	form = PayPalPaymentsForm(initial=paypal_dict)
+	return render(request, 'store/checkout.html', {'items': items, 'total': order_total, 'paypalform': form, 'number': len(items)})
+
+# def canceled(request):
+# 	return None

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
+    'paypal.standard.ipn',
 ]
 
 MIDDLEWARE = [
@@ -174,3 +175,8 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 #SESSION_COOKIE_AGE = 10
+
+#django-paypal settings
+
+PAYPAL_RECEIVER_EMAIL = 'adrianodiasteixeira@gmail.com'
+PAYPAL_TEST = True
