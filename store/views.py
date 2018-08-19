@@ -208,25 +208,40 @@ def update_cart_item_view(request):
 	update_cart(request)
 	return redirect('show_cart')
 
+
+def _generate_order_id():
+    o_id = ''
+    characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890!@#$%^&*()'
+    cart_id_length = 6
+    for y in range(cart_id_length):
+        o_id += characters[random.randint(0, len(characters)-1)]
+    return o_id
+
 def process_payment_view(request):
-	order_id = request.GET.get('order_id')
+	order_id = _generate_order_id()
 	host = request.get_host()
 	order_total = cart_subtotal(request)
 	items = get_cart_items(request)
 
-	paypal_dict = {
-		'business': settings.PAYPAL_RECEIVER_EMAIL,
-		'amount': '%.2f' % order_total.quantize(Decimal('.01')),
-		'item_name': 'Encomenda {}'.format(order_id),
-		'invoice': str(order_id),
-		'currency_code': 'USD',
-		'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),
-		'return_url': 'https://{}{}'.format(host, reverse('home')),
-		'cancel_return': 'https://{}{}'.format(host, reverse('home')),
-	}
+	# paypal_dict = {
+	# 	'business': settings.PAYPAL_RECEIVER_EMAIL,
+	# 	'amount': '%.2f' % order_total.quantize(Decimal('.01')),
+	# 	'item_name': 'Encomenda {}'.format(order_id),
+	# 	'invoice': str(order_id),
+	# 	'currency_code': 'USD',
+	# 	'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn')),
+	# 	'return_url': 'https://{}{}'.format(host, reverse('home')),
+	# 	'cancel_return': 'https://{}{}'.format(host, reverse('home')),
+	# }
 
-	form = PayPalPaymentsForm(initial=paypal_dict)
-	return render(request, 'store/checkout.html', {'items': items, 'total': order_total, 'paypalform': form, 'number': len(items)})
+	# form = PayPalPaymentsForm(initial=paypal_dict)
+	return render(request, 'store/checkout.html', {'items': items, 'total': order_total, 'number': len(items), 'item_name': 'Encomenda {}'.format(order_id), 'invoice': str(order_id), 'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn'))})
 
-# def canceled(request):
-# 	return None
+def purchased_view(request):
+	if CART_ID_SESSION_KEY in request.session:
+		del request.session[CART_ID_SESSION_KEY]
+		request.session.modified = True
+	return render(request, 'store/purchased.html')
+
+def canceled_view(request):
+	return render(request, 'store/canceled.html')

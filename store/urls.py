@@ -20,6 +20,8 @@ urlpatterns = [
     path('remove_cart_item', views.remove_cart_item_view, name='remove_cart_item'),
     path('update_cart_item', views.update_cart_item_view, name='update_cart_item'),
     path('checkout', views.process_payment_view, name='checkout'),
+    path('purchased', views.purchased_view, name='purchased'),
+    path('canceled', views.canceled_view, name='canceled'),
 ]
 
 if settings.DEBUG:

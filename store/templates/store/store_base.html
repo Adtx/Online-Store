@@ -24,7 +24,7 @@
 <body>
     <div>
         <nav class="navbar navbar-expand-lg bg-light">
-            <a style="margin-left: 15px" class="navbar-brand" href="/store/">PC World</a>
+            <a style="margin-left: 15px" class="navbar-brand" href="{% url 'home' %}">PC World</a>
 
             <form action="{% url 'product_search' %}" method="GET" style="margin-left: 4%; width: 65%" class="form-inline my-2 my-lg-0">
                 <input style="width: 80%" class="form-control mr-sm-2" type="text" name="q1" placeholder="Produtos, marcas,...">
