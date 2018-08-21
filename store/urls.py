@@ -22,6 +22,8 @@ urlpatterns = [
     path('checkout', views.process_payment_view, name='checkout'),
     path('purchased', views.purchased_view, name='purchased'),
     path('canceled', views.canceled_view, name='canceled'),
+    path('history', views.purchase_history_view, name='history'),
+    path(r'orders/?P<order_id>\d+', views.order_details_view, name='order_details'),
 ]
 
 if settings.DEBUG:

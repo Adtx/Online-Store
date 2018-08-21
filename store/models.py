@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+import decimal
 
 class Costumer(AbstractUser):
    telephone = models.CharField(max_length=30)
@@ -124,7 +125,8 @@ class CartItem(models.Model):
     cart_id = models.CharField(max_length=50)
     date_added = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField(default=1)
-    product = models.ForeignKey('Product', on_delete=models.PROTECT, unique=False)
+    product = models.ForeignKey('Product', on_delete=models.CASCADE, unique=False)
+    order = models.ForeignKey('Order', on_delete=models.CASCADE, unique=False, null=True)
 
     class Meta:
         db_table = 'cart_items'
@@ -145,3 +147,23 @@ class CartItem(models.Model):
     def augment_quantity(self, quantity):
         self.quantity = self.quantity + int(quantity)
         self.save()
+
+class Order(models.Model):
+    date = models.DateTimeField(auto_now_add=True)
+    total = models.DecimalField(max_digits=8,decimal_places=2, null=True)
+    costumer = models.ForeignKey('Costumer', on_delete=models.PROTECT, unique=False)
+
+    class Meta:
+        db_table = 'orders'
+        ordering = ['date']
+
+    # def get_items(self):
+    #     items = CartItem.objects.filter(order=self)
+    #     return items
+
+    def total(self):
+        total = decimal.Decimal('0.00')
+        items = self.cartitem_set.all()
+        for item in items:
+            total += item.total()
+        return total

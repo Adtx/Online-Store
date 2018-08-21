@@ -40,6 +40,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'show_cart' %}">Carrinho</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'history' %}">Encomendas</a>
+                    </li>
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Iniciar sessão</a>
@@ -47,10 +53,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'register' %}">Registar</a>
                     </li>
-                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'show_cart' %}">Carrinho</a>
                     </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

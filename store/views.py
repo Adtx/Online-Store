@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from paypal.standard.forms import PayPalPaymentsForm
 from django.contrib.auth import login, logout
-from .models import Costumer, Product
+from .models import Costumer, Product, Order
 from django.conf import settings
 from django.db.models import Q
 from functools import reduce
@@ -16,6 +16,8 @@ def home_view(request):
 	on_sale = Product.objects.all().filter(is_on_sale=True)
 	new = Product.objects.all().filter(is_new=True)
 	best_sellers = Product.objects.all().filter(is_bestseller=True)
+	# CartItem.objects.all().delete()
+	# Order.objects.all().delete()
 	return render(request, 'store/home.html', {'products_on_sale': on_sale, 'new_products': new, 'best_sellers': best_sellers})
 
 
@@ -238,6 +240,13 @@ def process_payment_view(request):
 	return render(request, 'store/checkout.html', {'items': items, 'total': order_total, 'number': len(items), 'item_name': 'Encomenda {}'.format(order_id), 'invoice': str(order_id), 'notify_url': 'http://{}{}'.format(host, reverse('paypal-ipn'))})
 
 def purchased_view(request):
+	order = Order()
+	#order.total = cart_subtotal(request)
+	order.costumer = request.user
+	cart_items = get_cart_items(request)
+	order.save()
+	for ci in cart_items:
+		order.cartitem_set.add(ci)
 	if CART_ID_SESSION_KEY in request.session:
 		del request.session[CART_ID_SESSION_KEY]
 		request.session.modified = True
@@ -245,3 +254,11 @@ def purchased_view(request):
 
 def canceled_view(request):
 	return render(request, 'store/canceled.html')
+
+def purchase_history_view(request):
+	order_list = Order.objects.filter(costumer=request.user)
+	return render(request, 'history.html', {'order_list': order_list})
+
+def order_details_view(request, order_id):
+	order = Order.objects.get(id=order_id)
+	return render(request, 'order_details.html', {'order': order, 'order_items': order.cartitem_set.all()})
