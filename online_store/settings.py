@@ -32,11 +32,12 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]']
 CORS_ORIGIN_ALLOW_ALL=True
 
 # Application definition
+# 'django.contrib.admin',
 
 INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'corsheaders',
-    'django.contrib.admin',
+    'online_store.apps.MyAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

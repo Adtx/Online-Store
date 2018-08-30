@@ -3,12 +3,12 @@ from django.db import models
 import decimal
 
 class Costumer(AbstractUser):
-   telephone = models.CharField(max_length=30)
-   street = models.CharField(max_length=30)
-   city = models.CharField(max_length=30)
-   district = models.CharField(max_length=30)
-   zipcode = models.CharField(max_length=30)
-   country = models.CharField(max_length=30)
+   telephone = models.CharField(max_length=30,blank=True)
+   street = models.CharField(max_length=30,blank=True)
+   city = models.CharField(max_length=30,blank=True)
+   district = models.CharField(max_length=30,blank=True)
+   zipcode = models.CharField(max_length=30,blank=True)
+   country = models.CharField(max_length=30,blank=True)
 
    class Meta:
        db_table = 'costumers'
