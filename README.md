@@ -1,28 +1,28 @@
 # Online Store
 
-Uma loja online de produtos de informática desenvolvida com a framework Django no âmbito da minha dissertação de mestrado `Aplicações Web Seguras em Django`.
+An online store of computer products developed with the Django framework as part of my master's thesis `Secure Web Applications in Django`.
 
 
 
- Algumas funcionalidades:
+ Some features:
 
-* **Pesquisa de produtos**
+* **Product search**
 
 <img src="screenshots/pesquisar_categoria_UI.png" width="800">
 
-* **Filtragem e ordenação dos resultados de pesquisa**
+* **Sorting and filtering of search results**
 
 <img src="screenshots/aplicar_filtros_UI.png" width="800">
 
-* **Gestão do carrinho de compras**
+* **Shopping cart management**
 
 <img src="screenshots/visualizar_carrinho.png" width="800">
 
-* **Colocação e histórico de encomendas**
+* **Order history and placement**
 
 <img src="screenshots/ResumoEncomenda.png" width="800">
 <img src="screenshots/DetalhesEncomenda.png" width="800">
 
-* **Realização de pagamentos**
+* **Making payments**
 
-![Realização de pagamentos](screenshots/PaymentDetails.png?raw=true "Realizar pagamento da encomenda")
+![Making payments](screenshots/PaymentDetails.png?raw=true "Realizar pagamento da encomenda")
